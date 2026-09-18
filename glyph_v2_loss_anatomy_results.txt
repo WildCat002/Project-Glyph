@@ -1,0 +1,36 @@
+GLYPH V2 LOSS ANATOMY BENCHMARK
+========================================================================
+Validation: final 250,000 chars of the 5M-char corpus
+Targets evaluated: 249,999
+Device: cuda
+GPU: Tesla T4
+
+SUMMARY
+------------------------------------------------------------------------
+Model                Step    ValLoss       PPL      Top1      Top5    SpaceR   SpaceF1
+Glyph v2 20k       20,000   2.360660    10.598   31.010%   69.933%   77.670%   53.349%
+Glyph v2 50k       50,000   2.229187     9.292   35.377%   72.819%   82.140%   58.899%
+Glyph v2 100k      99,000   1.911043     6.760   44.692%   79.144%   88.250%   70.977%
+
+CHARACTER-TYPE LOSS
+------------------------------------------------------------------------
+letter         | 2.539952 (top1 22.47%) | 2.408917 (top1 27.11%) | 2.098789 (top1 37.46%)
+whitespace     | 1.283441 (top1 70.72%) | 1.140799 (top1 74.56%) | 0.788288 (top1 81.48%)
+punctuation    | 4.005650 (top1 5.45%) | 3.922606 (top1 7.16%) | 3.624699 (top1 8.01%)
+digit          | 6.385370 (top1 0.00%) | 6.174676 (top1 0.00%) | 5.487087 (top1 1.55%)
+other          | 0.000000 (top1 0.00%) | 0.000000 (top1 0.00%) | 0.000000 (top1 0.00%)
+
+SPACE / WORD-BOUNDARY DIAGNOSTIC
+------------------------------------------------------------------------
+Glyph v2 20k: precision=40.6269%, recall=77.6700%, F1=53.3487%, P(space|space)=0.4268, P(space|non-space)=0.122958
+Glyph v2 50k: precision=45.9091%, recall=82.1403%, F1=58.8989%, P(space|space)=0.5002, P(space|non-space)=0.111234
+Glyph v2 100k: precision=59.3588%, recall=88.2496%, F1=70.9769%, P(space|space)=0.6574, P(space|non-space)=0.084570
+
+INTERPRETATION GUIDE
+------------------------------------------------------------------------
+1. Lower overall loss/PPL means better next-character prediction on held-out validation text.
+2. Space recall/F1 directly tests whether the model predicts word boundaries when the next character is a space.
+3. If 100k has lower overall loss but worse space recall, some of its loss improvement is not translating into better word boundaries.
+4. Compare letter vs whitespace vs punctuation loss to see which character classes improved most with training.
+5. This benchmark is diagnostic; it does not produce an overall model ranking.
+6. The stored best-validation loss is from the training script's sampled validation checks; 'Full validation loss' here is recomputed deterministically across the entire held-out split.

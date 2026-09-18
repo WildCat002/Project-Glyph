@@ -1,0 +1,2231 @@
+========================================================================
+GLYPH V2 GENERATION DYNAMICS BENCHMARK — FIXED
+========================================================================
+Fixed prompts are for qualitative generation only.
+Free-running drift uses real held-out validation anchors, so the ground-truth continuation is valid and actually belongs to the 250k held-out split.
+
+========================================================================
+TEACHER-FORCED HELD-OUT ANCHORS
+========================================================================
+Glyph v2 20k       step= 20000 loss=2.240000 ppl=9.393 top1=0.3299 top5=0.7217
+Glyph v2 50k       step= 50000 loss=2.101835 ppl=8.181 top1=0.3698 top5=0.7499
+Glyph v2 100k      step= 99000 loss=1.795015 ppl=6.020 top1=0.4602 top5=0.8141
+
+========================================================================
+MODEL: Glyph v2 20k | MODE: greedy
+========================================================================
+
+PROMPT: 'alice was'
+ the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the
+FULL500 valid=1.0000 malformed=0.0000 avg_word_len=3.0000 diversity=0.0080 punct=0.0000 space=0.2500 repeat_word=0.9920 time=0.818s
+
+PROMPT: 'the rabbit'
+ the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the
+FULL500 valid=1.0000 malformed=0.0000 avg_word_len=3.0000 diversity=0.0080 punct=0.0000 space=0.2500 repeat_word=0.9920 time=0.942s
+
+PROMPT: 'once upon a time'
+ the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the
+FULL500 valid=1.0000 malformed=0.0000 avg_word_len=3.0000 diversity=0.0080 punct=0.0000 space=0.2500 repeat_word=0.9920 time=1.061s
+
+PROMPT: 'the king'
+ the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the
+FULL500 valid=1.0000 malformed=0.0000 avg_word_len=3.0000 diversity=0.0080 punct=0.0000 space=0.2500 repeat_word=0.9920 time=0.988s
+
+PROMPT: 'she looked'
+ the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the
+FULL500 valid=1.0000 malformed=0.0000 avg_word_len=3.0000 diversity=0.0080 punct=0.0000 space=0.2500 repeat_word=0.9920 time=0.716s
+
+PROMPT: 'the man'
+d the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the th
+FULL500 valid=1.0000 malformed=0.0000 avg_word_len=2.9762 diversity=0.0238 punct=0.0000 space=0.2500 repeat_word=0.9762 time=0.731s
+
+PROMPT: 'what'
+ and the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the
+FULL500 valid=1.0000 malformed=0.0000 avg_word_len=3.0000 diversity=0.0160 punct=0.0000 space=0.2500 repeat_word=0.9840 time=0.725s
+
+========================================================================
+MODEL: Glyph v2 20k | MODE: topk20_t0.7
+========================================================================
+
+PROMPT: 'alice was'
+ there
+precorke, of hangh and che beppet.”
+
+“whhe he beand mid dof omad ocingh itirsting th mands, wof the lashe thof s and oerstat he ond bend bees ther wee thert ank is. owace t and thee hound yof a man wo hal of hou me the he ithe the stut cas the dee thok angot on and ar reand ise
+ost han and wo the aus art adingh chory tet the de weid wout bit he our at herr we deranenked the thas myof wacart t an, wate ndofoutsang tein or lindes he beriny meped thera mist freast beiord he ar othe geand the
+FULL500 valid=0.4667 malformed=0.5333 avg_word_len=3.6857 diversity=0.8095 punct=0.0100 space=0.2120 repeat_word=0.1905 time=0.936s
+
+PROMPT: 'the rabbit'
+ it of hive whe thee he yond tour tou pain ay thod shigsath utnded. mat aner linen tor
+ind wiseng ofe sthe apled cowe om den at the sof ape handstinded llt mimese, thin at the ithid thind i whe at tof the sund looor font wanghe in
+win sthse meant therching isthe the sure whe so hen forerdeng to unin and pe whour als math and wha she the the allliny hal t sore ay lous
+ger his touce y stow ow and d foond, as mensue peaters, ag therd wicremed at, sons posurese wined sen ounce a thar
+t muth an the f
+FULL500 valid=0.4952 malformed=0.5048 avg_word_len=3.7143 diversity=0.8571 punct=0.0100 space=0.2100 repeat_word=0.1429 time=0.859s
+
+PROMPT: 'once upon a time'
+ i o dal si an sthe tseste he is ow he busless, it thoug
+nof be acther ssonden ithe re matong as thand haghis
+om mers mof has and be toucke and inche wane me ar sind thanghtie iver pere uso ad the ighisth our mo thin ins whe sphe corine cur hante thnd lans tidin frede mres foor ared suche te cke pand misheer looust m orse ind ind thedemy bus o treiser be
+hine wh whing therichet cherer dhat fangerangh ane, thertout sthan athe iconde toutlk tho ande and ais dexpees, mretten ome fhe, sthen and ithe
+FULL500 valid=0.3232 malformed=0.6768 avg_word_len=4.0101 diversity=0.9091 punct=0.0080 space=0.1980 repeat_word=0.0909 time=0.841s
+
+PROMPT: 'the king'
+ thacand as wit swind wavealund t as an to as creatid wof the the itrs tur thengit and the twhe ank theip th afas inde boutse is thad d athantis pld the seely bee ury thange thalld totoued wa all
+t he mithiseis oll, proftep stin at hat
+moor at al theare ip ear hord mase ndanemare tundabon athorine od she he thare boin fis ore ndandon al berreat or to stof tor an
+whe are whadars the in tof fous wheld of o mof ithat he ie he amm nded theleen he the te toune, won as wat selllee clo t an hetande st 
+FULL500 valid=0.4571 malformed=0.5429 avg_word_len=3.7333 diversity=0.8190 punct=0.0040 space=0.2120 repeat_word=0.1810 time=0.849s
+
+PROMPT: 'she looked'
+, fou ther the proin whin her tow cof a het mand as she sont eest deaing coming co ose
+lamed whaing he and ine and arear cacond t to whowir thar the she cre athe, heve tove se thane as wme in hhe stuand wherrerere my derrern oof be becaf they
+re the her wheaf t the therou m and hay and is the ace mennd rdeane as ast ha st ellesad aror to man an mme fouales fthe s thas at the his care she oue mrllld, the he whind on yo shico cof the whe ldhis ald y meat is we pars abure s. s
+ist the tin se as and
+FULL500 valid=0.5487 malformed=0.4513 avg_word_len=3.3894 diversity=0.7699 punct=0.0080 space=0.2260 repeat_word=0.2301 time=0.856s
+
+PROMPT: 'the man'
+gst wat in she ferer sulf mome thes ouch are wit sand whor she willle hal is peacersss thiong ong ime thagesund
+the tore tof yond--he amperers avantt hat be whe wowhe mer orsany thase or he a hin, gour sthe sulind ouct he, sighangh hed ad bly bureat owind the t ourow o al win orst sat icse lof sthe entof lerk man abrees imed ond
+wante s las thand lin haly whe the mat wanou aid be ramy herd beasn omen ten than wat the t nofer bee heas sond hous mest ccur theme the o at ourist rene ad the blene or
+FULL500 valid=0.4190 malformed=0.5810 avg_word_len=3.7333 diversity=0.8571 punct=0.0080 space=0.2080 repeat_word=0.1429 time=0.903s
+
+PROMPT: 'what'
+ be cound bunte bere and yow to decor beat thes tof we deinen fon, wo mo prerealler omer, he af tham he mound toungh he coof te the four the o has a see thas ise t
+reexctond toront te ard hrind serlllofe me yon has imes and wis the a ome mus my norsttof he inge angais s sit ind leangll anthed wit my hen thavase is o o he mowhed tithe hind as the o hapllof thint themed pe pethor, if this an oo thas ham thes id seat the the your the the the react ougan s, be don se dofrerented whe o ere man, and s
+FULL500 valid=0.5909 malformed=0.4091 avg_word_len=3.5000 diversity=0.7545 punct=0.0100 space=0.2200 repeat_word=0.2455 time=0.859s
+
+========================================================================
+MODEL: Glyph v2 20k | MODE: topk20_t0.9
+========================================================================
+
+PROMPT: 'alice was'
+ ther, dave skee wh sofit ang che beppet.”
+
+“whhe noly he tlip din owh ave. thow. it,”
+
+“i no nomiig ar ld yofrelentine t wa rmi sere the thes tthal an, a fre cofr.”
+med lomyof mer art dad hould rsothelon, ong ged hend
+
+heavenghaing pemy orre nkin tham our wmat cachin and a mo and hak, fa hande thon tmond whaly adins ns hid tave to deale.
+lald aved heel y a hou lid crongh if nout s torraven wirte, terost t he atoukicy ow abe hi le she w, buraran iplen orea mised was on, pitte reea il the and das
+FULL500 valid=0.3689 malformed=0.6311 avg_word_len=3.6505 diversity=0.9320 punct=0.0260 space=0.2120 repeat_word=0.0680 time=0.913s
+
+PROMPT: 'the rabbit'
+ it of hive whe trireng ublioning te yown toon sac orot fol go
+prothipped outre my det nomait o theng ous, apled ckas iliver ace the hik prmip. whioor
+
+orndass isit oke ad thand, frinciking oksch thar t watand pemres itit an the tuls mundrood ont the gerely orghe seead thor mat wen couthone d a gave aveaber, of r hertat
+wind ofu se hend the a fow fatho t she tod for sor ast lereve glin st hear wony sheders menid wy sofed
+ut
+s thard my deatharteredd p cthescean isry, parcined. ates ily fround igh
+FULL500 valid=0.3505 malformed=0.6495 avg_word_len=4.0825 diversity=0.9278 punct=0.0120 space=0.1960 repeat_word=0.0722 time=1.079s
+
+PROMPT: 'once upon a time'
+ i o daf
+sile frut o lom anse
+he icely busyesst o yout babsse pe cha arcl amasengh wigrt al thas thang islerens pull s geastol trire tof ooche ss ind sofan
+hers owice burs selomters toan’s
+pot asubr, seeais t mound reansed loros osars het at andechegescke, prte be noingand chit arefad sthe he, covook mish canas out mas omelllngoar pe
+old bonknt hivite bet he wiplikinch s.
+hongs fop as pcather se wan pealid herad onde ann iteta f ta tofe, i sore isthe ged bnot rtherys muyourinelue. h ching he, su
+FULL500 valid=0.3191 malformed=0.6809 avg_word_len=4.2340 diversity=0.9149 punct=0.0140 space=0.1880 repeat_word=0.0851 time=1.155s
+
+PROMPT: 'the king'
+ thacand as wit swind wavealundng, ofong ande my was, i
+it sameindinckin, and orsth ththe thso han, thed wa pak ise tou he oulery chei ate anth od os the bavinck
+tsotr tonde toond menday ang cherlend etearsed’tisaty catrte-at he rokn yu hle aundye thore ip e heeaser tond-he henere be fnof fardellin stran; them winolm t
+wadit mene uchere bl nof care arofy thas and therer weryn ore whove arnke arthes tenckeall st at thespe
+hery mavet ted bry iouring ond thiress, as wat had dothee wid fa the hatil 
+FULL500 valid=0.3077 malformed=0.6923 avg_word_len=4.3846 diversity=0.9560 punct=0.0160 space=0.1840 repeat_word=0.0440 time=1.109s
+
+PROMPT: 'she looked'
+, fou thcor het toar ith orer tonol asene me
+the ashie se she a pat tunacr sharet hig iennghes id sen
+tolins whand akent cambe angeaod, wher tlo thear is, thald beave.”
+“cin he tous al hped tow, sob nout id ngerit my derrerked as, ranieing ey, the bas as wof an othe that ay fou hair t wn i acle pomedrrkey t sofe ast whes excansick od the
+maes ma fou plnoly far wis eit as, ell sthick d hea ay oor frd the he withapppif tibol owes t ccere luust althpooind se hon wen agof
+inkng. hawave tis sowed anc
+FULL500 valid=0.3627 malformed=0.6373 avg_word_len=3.7941 diversity=0.8725 punct=0.0180 space=0.2040 repeat_word=0.1275 time=0.863s
+
+PROMPT: 'the man'
+gst wit buat fite the bavetiong t sust thecofed po beveroute sed
+mantasest, beret pal thone nof anof ther.” loford ast therike whint lots shas avant. ier of wid wowe dout itoo d thare he he are twit yangh wit ce
+thited we
+plight wely owellld wand at othere arker, hil stheppos mim arice.
+enered he ad hom. fork beverk. baves thin it tellonkit arat he sond sheaulds that in ber canit ryticon o be hade the serede tout thet he aser, sthene son al thandsef ffouninin t ingerer oragedg ored ind oow, heal
+FULL500 valid=0.3936 malformed=0.6064 avg_word_len=4.2234 diversity=0.9255 punct=0.0180 space=0.1860 repeat_word=0.0745 time=0.852s
+
+PROMPT: 'what'
+ benourn thas ave wan thoin, tooour he it the he dabus deine,
+fouerd o lexthe no tanes aly. tok thache t cat fos dithet cothars ant foure d routharers, thes shatons bo
+r ofor loof out a wrrsepelarsn otios
+ghige has sasin ware yourghit serd hem lowhin, wi thind the
+sut is whe goo of herercas has ar, towe t acared anght wat git whesh ssendi atnd fom have sof dis he rnond an, o heenccke here rtut gaty ave hes id seat thom h, you o wave wangugh h, bllar br
+tund hithil
+t d gollonsiongh de the bor who
+FULL500 valid=0.4455 malformed=0.5545 avg_word_len=3.8614 diversity=0.8812 punct=0.0180 space=0.2020 repeat_word=0.1188 time=0.871s
+
+========================================================================
+MODEL: Glyph v2 20k | MODE: topk20_t1.0
+========================================================================
+
+PROMPT: 'alice was'
+ ther, dave skee wh spoull senaag mo now.”
+
+
+“nurourn the tuno din owe ptcle ho ceenen the put sshaimer drevers storoas t wadthas
+ar gomind tindout, therend gecorlor ffurn meay belinth faiou tong; her mretim liolstine id he dat sit he du waptham, th ay wand,lde cacy, toulld orernd isy wated
+t and sathpr a
+hat imak. s ro stubedlind-nat om
+hot atetuth ay anded wa la fofout liver the tharrad wa thugin ernas to thaste omugh, af t sthouse, i
+“sro pyot pont herabiout cand ongapio o ndencad the any pei
+FULL500 valid=0.3804 malformed=0.6196 avg_word_len=4.2609 diversity=0.9130 punct=0.0220 space=0.1880 repeat_word=0.0870 time=0.848s
+
+PROMPT: 'the rabbit'
+ly thavon’t he benom in upat the fof yowat ay darod, sphlelipey, allaws angheced he nor clomintingser wans apind ctus hyove
+stou the i nove wak waroo s poow
+we stend renom, baw,” loreairs sidofrem atingot ir toveay s wi he the thel benghete men eane awat bofes, d ouppped hisores, ist an isus torch, yot opent sthe
+he muntis thor. wi anghe ther, titus al ci o thape tharce a shangh, hmus ad by ad ivapirt oter men
+ir no ased
+unar tistichachg t at,
+buee d b. stouprrorlathers we tand hutees c andevels
+FULL500 valid=0.3684 malformed=0.6316 avg_word_len=4.1263 diversity=0.8737 punct=0.0240 space=0.1880 repeat_word=0.1263 time=0.860s
+
+PROMPT: 'once upon a time'
+ i o daf
+sile frut o lom anse
+he icad br sfenot on thouth cr meero br exmitat,
+hit wacke w anden thang islll ot daled mout ar.
+
+cad co sussthe omeand oces meith upsst burinerghectes at awiorel as naincerily thy wankur terod higs olont waigh
+ge hay f, gcuckeriming heaptiatiabeteve, y, my thed fthece remis, finntst he
+athom in di grein, rasung. hear
+mor becis wal, whing tedeshatang ered lpore anged fomer i sthery. he
+“is deneas. d ta to puund it forere r mecy eanofis
+em, us il wiomp,, dende held b
+FULL500 valid=0.3511 malformed=0.6489 avg_word_len=4.1489 diversity=0.9468 punct=0.0280 space=0.1900 repeat_word=0.0532 time=0.856s
+
+PROMPT: 'the king'
+ thacand as wit swind w. n ipou, am, st to as dreatiokst. n ig gofth. gowan ilen, the
+cos thstheree acr
+ee whaunt he anit fut wacher, llerer oreng woancom he, bee urnll an ay ad bif shaime w chercenge s whiormersatt ferkngm stinibaas, s.””
+
+“gor,”
+
+“wo mr.
+
+“wene inllengnoofoister w a ld re iromed f n wausthecoth boin cthed, menthel tome. wmer choure ity tharat sut, orous
+alm
+sefounc e atwikersis it ond igrt itert thelf owery mavet the bi ti
+
+ithe he he spusike atin his. cot drallit noupanted hi
+FULL500 valid=0.3913 malformed=0.6087 avg_word_len=4.1522 diversity=0.8913 punct=0.0320 space=0.1920 repeat_word=0.1087 time=0.867s
+
+PROMPT: 'she looked'
+, fou thcar ot. toi o
+to mist tonke at it come whatis f seranghte e tuthe. hi peve scesche th gid weaverg ppesit hiss ict.”
+lem cancgr heso any, and ind d beend beelrrin ly whe tound ungy id ads is buchent blllise m od aberker, oochinclr arop ut the
+i wirorswing io thery aver thid ind wure hestl, marmby noren as asthe, wakicke,e, arlld bainf ase coud hes sosse hee evain stfrend bomikit, t app bo cepeang intous,
+ld
+mwatibol h ar themon thtm dera a
+amnd ppre hed hor lit feirsly, ut, pryoice as ans
+FULL500 valid=0.2784 malformed=0.7216 avg_word_len=4.0000 diversity=0.9691 punct=0.0280 space=0.1940 repeat_word=0.0309 time=0.885s
+
+PROMPT: 'the man'
+gst wit buat fite the
+feme, he thead a thagrtit pof tom hin fusiss tomis owe lanced
+out stiny heress therntops an, beny outive weine l byowers ait ly stouchict
+m lureme an rucaved fe rindis, wor fandend the hemim t aling ccots oncrtatil wie
+e bunderedst at asutel icouceripern mom ariowsivale ath wid hedl ptoveeme ayon,, rust undo bead ss
+sandrmefived.
+
+by wewe surr anomead, er by ryononded beriict ad teat our whay be
+take a amend shobas bule erd seyaved, fos inghededed or.
+thn hinghoud he, hinen
+FULL500 valid=0.3258 malformed=0.6742 avg_word_len=4.5056 diversity=0.9438 punct=0.0200 space=0.1780 repeat_word=0.0562 time=0.854s
+
+PROMPT: 'what'
+n
+thitere mo yee the anvepe, torad the ore rrepan ocat ed, hoflllar
+wid od thero momboren, f af lispete motile f bor ive
+herowat ti f whand ne ner rateand weased takeroend n to beno on salotove stoche ie, guwhinede shir and wobin de sisery hotioke
+ougnend s thand oryo
+co wand t lof he asyof sendeniorend toudesed ang was elcitale soliers oderce comast, thon lowof w,nof pany sullasiad as at nuge gat, aid simeledesteg tet owi
+f and, mand therl hys wamin spethe. harnet he y feeadir powy
+thar bor ofr
+FULL500 valid=0.3011 malformed=0.6989 avg_word_len=4.2903 diversity=0.9140 punct=0.0180 space=0.1840 repeat_word=0.0860 time=0.857s
+
+========================================================================
+MODEL: Glyph v2 50k | MODE: greedy
+========================================================================
+
+PROMPT: 'alice was'
+ the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the
+FULL500 valid=1.0000 malformed=0.0000 avg_word_len=3.0000 diversity=0.0080 punct=0.0000 space=0.2500 repeat_word=0.9920 time=0.736s
+
+PROMPT: 'the rabbit'
+e the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the th
+FULL500 valid=1.0000 malformed=0.0000 avg_word_len=2.9762 diversity=0.0238 punct=0.0000 space=0.2500 repeat_word=0.9762 time=0.935s
+
+PROMPT: 'once upon a time'
+ the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the
+FULL500 valid=1.0000 malformed=0.0000 avg_word_len=3.0000 diversity=0.0080 punct=0.0000 space=0.2500 repeat_word=0.9920 time=0.991s
+
+PROMPT: 'the king'
+ the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the
+FULL500 valid=1.0000 malformed=0.0000 avg_word_len=3.0000 diversity=0.0080 punct=0.0000 space=0.2500 repeat_word=0.9920 time=1.033s
+
+PROMPT: 'she looked'
+ the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the
+FULL500 valid=1.0000 malformed=0.0000 avg_word_len=3.0000 diversity=0.0080 punct=0.0000 space=0.2500 repeat_word=0.9920 time=0.750s
+
+PROMPT: 'the man'
+d the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the th
+FULL500 valid=1.0000 malformed=0.0000 avg_word_len=2.9762 diversity=0.0238 punct=0.0000 space=0.2500 repeat_word=0.9762 time=0.732s
+
+PROMPT: 'what'
+ the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the
+FULL500 valid=1.0000 malformed=0.0000 avg_word_len=3.0000 diversity=0.0080 punct=0.0000 space=0.2500 repeat_word=0.9920 time=0.747s
+
+========================================================================
+MODEL: Glyph v2 50k | MODE: topk20_t0.7
+========================================================================
+
+PROMPT: 'alice was'
+ und then moned an i sprow the the
+pofter murety the daingh of es to eat
+car pril, the mearce ant whe upor he and here she hicand
+wis the so and has, we ithe ourd bloticenng o she and and sapome intht o streecte a mend dorssst suit oute
+lown and omid o the the aseakil im mor ir wa pen this wat as maamed, ind mat o iver a is of ee rase ave war her, what she
+leims prinangintung iig the of cod mre mofes forciong crisssary oon of thig and sand as if
+pinedeng ucomentilyins he of bevis you and forly i
+FULL500 valid=0.6038 malformed=0.3962 avg_word_len=3.6792 diversity=0.7547 punct=0.0080 space=0.2120 repeat_word=0.2453 time=0.856s
+
+PROMPT: 'the rabbit'
+e for, and bing to an a and thelate the the the
+and and by paunvert oun and to sar o shand and prawinge ow hersing ta i i i the cof basin wore and a ind heand alled the spae to corn and and andee as he the thit parow he come she
+repparsed thiniong of my wagof me the and was to the wen yeary nout the he as and to o the othe stou he, as marle mokingh oinch he the buch, wis nos epeare in fat thure rexem. im
+sthe ope it she to it mulded ower if the as nout ime and gittincheres im frow mash he leald 
+FULL500 valid=0.6106 malformed=0.3894 avg_word_len=3.3894 diversity=0.6195 punct=0.0080 space=0.2260 repeat_word=0.3805 time=0.838s
+
+PROMPT: 'once upon a time'
+ hay the coud mastes meas of
+lof col thigaced is a has whas of for acareding eeme sthis ade and of the meating, i i dot has in fainin. as chact id the and sto stryo sue hi ins wit the corsed and out o i rothe it be the
+be the he mandend oor the fis, and the
+to danged aw hit the nom cath to he he as ivend or ot to he as and wee preser is and with that o of heap to and thil of lochis pugrsoin an mee as neen to o the i spur of thee sast it he tof whe cof of hell wit as wit the in foth he and it une
+FULL500 valid=0.6612 malformed=0.3388 avg_word_len=3.1074 diversity=0.5950 punct=0.0060 space=0.2420 repeat_word=0.4050 time=0.877s
+
+PROMPT: 'the king'
+ as in be alll meang shure she dow whath thay he pree welly as thave ling
+of am and i ef pratin thimer
+sumy, fas the is of he thake com the fas berede he if thill ate the where felld wa ind and is
+she the gaviss ore locte the and the shid the soublttat of it i pren sheim covece on hand the lis mof ite of thin hup of cof the ip in andeck up peport oar
+the as wende ind the the the i rinded, wat extlupere hat i of with oche in of and thee we is reall
+wat the i sucof the as the oour to the he das sm
+FULL500 valid=0.5948 malformed=0.4052 avg_word_len=3.2931 diversity=0.6293 punct=0.0040 space=0.2320 repeat_word=0.3707 time=0.844s
+
+PROMPT: 'she looked'
+ frere, his i ling well but and to the the soul sim thal the uppes had and patines the thig to sabe the an fort mang this ot the
+apmars, as onded, wit wish und ot onrig, cot ally ight the whee hake was and orring the a noours the
+calle to i if whis plinged of ifen ding the reee, ind as of reed thou of alter wit he aunde had cor of on of the he heald oghin aghed.
+
+
+
+“in byou the mase fis the anct seer but scenof to the he has she wat of oor heran the that to he apon
+ondersiong mad ochast you as m
+FULL500 valid=0.6396 malformed=0.3604 avg_word_len=3.4144 diversity=0.6847 punct=0.0120 space=0.2280 repeat_word=0.3153 time=0.874s
+
+PROMPT: 'the man'
+d corthe the the asper reatess were and we an an the wille statreng tho i thim fould that has wolld, erte to my an hour neaver isert
+it at as, beand he greed tand oin to hat the the forre om, the of bee the hert coson of dearnd up the nelow, a and on his--mo buck che
+lat eand gonched ill a the halld om samed the mouny wald waris tthe
+labenckenting and cour and thi he fir that, bof eat i whe he he mur his oas of a ande ind
+dore the whitale he and las owthen the whir where ite that and to beinde o
+FULL500 valid=0.5455 malformed=0.4545 avg_word_len=3.4909 diversity=0.7091 punct=0.0140 space=0.2180 repeat_word=0.2909 time=0.838s
+
+PROMPT: 'what'
+ to he in lang to forer of recos to
+the by she anl to sund thinge, a wad the whalng col the mors thad as pat tro he bech bine ofte, sho rof hand ind soif wis the ourd buerm aghte we with
+he the buld an the the we thour ous the and to lighty cour
+man chore to ond the shats doom as the havers to chined wis walld
+o whas as igh cand ust the and ighacer to ot not mee mrer thats you his
+tough che armbon, and lean, ind hasis. we as walll the deear toe of oitar s that mand to held fade is is of him by
+d
+FULL500 valid=0.5739 malformed=0.4261 avg_word_len=3.3043 diversity=0.7043 punct=0.0100 space=0.2300 repeat_word=0.2957 time=0.822s
+
+========================================================================
+MODEL: Glyph v2 50k | MODE: topk20_t0.9
+========================================================================
+
+PROMPT: 'alice was'
+
+uw dod hadd a ondel had so waverly worgh mure, the desh but
+had of hen huck doupaly he ad pore of corve tho the woulld.
+
+
+ofilllieant wo on and hact whele sate ower nigh bepprstine, to wichle dillle, a wa cos op oond tno is ay whis hass in noin
+ookng heas to noldyricen, bemason, of in minght the mauingeting. a righg ind
+epitingeroleng hien hir affus thy wis leckess but, thit euld id limedrre; morden ean. i s
+mus cuertt intied sol ould. he loodstys ipiong han ssoedy ins mite than you and fara sa
+FULL500 valid=0.4021 malformed=0.5979 avg_word_len=4.0206 diversity=0.8763 punct=0.0220 space=0.1980 repeat_word=0.1237 time=0.812s
+
+PROMPT: 'the rabbit'
+e. no
+
+lot murre ansese in i thy she it sailly alllwes, us life-the and and to fit so to o shelperrstie ad and of cond all
+bes, con mrigh we athe
+mould hou it flas. ae plrike no in
+ep ite an antherty curt andive
+dimpaled the sabunid an fiversid, uff the wif
+rsseed ever ecore and, giss gearned in the he as and to che if whe ithe owd
+to meraseleared, ir fica har seal gris avende
+to den ite undd ocsofumnciss, the dobungaveleris of wathisthaths! you the shealin sto walllded, wi mevorcumer, han’m bee
+FULL500 valid=0.5361 malformed=0.4639 avg_word_len=4.0206 diversity=0.8041 punct=0.0240 space=0.1940 repeat_word=0.1959 time=0.887s
+
+PROMPT: 'once upon a time'
+ hay, lotaldy bet wouch evarevire the chry milanatenat ous nitle matun a me the tho rasin.”
+
+““suis parstaieng.”
+
+that courve etow co this; whoulh and and sairg o of bon renecl of this bee and nooke owath his gupins that this, that wars ais yan
+probe the rut ow shis wighed und lat a ould and i shere myseang ars to guthate
+wnklech hand of burse peatieing. to aght our the mom harkere placiad, and laid
+lownde ome he of oor chim folvesed itth no ay fellmace taw
+sim thay with the bey saire thim
+an
+fa
+FULL500 valid=0.4845 malformed=0.5155 avg_word_len=4.0206 diversity=0.8247 punct=0.0140 space=0.1980 repeat_word=0.1753 time=1.132s
+
+PROMPT: 'the king'
+ as in begen of note hir anche, and to witheis, the
+alt i a sto to cos an anening whe you dith loused, alnctateng she an
+whis asecernciarstop the nore stot
+in see ound aund meescionnes wre to wi i hath p letisting uap pimed and fincarseray of was igeat me hapagh tere, pur
+oidted, ravil and lios out ut he thim hun ond to the he mallivinghertonin so und the nowerilss
+ee inn got in the touth whe lof. cas hre lecked mas iked he wach creale.
+
+“hi peell, mand besessstised urd thelds couns cover peer l
+FULL500 valid=0.4694 malformed=0.5306 avg_word_len=4.0000 diversity=0.8265 punct=0.0160 space=0.1980 repeat_word=0.1735 time=1.287s
+
+PROMPT: 'she looked'
+ frere, his i lin alried.
+
+“theu ablers beroin om. shere and geates and the shin eat par spor uphor the am fortne at
+thine whe butap of an at wane hi an fir thim uph inge, our
+sand in the o twe
+hat herde of irs for im of on son to o she the mue, the doust leenelde, and the reensoug i a s thil, an
+
+“was s nee anl iteitht has cin ofthe oour in the halll; wan erlon an habood micire
+seam it and thre its this mee hom has fitant owat ourd andie
+t to for gunon shan wis hid
+mye were his paer.
+sin raid s
+FULL500 valid=0.5676 malformed=0.4324 avg_word_len=3.3874 diversity=0.7838 punct=0.0180 space=0.2260 repeat_word=0.2162 time=0.858s
+
+PROMPT: 'the man'
+d corthe that siw allled roune sand anve
+shoure a forent he ranke, wit
+thitst in.
+“he far is trite we
+welatsid. thild is undectatanily. “was shile pallaut and of fier too und pomecter ithes. but dingote the wats coaced on a os peay uce.
+sert, she ald ichl hie deen.
+
+loot you lbenct oft. hi hold the as at clepetes
+sidrbrictonesar ampor i camarted oovengr of amas the the in to o mus eatited this witite sand pontor itatinte the the igaredarede; the
+pare merye
+tongicts
+eculy say angete of haver ouy 
+FULL500 valid=0.4839 malformed=0.5161 avg_word_len=4.2366 diversity=0.8602 punct=0.0200 space=0.1880 repeat_word=0.1398 time=0.847s
+
+PROMPT: 'what'
+ to hen
+thive con din a ware whou ith precy note me simouled so fe and speart.
+“bmin at the is he griout ectond. hee af frort ofer
+cunt deerse rimed sorlfat of anly geseteir, her hum fomed orstide
+thig be in the the the as walld ack o itll, cot whe tliergh up at mad was he and as hand o mer tenitictip a mitin a mouce ass sto the endsterong hom sind to ea nof mar mrecensris, shaghe ald of and
+scteerngeng; the in is pyaches auckeng licecctie of lis in op aind of with nen ryonis elow whald
+atinkse.
+FULL500 valid=0.5098 malformed=0.4902 avg_word_len=3.8235 diversity=0.8039 punct=0.0140 space=0.2040 repeat_word=0.1961 time=0.869s
+
+========================================================================
+MODEL: Glyph v2 50k | MODE: topk20_t1.0
+========================================================================
+
+PROMPT: 'alice was'
+
+uw die he an a in i sit o henl lsorgic’s bloks; arde hend as and to er woullghty wadins
+orctereraced you oring my was i nower, is lof he sapp wee leten it hour thill at ema mupe of proene. fics
+nones ot at thin’t man, egasesecentey i at of
+goldg muler, ise bygamelr, ans bemaive, of in mingh, the buold o had, andd amye tas.
+the wipp notstto henorges, anck af lat peceled
+roplizaaced. so om grey meeten en rupeck
+un clhackes unos stterabe. wat heall he roar noow smestowince
+diturghiny not heme dend
+FULL500 valid=0.4375 malformed=0.5625 avg_word_len=4.0521 diversity=0.8854 punct=0.0260 space=0.1920 repeat_word=0.1146 time=0.893s
+
+PROMPT: 'the rabbit'
+e. no
+
+lot murrere heser, ad veiply the suce ind to sund i liowor hth is
+thout dardit to con othe langht, to mom waned oor, at deendlouse wore
+ant ont mun and fualtt utncirled wand rith a
+of oftoren. even in meavouc hour and haid my lite parinntoced to a
+bhaky;
+
+“idor the as thee yof aand baught the he us ave smend birie ther oow,h
+and. ine mem an hip cots; aind thauh i oalrath thaw, ishing her reler
+isoute braghr,”
+is, to shil othare
+tive.h lie the shad soud awitth wath whot cred marinsony
+for 
+FULL500 valid=0.4592 malformed=0.5408 avg_word_len=3.9286 diversity=0.8776 punct=0.0260 space=0.2000 repeat_word=0.1224 time=0.864s
+
+PROMPT: 'once upon a time'
+ hay, lotaldy bet wouckngrin dee for dat
+mrt if deen.
+
+thi genarr, twheres domsonghe shremate umirn lancentis witht cought geagtis fow theit mitialed e the prungiss esom, my war they eyou
+sher noon moms roous. or and mever dous cand ute as comes in. and thas thaced woratin nothed busener and is thas sei por, impp aondein of mreghig
+amptien ist eangedoniceredeed,
+mut the murve.
+
+it la e imblke averede dis, on and the imm chim prakent woungh toto fallnengedeissiat caave cor ther fonghinter
+oth now
+FULL500 valid=0.3372 malformed=0.6628 avg_word_len=4.6744 diversity=0.9186 punct=0.0200 space=0.1760 repeat_word=0.0814 time=0.866s
+
+PROMPT: 'the king'
+ as in begen ofuor an sing in wor cherdsy to,
+whe athilt, ithe un low hap aim,e wh lowch row, pecouste
+alastinfong, ba tas oger bikels, as counke no and oirgh speantied now; a hene momye, an thart
+as and perys and lexe, beal the wa it
+string eving muing of chhallen soaks feprcosed icemper. dos boor, im
+
+cof thoon the fere acame, wice muserdn eeler lightst thee
+delores weit the the risterstuted cht chishan uregh his muw anld an
+powat i is gris wow sach don mowachigems on thoe
+he hat to relirged p
+FULL500 valid=0.4316 malformed=0.5684 avg_word_len=4.1263 diversity=0.8842 punct=0.0240 space=0.1920 repeat_word=0.1158 time=0.876s
+
+PROMPT: 'she looked'
+ frere, hises lin alvomes, a thout int the com oup ins and pey, a cond of thiner, and i tait akemy the methe imn onto hit
+sat maretned his, i ind
+cotrmestenuross cefcilisnal oof the near i sttoer. on ai dind soie the on that me to he emar hilsow on fnorg that, cit neavert and
+sil him as ind sraine,
+the ownic aner on.
+
+thout cis intis om the he hat, ea, tpar, calll ie nous you stoute frire ur ui
+thime mussh.”
+
+morsincerilined wathate of oom her
+prowfatsery yas tollyie hath my spolio fmie
+dioy,”
+i
+FULL500 valid=0.4184 malformed=0.5816 avg_word_len=3.9184 diversity=0.8061 punct=0.0280 space=0.2000 repeat_word=0.1939 time=0.898s
+
+PROMPT: 'the man'
+d corthe that siw allled roune sa that-culdin here month ansl the you he sale
+ug a dow corerker. is,” woo thy
+ ino we wefor his trigshinghs, helll ell has and of figh tonggeinng, et dotin or, thet ankere boft ar coid and
+rofued ut the usimerined thered-ie saclr oryoun, ind woif old ousd othe she is and chacd ot wentts-he os atare shar hangut wis ommed, ond ayend oll thir tha
+o is af hime, aner whestr sto acotingen noone to cand twily dsthen’s thad was. thir worshituts to sray ich
+and trepege aas
+FULL500 valid=0.3579 malformed=0.6421 avg_word_len=4.1158 diversity=0.9158 punct=0.0240 space=0.1900 repeat_word=0.0842 time=0.852s
+
+PROMPT: 'what'
+ to hepanset to nol was shus in
+thas the had thacke wich is nanday agowach thered!
+his the cit he griated dites. hey the clas oougllss, ur too
+p she sas
+elly and werhig moissace ims. i stal tas i of her repencced tivernte and, and. an, wouy mack
+withor to the yay rusak ard and ae has is meain,”
+
+lritg ay.” wors of dematht. inghol tho cofe nowatt. i thit
+s, aes unsobled nonews howncher of and olit but lily weand orny; say coved it emin
+er of tow
+she loviring and pend dooc irchl. us ous whows my
+o
+FULL500 valid=0.4752 malformed=0.5248 avg_word_len=3.7822 diversity=0.8317 punct=0.0280 space=0.2040 repeat_word=0.1683 time=0.844s
+
+========================================================================
+MODEL: Glyph v2 100k | MODE: greedy
+========================================================================
+
+PROMPT: 'alice was'
+ the stree to the stranded of the strange of the stand
+the strange to the strange of the strange the strange of the strange of
+the strant of the strange of the strange of the strange of the start of
+the strange of the strange of the strange of the strange of the start
+of the strange of the strange of the strange of the strange of the start
+of the strange of the strange of the strange of the strange of the start
+of the strange of the strange of the strange of the strange of the start
+of the stran
+FULL500 valid=0.9706 malformed=0.0294 avg_word_len=3.9020 diversity=0.0980 punct=0.0000 space=0.2040 repeat_word=0.9020 time=0.744s
+
+PROMPT: 'the rabbit'
+er the strand the strand of the strange of the strangess of
+the strange the strange to the strange of the stranded the strange of
+the strange of the strange of the strange of the strange of the start
+of the strange of the strange of the strange of the strange of the start
+of the strange of the strange of the strange of the strange of the start
+of the strange of the strange of the strange of the strange of the start
+of the strange of the strange of the strange of the strange of the start
+of the s
+FULL500 valid=0.9902 malformed=0.0098 avg_word_len=3.9118 diversity=0.0980 punct=0.0000 space=0.2020 repeat_word=0.9020 time=0.839s
+
+PROMPT: 'once upon a time'
+ a so the some to the strand of the strange the
+stand of the strange the strange to the strange of the strange the some
+of the strange of the strange of the strange of the strange of the start
+of the strange of the strange of the strange of the strange of the start
+of the strange of the strange of the strange of the strange of the start
+of the strange of the strange of the strange of the strange of the start
+of the strange of the strange of the strange of the strange of the start
+of the strange 
+FULL500 valid=1.0000 malformed=0.0000 avg_word_len=3.8447 diversity=0.0971 punct=0.0000 space=0.2080 repeat_word=0.9029 time=0.997s
+
+PROMPT: 'the king'
+ the strange of the strand of the strange of the strangess of
+the strees of the strange of the strange the strange the strant of the
+strange of the strange of the strange of the strange of the start of
+the strange of the strange of the strange of the strange of the start
+of the strange of the strange of the strange of the strange of the start
+of the strange of the strange of the strange of the strange of the start
+of the strange of the strange of the strange of the strange of the start
+of the st
+FULL500 valid=0.9706 malformed=0.0294 avg_word_len=3.9020 diversity=0.0882 punct=0.0000 space=0.2040 repeat_word=0.9118 time=1.121s
+
+PROMPT: 'she looked'
+ the strange of the strange of the strange of the
+strange of the strange of the strange the strande of the strange the
+strant of the strange of the strange of the strange of the start of
+the strange of the strange of the strange of the strange of the start
+of the strange of the strange of the strange of the strange of the start
+of the strange of the strange of the strange of the strange of the start
+of the strange of the strange of the strange of the strange of the start
+of the strange of the st
+FULL500 valid=0.9804 malformed=0.0196 avg_word_len=3.9020 diversity=0.0686 punct=0.0000 space=0.2040 repeat_word=0.9314 time=0.788s
+
+PROMPT: 'the man'
+y the some the some the some the some to the strange of the
+could the strange the strange to the strand of the stranded the stand of
+the strant of the strant of the strange of the strange of the start of
+the strange of the strange of the strange of the strange of the start
+of the strange of the strange of the strange of the strange of the start
+of the strange of the strange of the strange of the strange of the start
+of the strange of the strange of the strange of the strange of the start
+of the 
+FULL500 valid=0.9808 malformed=0.0192 avg_word_len=3.8077 diversity=0.1154 punct=0.0000 space=0.2080 repeat_word=0.8846 time=0.772s
+
+PROMPT: 'what'
+ the some the some the some the some to the strange of the
+strange the stand of the strange the strange of the strange the stant of
+the strant of the strange of the strange of the strange of the start of
+the strange of the strange of the strange of the strange of the start
+of the strange of the strange of the strange of the strange of the start
+of the strange of the strange of the strange of the strange of the start
+of the strange of the strange of the strange of the strange of the start
+of the 
+FULL500 valid=0.9806 malformed=0.0194 avg_word_len=3.8447 diversity=0.0874 punct=0.0000 space=0.2080 repeat_word=0.9126 time=0.756s
+
+========================================================================
+MODEL: Glyph v2 100k | MODE: topk20_t0.7
+========================================================================
+
+PROMPT: 'alice was'
+ these most now ecort of grestie down on
+to good be the worly in in thoughear of the manine; and that underfed
+the bast the prowher of the sumper and the may and the reash
+of the will and a the hill of with sawnds in thing of the was becaing
+of her had the the repist on the plomenther which and more hat for that mat
+for to thries, whan the been the are to the hall commantiong
+on the coptire so to the have mars, the had feated in the girle his ciffale all
+mach about of grive the it was at the was
+FULL500 valid=0.7736 malformed=0.2264 avg_word_len=3.6887 diversity=0.5755 punct=0.0060 space=0.2120 repeat_word=0.4245 time=0.852s
+
+PROMPT: 'the rabbit'
+e to be bout eper decoment uneirating of the sconducue,
+and see in the withoter, and complect of the like amoning in the
+had sight thought i in in so become to never and the perturation a
+acpinaly the was plece sight own about she the had was fort-
+and lead was a the with bread be the tout, i all in obott it good he
+with rather which is in be sway that he the and to the tock from to full the
+mants the late what in seat care. cond the biment of the did dimam of
+the bett in the castering sinty? th
+FULL500 valid=0.8208 malformed=0.1792 avg_word_len=3.6698 diversity=0.5943 punct=0.0120 space=0.2100 repeat_word=0.4057 time=0.859s
+
+PROMPT: 'once upon a time'
+ start of in preact of
+the was parity him, and as now the pervant and the comse plutess,
+i soucquitace, when their facing of stuck, and the wouldlight
+to the offerct in the mrear in she sures, if a her not the tose one
+the sail from tome, and the in to excensuled in the mett all-meary,
+said she of his as the toors made, the head pare as deaurge,
+and hicding deard ago the worst to got of the to me wordry to we starke
+at the spleating of his was fall the made parth the brisced to for persives
+the 
+FULL500 valid=0.7451 malformed=0.2549 avg_word_len=3.7941 diversity=0.5980 punct=0.0200 space=0.2060 repeat_word=0.4020 time=0.893s
+
+PROMPT: 'the king'
+s and the might what read in yet an should
+the will, reamated my at her cisive into a prostantion were and a he
+distraming of the all to be of it, the owser a mary in the im and be
+the herrems in fir moing the her naay being the insterss of the plesting
+fortity the some of lomes hing a to the rease was to bearing, and in
+the might the is of courting in the import of the wise rearn like fom
+the least, and eliject as be to paten in own farm of come his
+seelling of me and we as what been even brain
+FULL500 valid=0.8165 malformed=0.1835 avg_word_len=3.5596 diversity=0.5963 punct=0.0080 space=0.2160 repeat_word=0.4037 time=0.850s
+
+PROMPT: 'she looked'
+ and any to-pose lever and
+somes up the by such with be on the more of him. the is fast our and in the
+mark, and not to harrdser be he seen on a more of deal was that it on
+resting the in he not the prounted doe somelst from the reckion with in
+of haver her seent it the come, this sought and compured out me
+the dear of of the prose the peembless of a charter a some of whale
+put be with lofpore, and i
+must the ome be one the he had his distred her it my was whate the
+bearth of which ome.
+
+
+“you l
+FULL500 valid=0.8559 malformed=0.1441 avg_word_len=3.4234 diversity=0.5946 punct=0.0120 space=0.2260 repeat_word=0.4054 time=0.847s
+
+PROMPT: 'the man'
+y we it on the disting to my
+clome, and that ear see trought, and when hat goe can when as have sid
+to niner a a land you wall man madning of his dear all and and go all
+in the said of the boorad what of him for the waye back up it the
+to som and of the blife, that dof the had now morre. he seend it as stay ee
+him her with fink and i sing in his confect of me. i my backing the
+reas.”
+
+“carped and rethan a ten when of the will the sopen of the desting a late
+one what the would this batter it, and
+FULL500 valid=0.8087 malformed=0.1913 avg_word_len=3.2696 diversity=0.6261 punct=0.0140 space=0.2300 repeat_word=0.3739 time=0.849s
+
+PROMPT: 'what'
+ no some, could i him the pain to confing the reper to mone
+in the the carve eartharchs had mile ever stang, and then a with in whilow
+his dectred a lew till of man to it have our the lect to under and to noth, the
+he befor this pliss. bet i the parsing up. a slet not
+at the suppioncion and other an the mornat be getle sman
+all in a preaption and her of the tonse of him hand a made of the bruded
+of so the ompen to stre of a shold a was still all of my here stable be
+not on the tarted to mr. and 
+FULL500 valid=0.7768 malformed=0.2232 avg_word_len=3.4018 diversity=0.6339 punct=0.0120 space=0.2260 repeat_word=0.3661 time=0.833s
+
+========================================================================
+MODEL: Glyph v2 100k | MODE: topk20_t0.9
+========================================================================
+
+PROMPT: 'alice was'
+ to would nor in whe a moy to mist arminy at wa other
+head who he and it the went pert at good and a not the gred not
+whaten. old bournest time this to herels. and should be the dewar and
+and tey had even then sight be one of the was beam to her
+in of you black the there of ather. of cearry and mast sepiaius the bock,
+in as wore a thicke part of the the of a sight morrad and
+a fellooud to of the couse appent. her lookes having not the his bood; cold
+docked here-pillabe, in not dettrancianty, the
+FULL500 valid=0.7925 malformed=0.2075 avg_word_len=3.6321 diversity=0.6226 punct=0.0180 space=0.2120 repeat_word=0.3774 time=0.849s
+
+PROMPT: 'the rabbit'
+e to be bout eper decoment uneirred
+devery of felll micanted in shall somel from the ben have which him
+comusent of the caull his was been a hertured fand one that he
+hard the arppaion eniel, and the is saupped whence be abouth care we the
+afboris; in belive it he mached surded find doors of pelighle
+but his upos seell? the spprace wilke coffel, and as side the spent of my
+and the wacrt the not at the in exessed. ded to she laigaty to more
+cher voice to of the in the tourt uppais and she to pear
+FULL500 valid=0.6832 malformed=0.3168 avg_word_len=3.9109 diversity=0.7129 punct=0.0100 space=0.2000 repeat_word=0.2871 time=0.903s
+
+PROMPT: 'once upon a time'
+ start or and the
+morning it with se coull that i lot the could of the geet wordoys
+works; inluzablothived side in felew---and wilke this
+one whay dow to the frigh, hoed owe meathan sopest, in how a daytay
+taker for a striat the bearmiten. i for as will one, from he larngeling,
+
+sall af courntranged thim, and a with her and shings, i wend to detter clity what
+direspt the is carred the shof ackent of her perstul the the fire againg
+to have time made the before mowing had sperision we a witde the
+
+FULL500 valid=0.6458 malformed=0.3542 avg_word_len=4.0729 diversity=0.7396 punct=0.0220 space=0.1960 repeat_word=0.2604 time=1.210s
+
+PROMPT: 'the king'
+s and the might what red gegnvial to the roungs,
+that hertey would a as old was she in the the dasting elwent home to ban
+his was it of a come
+himm and such him oveing did some word im do a we hicth to exention of
+     whard, and to the har posolled of it to me to reself, that bue in
+and i one nothing of som, yet, anray every he been a hand wat
+to the to was, as i ave the his spion the have full she
+emaster you bargely onown had rifed faces the words
+consice was of his wickitas not an evire. out
+FULL500 valid=0.7890 malformed=0.2110 avg_word_len=3.4862 diversity=0.6697 punct=0.0140 space=0.2260 repeat_word=0.3303 time=1.259s
+
+PROMPT: 'she looked'
+ and any to-pose lever and
+somes up then more surry, moning her the dady ried for that exessed work
+with i the lembent, it was cant with with looked part
+whre him to eveigh rie.
+
+in a littark the dight had lage-so renverably the reclance. i his bed have shat your
+bout thoughs; a at wene as fim a dettries foune, but the of of the are
+were meard. but mary and to the ravely.
+
+“celled bit. froe. “sid i wull strank, and i and not enster, and eye mich ast
+pily for a the saung’ a chave it be sack ecper
+FULL500 valid=0.6471 malformed=0.3529 avg_word_len=3.7157 diversity=0.7451 punct=0.0280 space=0.2080 repeat_word=0.2549 time=0.844s
+
+PROMPT: 'the man'
+y, one, as but blow, and
+on his he prened allring in tat intectated of hap, “ot i as i heard brait
+that nitte the have then down thele; speed at last uncre sunt the heart
+the ourther, and this cance, and any distank.
+
+if was con’s was sail lapt hel his sprewalfed, i be groning that now only to
+have befie, was breable cercouth beegs.” it corpestart arcome and
+demecters, i af pun miny see. let to me--have spom
+some have is
+soe conge after seet the seting in have give was it,
+and the vorther on the
+FULL500 valid=0.6768 malformed=0.3232 avg_word_len=3.8586 diversity=0.7475 punct=0.0320 space=0.1980 repeat_word=0.2525 time=0.853s
+
+PROMPT: 'what'
+
+nown and dreace, i that me was a beect oonsed dread, so;”
+“‘you slet nit ever caurt,”
+
+“on you” rumbatio oble farce, wind gill be her was hears tarme, show
+the pertue it her bean was ladst there evary to reve at my sevelly
+ben thris heer with my lisht wharde again a say. the crock eart
+been hobow had the meen, and fhind-her, and a had would as the reper
+acqueching one; i the hought been what not to man frrost and was
+becking i intely of see, were suvent it icserved you he she own
+hart lence of 
+FULL500 valid=0.6600 malformed=0.3400 avg_word_len=3.8000 diversity=0.7700 punct=0.0240 space=0.2040 repeat_word=0.2300 time=0.851s
+
+========================================================================
+MODEL: Glyph v2 100k | MODE: topk20_t1.0
+========================================================================
+
+PROMPT: 'alice was'
+ to would nibng pirling for in whoy, wenine
+reraion afted, who hat their sew as the longlir the morry vown lone lutashin
+proct, not it was time this of mucheld in to littlre the bore his the walrad
+read.
+
+“thou but he narre fetter compled they pay if she of conpestice and the
+persided depy decy may mige confiners, his shand imssions fitt
+case broung of to the dighthines. andnothing i my courlded; and for
+romgod and of matiring not the face of bridd.
+
+the groung; have ye to of sapicul frum by and
+FULL500 valid=0.6170 malformed=0.3830 avg_word_len=4.1915 diversity=0.7660 punct=0.0180 space=0.1920 repeat_word=0.2340 time=0.839s
+
+PROMPT: 'the rabbit'
+. the itwalk not the fater coo findly mindlen mok shy. comper
+life their agout in the or countating to heremegs of conce,
+
+and and foold mary inf that had i many, and if conne it chart no
+hild yes ond a suventer ban, im a promass everide dotwad oum a bit, i the
+now. rom to strandy the concut prabaights, hout gentle of
+ to me ive, antwate the hof the bad hand streeds the unyst
+and yeyel. their decture worked come, love a theirng.” “me
+at. own conx to the hiim. the slankes in the compurtiin of”
+
+“
+FULL500 valid=0.6186 malformed=0.3814 avg_word_len=3.9278 diversity=0.7423 punct=0.0280 space=0.2020 repeat_word=0.2577 time=0.864s
+
+PROMPT: 'once upon a time'
+ start or and the
+morning it with se coull that i lot the carvaul and the conderncheds to shave! wer
+itlubpas ance comble of my son to sead,”
+
+“yu
+butt i dillatt tway us funn impoin whichar iboor poss, erestarted man with of
+his pirseselved in he had nopiced. the had pidermifangs gentle
+befith think thim? i as which to neped, i a way hown i sucaing a
+fusured thesel facce a ot that ale theous rected onight. they
+the come seend undied be a coffulone and bit with purt inly afteed, and
+now, other th
+FULL500 valid=0.6146 malformed=0.3854 avg_word_len=4.0833 diversity=0.7812 punct=0.0180 space=0.1940 repeat_word=0.2188 time=0.829s
+
+PROMPT: 'the king'
+s and the might what red gegnvial to the roungs,
+that deniever for his dacy. and icsicully with i mid call, thranged
+frew was he outs. the saidilsced of me to be inn in her, that somid
+lond was modorivafe at the fatt? fur, and nizad as a shing hand it sual
+an must to she ouk cass. and i as longowy, which seel loond lwo
+with in that consince of
+land the of ois to whise all—said ot’s coveress obearn, there garfuing outing, fal
+sterliake monk, and a comatined. the tark mugh it.
+i but to haves baut 
+FULL500 valid=0.6162 malformed=0.3838 avg_word_len=3.8889 diversity=0.7475 punct=0.0300 space=0.1980 repeat_word=0.2525 time=0.862s
+
+PROMPT: 'she looked'
+ and any to-pose lever and
+somes upseartion of broading her she had brook deproc of her at
+to munt, be, onluch posine and was ben a me make they add distall, of me
+as doull gaver his other a instions upt by a gand of dow.
+
+
+“i pilliok ut be sastaing goove a sfrantter be whoune was i hof party’s
+had fett. mut had the sirand hown the mild, my spresst and some to the
+raout ald cloting begapermpatutes, im. fether by munned meares slep had
+dover mich assumed come, much at they, will hough. had stuffe
+FULL500 valid=0.5876 malformed=0.4124 avg_word_len=3.9897 diversity=0.7423 punct=0.0240 space=0.1980 repeat_word=0.2577 time=0.838s
+
+PROMPT: 'the man'
+y, one, as but blow, and
+on hip with him rof you at thrane and the matt pide; no grat asking
+bargle with wich as out the claw
+indert. munk eeliorr’s mindation and your to the olding of be this face
+pust a to loth twre drach mokef i an with ea sault was to of sman was
+upperid the with detaing interstion..’—and broad gumat,
+mothos beng! more dight, and and the own ort all
+modeas leat, be frover and retial achold, i muth i with marn to the dead
+all to here say, with ence it and be some, and with th
+FULL500 valid=0.6505 malformed=0.3495 avg_word_len=3.6990 diversity=0.7087 punct=0.0300 space=0.2040 repeat_word=0.2913 time=0.838s
+
+PROMPT: 'what'
+
+nown agreping of made, that not cont thee preauted of he this notly
+though her that he accoarimed its a catersely neall, and couldel his
+lood stroul had a connewing him, to look like? his i him whand there
+messt held, all and theil reeth as scarions, afwaind, mr. you
+at to wint frog elemett hob, this town is of fiec, as’t by it do with
+as lett to one the own, shall told both he tad one or fight a midh saimor
+troortes, and my was ant hard. he with arcosed at pyour me’s as
+a fair, ways remy gente
+FULL500 valid=0.6832 malformed=0.3168 avg_word_len=3.7921 diversity=0.7921 punct=0.0280 space=0.2020 repeat_word=0.2079 time=0.846s
+
+========================================================================
+FREE-RUNNING DRIFT: Glyph v2 20k
+========================================================================
+
+MODE: greedy
+
+val_anchor_1: prompt='       *       *\n\n_later._--dr. '
+GENERATED:                                                                                                                                                                                                         ...
+H  0: gt_nll=5.74322 gt_top1=0 valid=0.0000 malformed=0.0000
+H 10: gt_nll=5.22722 gt_top1=0 valid=0.0000 malformed=0.0000
+H 25: gt_nll=0.18086 gt_top1=1 valid=0.0000 malformed=0.0000
+H 50: gt_nll=5.06298 gt_top1=0 valid=0.0000 malformed=0.0000
+H100: gt_nll=5.55172 gt_top1=0 valid=0.0000 malformed=0.0000
+H250: gt_nll=0.19757 gt_top1=1 valid=0.0000 malformed=0.0000
+H500: gt_nll=0.19757 gt_top1=1 valid=0.0000 malformed=0.0000
+time=0.814s
+
+val_anchor_2: prompt='accept these as\nproofs of so wil'
+GENERATED: lle the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the ...
+H  0: gt_nll=2.27149 gt_top1=0 valid=0.0000 malformed=0.0000
+H 10: gt_nll=5.75750 gt_top1=0 valid=0.6667 malformed=0.3333
+H 25: gt_nll=5.90596 gt_top1=0 valid=0.8571 malformed=0.1429
+H 50: gt_nll=6.46197 gt_top1=0 valid=0.9231 malformed=0.0769
+H100: gt_nll=4.70404 gt_top1=0 valid=0.9600 malformed=0.0400
+H250: gt_nll=5.67823 gt_top1=0 valid=0.9841 malformed=0.0159
+H500: gt_nll=4.74957 gt_top1=0 valid=0.9920 malformed=0.0080
+time=0.916s
+
+val_anchor_3: prompt='uty. everyone brightened at the '
+GENERATED: the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the ...
+H  0: gt_nll=2.58362 gt_top1=0 valid=0.0000 malformed=0.0000
+H 10: gt_nll=5.15258 gt_top1=0 valid=1.0000 malformed=0.0000
+H 25: gt_nll=6.78453 gt_top1=0 valid=1.0000 malformed=0.0000
+H 50: gt_nll=0.57150 gt_top1=1 valid=1.0000 malformed=0.0000
+H100: gt_nll=3.70765 gt_top1=0 valid=1.0000 malformed=0.0000
+H250: gt_nll=4.99441 gt_top1=0 valid=1.0000 malformed=0.0000
+H500: gt_nll=2.43666 gt_top1=0 valid=1.0000 malformed=0.0000
+time=1.084s
+
+val_anchor_4: prompt=' with your husband. i can’t unde'
+GENERATED:  the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the...
+H  0: gt_nll=2.31732 gt_top1=0 valid=0.0000 malformed=0.0000
+H 10: gt_nll=6.08613 gt_top1=0 valid=1.0000 malformed=0.0000
+H 25: gt_nll=6.02379 gt_top1=0 valid=1.0000 malformed=0.0000
+H 50: gt_nll=3.49414 gt_top1=0 valid=1.0000 malformed=0.0000
+H100: gt_nll=2.29513 gt_top1=0 valid=1.0000 malformed=0.0000
+H250: gt_nll=5.96766 gt_top1=0 valid=1.0000 malformed=0.0000
+H500: gt_nll=5.67613 gt_top1=0 valid=1.0000 malformed=0.0000
+time=1.214s
+
+val_anchor_5: prompt=' from an ensign and became emper'
+GENERATED: ed the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the t...
+H  0: gt_nll=3.09700 gt_top1=0 valid=0.0000 malformed=0.0000
+H 10: gt_nll=5.53549 gt_top1=0 valid=0.6667 malformed=0.3333
+H 25: gt_nll=6.05884 gt_top1=0 valid=0.8571 malformed=0.1429
+H 50: gt_nll=5.20021 gt_top1=0 valid=0.9231 malformed=0.0769
+H100: gt_nll=3.49111 gt_top1=0 valid=0.9615 malformed=0.0385
+H250: gt_nll=4.39537 gt_top1=0 valid=0.9841 malformed=0.0159
+H500: gt_nll=6.59346 gt_top1=0 valid=0.9921 malformed=0.0079
+time=0.834s
+
+val_anchor_6: prompt='sin of the countess’, a man with'
+GENERATED:  the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the...
+H  0: gt_nll=0.76986 gt_top1=1 valid=0.0000 malformed=0.0000
+H 10: gt_nll=5.20483 gt_top1=0 valid=1.0000 malformed=0.0000
+H 25: gt_nll=6.04901 gt_top1=0 valid=1.0000 malformed=0.0000
+H 50: gt_nll=0.56891 gt_top1=1 valid=1.0000 malformed=0.0000
+H100: gt_nll=3.64324 gt_top1=0 valid=1.0000 malformed=0.0000
+H250: gt_nll=4.59980 gt_top1=0 valid=1.0000 malformed=0.0000
+H500: gt_nll=6.88842 gt_top1=0 valid=1.0000 malformed=0.0000
+time=0.830s
+
+val_anchor_7: prompt='(the family solicitor) “and he s'
+GENERATED: he the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the t...
+H  0: gt_nll=1.78018 gt_top1=0 valid=0.0000 malformed=0.0000
+H 10: gt_nll=4.58537 gt_top1=0 valid=1.0000 malformed=0.0000
+H 25: gt_nll=6.30120 gt_top1=0 valid=1.0000 malformed=0.0000
+H 50: gt_nll=4.38282 gt_top1=0 valid=1.0000 malformed=0.0000
+H100: gt_nll=3.79365 gt_top1=0 valid=1.0000 malformed=0.0000
+H250: gt_nll=5.54412 gt_top1=0 valid=1.0000 malformed=0.0000
+H500: gt_nll=2.21690 gt_top1=0 valid=1.0000 malformed=0.0000
+time=0.803s
+
+MODE: topk20_t0.7
+
+val_anchor_1: prompt='       *       *\n\n_later._--dr. '
+GENERATED:     thapreloteld s hiretin are
+
+
+
+
+
+
+llrer. t oo an ome thearl d thelot br, t ase soro to opun aver hat  i chat i we ghe the gathous t myo fof t shan tha son t torerete ay mats be ane theld wa the he ...
+H  0: gt_nll=5.74322 gt_top1=0 valid=0.0000 malformed=0.0000
+H 10: gt_nll=5.35554 gt_top1=0 valid=0.0000 malformed=1.0000
+H 25: gt_nll=3.43114 gt_top1=0 valid=0.3333 malformed=0.6667
+H 50: gt_nll=4.80467 gt_top1=0 valid=0.6250 malformed=0.3750
+H100: gt_nll=3.89712 gt_top1=0 valid=0.4737 malformed=0.5263
+H250: gt_nll=5.63349 gt_top1=0 valid=0.5789 malformed=0.4211
+H500: gt_nll=0.72637 gt_top1=1 valid=0.5413 malformed=0.4587
+time=0.938s
+
+val_anchor_2: prompt='accept these as\nproofs of so wil'
+GENERATED: ld the sapon the mir of upit the fon yof foupt iment ow cose t.
+ton beler is fof sthee an ine it he he the append bror maped at and omop lemif irerr
+ate os mimen it win as the of dat is and whe s that...
+H  0: gt_nll=2.27149 gt_top1=0 valid=0.0000 malformed=0.0000
+H 10: gt_nll=2.38248 gt_top1=0 valid=0.6667 malformed=0.3333
+H 25: gt_nll=3.03889 gt_top1=0 valid=0.5714 malformed=0.4286
+H 50: gt_nll=3.20899 gt_top1=0 valid=0.3333 malformed=0.6667
+H100: gt_nll=4.60775 gt_top1=0 valid=0.4583 malformed=0.5417
+H250: gt_nll=2.65965 gt_top1=0 valid=0.6129 malformed=0.3871
+H500: gt_nll=0.91307 gt_top1=1 valid=0.5299 malformed=0.4701
+time=0.930s
+
+val_anchor_3: prompt='uty. everyone brightened at the '
+GENERATED: herle able win ache tsthis she thach we wi
+wealld, thouly ck man fushe ngatortesting m watis tous pond ise atoucc wit mor har ance theromay at ills the the ous the whe and ithe prof the unere, as ncut...
+H  0: gt_nll=2.58362 gt_top1=0 valid=0.0000 malformed=0.0000
+H 10: gt_nll=6.37575 gt_top1=0 valid=0.5000 malformed=0.5000
+H 25: gt_nll=3.16770 gt_top1=0 valid=0.6000 malformed=0.4000
+H 50: gt_nll=6.01654 gt_top1=0 valid=0.6000 malformed=0.4000
+H100: gt_nll=2.01867 gt_top1=1 valid=0.4737 malformed=0.5263
+H250: gt_nll=0.72790 gt_top1=1 valid=0.4706 malformed=0.5294
+H500: gt_nll=2.55266 gt_top1=0 valid=0.4904 malformed=0.5096
+time=0.929s
+
+val_anchor_4: prompt=' with your husband. i can’t unde'
+GENERATED:  tha is pom ite has meny lis it tour an to as bind aico hin the thancar her he
+cis andure thar is fof beis hat he wan thin is wim che dofore ond lad the stemy bee gre
+than anderersatince t wie is a st...
+H  0: gt_nll=2.31732 gt_top1=0 valid=0.0000 malformed=0.0000
+H 10: gt_nll=2.54207 gt_top1=0 valid=0.6667 malformed=0.3333
+H 25: gt_nll=6.03045 gt_top1=0 valid=0.3333 malformed=0.6667
+H 50: gt_nll=4.92565 gt_top1=0 valid=0.6154 malformed=0.3846
+H100: gt_nll=2.31601 gt_top1=0 valid=0.5417 malformed=0.4583
+H250: gt_nll=5.94519 gt_top1=0 valid=0.5455 malformed=0.4545
+H500: gt_nll=4.35911 gt_top1=0 valid=0.4907 malformed=0.5093
+time=0.911s
+
+val_anchor_5: prompt=' from an ensign and became emper'
+GENERATED:  twhe there whe toull
+at i sand whe and ware the as and sone enor thelll cowit am higenes be whact ont at sutof
+t oullen fe
+nose ore sead sst cand pared cind winse bed tove so thane a moind t illd, bu...
+H  0: gt_nll=3.09700 gt_top1=0 valid=0.0000 malformed=0.0000
+H 10: gt_nll=5.92176 gt_top1=0 valid=0.0000 malformed=1.0000
+H 25: gt_nll=5.95603 gt_top1=0 valid=0.4000 malformed=0.6000
+H 50: gt_nll=3.62757 gt_top1=0 valid=0.6667 malformed=0.3333
+H100: gt_nll=4.57683 gt_top1=0 valid=0.5455 malformed=0.4545
+H250: gt_nll=7.85087 gt_top1=0 valid=0.4151 malformed=0.5849
+H500: gt_nll=6.49979 gt_top1=0 valid=0.4495 malformed=0.5505
+time=0.924s
+
+val_anchor_6: prompt='sin of the countess’, a man with'
+GENERATED: t.”
+
+
+“with he le tous he che the wind the al sapllt esent inoule, theng owat o o diso thid rit ant sthe lispred me ton thast im e wan bin tof amanelly, t tharie p an mereas
+be, thare of he ar sos eto...
+H  0: gt_nll=0.76986 gt_top1=1 valid=0.0000 malformed=0.0000
+H 10: gt_nll=4.03771 gt_top1=0 valid=1.0000 malformed=0.0000
+H 25: gt_nll=0.98208 gt_top1=1 valid=0.8333 malformed=0.1667
+H 50: gt_nll=6.49396 gt_top1=0 valid=0.7500 malformed=0.2500
+H100: gt_nll=4.06028 gt_top1=0 valid=0.5455 malformed=0.4545
+H250: gt_nll=2.71875 gt_top1=0 valid=0.4815 malformed=0.5185
+H500: gt_nll=4.14186 gt_top1=0 valid=0.4862 malformed=0.5138
+time=0.919s
+
+val_anchor_7: prompt='(the family solicitor) “and he s'
+GENERATED: es pecored o o cof thand yon torad the ithe sthe diplle bressts owad ot win it hinghiche, os ake t dowind i wan thi ald coonghit tom the the with at so the war ames moid s the thes tor onoton t ite as...
+H  0: gt_nll=1.78018 gt_top1=0 valid=0.0000 malformed=0.0000
+H 10: gt_nll=6.10340 gt_top1=0 valid=0.5000 malformed=0.5000
+H 25: gt_nll=5.94203 gt_top1=0 valid=0.5000 malformed=0.5000
+H 50: gt_nll=6.27491 gt_top1=0 valid=0.5000 malformed=0.5000
+H100: gt_nll=3.05533 gt_top1=0 valid=0.4545 malformed=0.5455
+H250: gt_nll=3.36291 gt_top1=0 valid=0.5357 malformed=0.4643
+H500: gt_nll=0.43668 gt_top1=1 valid=0.4954 malformed=0.5046
+time=0.902s
+
+MODE: topk20_t0.9
+
+val_anchor_1: prompt='       *       *\n\n_later._--dr. '
+GENERATED:   enol macineinces ye, we t i dol
+
+
+
+ottlive oss in bin theark be owne rey thishite is to mmur sullared ppavitinintht hed incmard.
+are sand treacatand sth hand tormaltrt pederd becones fr hired uwener...
+H  0: gt_nll=5.74322 gt_top1=0 valid=0.0000 malformed=0.0000
+H 10: gt_nll=5.79313 gt_top1=0 valid=0.0000 malformed=1.0000
+H 25: gt_nll=1.47634 gt_top1=1 valid=0.5000 malformed=0.5000
+H 50: gt_nll=5.23907 gt_top1=0 valid=0.5000 malformed=0.5000
+H100: gt_nll=2.36860 gt_top1=0 valid=0.4000 malformed=0.6000
+H250: gt_nll=6.28925 gt_top1=0 valid=0.4565 malformed=0.5435
+H500: gt_nll=4.54566 gt_top1=0 valid=0.4239 malformed=0.5761
+time=0.931s
+
+val_anchor_2: prompt='accept these as\nproofs of so wil'
+GENERATED: ld thamar
+obe whed int thou shas fon yord tolinst cemildonch tnesen not anen ders now sueencatis ower he in dreremsar w deas aind fo i rovemiakeshtrred let mimengar w
+beros fud hashincipon h d ro that...
+H  0: gt_nll=2.27149 gt_top1=0 valid=0.0000 malformed=0.0000
+H 10: gt_nll=5.77988 gt_top1=0 valid=0.0000 malformed=1.0000
+H 25: gt_nll=7.10000 gt_top1=0 valid=0.1667 malformed=0.8333
+H 50: gt_nll=7.91222 gt_top1=0 valid=0.1000 malformed=0.9000
+H100: gt_nll=1.20700 gt_top1=1 valid=0.2222 malformed=0.7778
+H250: gt_nll=3.07421 gt_top1=0 valid=0.3333 malformed=0.6667
+H500: gt_nll=4.40960 gt_top1=0 valid=0.3673 malformed=0.6327
+time=1.200s
+
+val_anchor_3: prompt='uty. everyone brightened at the '
+GENERATED: hrod donde o thagh hem ind owd thay it busknthin at te ba
+ideanghdseles.is, as, wichay her
+be as thand shin ary dlofeloiong her moond asus rond sturealy wacked the borde of ho srous the ga ha thirlsou...
+H  0: gt_nll=2.58362 gt_top1=0 valid=0.0000 malformed=0.0000
+H 10: gt_nll=5.99858 gt_top1=0 valid=0.0000 malformed=1.0000
+H 25: gt_nll=2.50347 gt_top1=0 valid=0.5000 malformed=0.5000
+H 50: gt_nll=5.56595 gt_top1=0 valid=0.3636 malformed=0.6364
+H100: gt_nll=1.56373 gt_top1=1 valid=0.4500 malformed=0.5500
+H250: gt_nll=1.69715 gt_top1=0 valid=0.4286 malformed=0.5714
+H500: gt_nll=2.80571 gt_top1=0 valid=0.3936 malformed=0.6064
+time=1.325s
+
+val_anchor_4: prompt=' with your husband. i can’t unde'
+GENERATED:  tha is pomsstis.
+
+“ougk lsopllg athed gon hin ware b wenour coandin. e mat heneal ang
+and t, thank they wath gar wan thin se wicher uat her wharof che icht s betheshn towan t ber mastre and callontin...
+H  0: gt_nll=2.31732 gt_top1=0 valid=0.0000 malformed=0.0000
+H 10: gt_nll=2.54207 gt_top1=0 valid=0.6667 malformed=0.3333
+H 25: gt_nll=5.33971 gt_top1=0 valid=0.2500 malformed=0.7500
+H 50: gt_nll=3.79392 gt_top1=0 valid=0.2222 malformed=0.7778
+H100: gt_nll=3.92575 gt_top1=0 valid=0.4211 malformed=0.5789
+H250: gt_nll=4.56508 gt_top1=0 valid=0.4082 malformed=0.5918
+H500: gt_nll=5.38573 gt_top1=0 valid=0.2979 malformed=0.7021
+time=0.954s
+
+val_anchor_5: prompt=' from an ensign and became emper'
+GENERATED:  twhe thne the lembelare hate torin ate
+whin the asof co tho eal the mecly owe dnowim, lod thitioully is or trerearen hof.”
+ou
+“it shatirs.
+
+
+inde orindees ate ay wec in lren therended ibeal add s yro...
+H  0: gt_nll=3.09700 gt_top1=0 valid=0.0000 malformed=0.0000
+H 10: gt_nll=6.12164 gt_top1=0 valid=0.0000 malformed=1.0000
+H 25: gt_nll=6.24205 gt_top1=0 valid=0.2500 malformed=0.7500
+H 50: gt_nll=3.72103 gt_top1=0 valid=0.5000 malformed=0.5000
+H100: gt_nll=4.28627 gt_top1=0 valid=0.4211 malformed=0.5789
+H250: gt_nll=4.35008 gt_top1=0 valid=0.3696 malformed=0.6304
+H500: gt_nll=6.06944 gt_top1=0 valid=0.3587 malformed=0.6413
+time=0.929s
+
+val_anchor_6: prompt='sin of the countess’, a man with'
+GENERATED: t.”
+
+
+“with noo and lem cowill thes it thepomar end tom it helof in ang itan n tutones tent ering iming apaivered y onke tona
+ck eare ampeater ay
+thantl fledemu hede cor tod, wshe fis he sthas oud ema...
+H  0: gt_nll=0.76986 gt_top1=1 valid=0.0000 malformed=0.0000
+H 10: gt_nll=4.03771 gt_top1=0 valid=1.0000 malformed=0.0000
+H 25: gt_nll=6.52664 gt_top1=0 valid=0.6667 malformed=0.3333
+H 50: gt_nll=6.40136 gt_top1=0 valid=0.5000 malformed=0.5000
+H100: gt_nll=1.28384 gt_top1=1 valid=0.5238 malformed=0.4762
+H250: gt_nll=2.58404 gt_top1=0 valid=0.3654 malformed=0.6346
+H500: gt_nll=5.13561 gt_top1=0 valid=0.3333 malformed=0.6667
+time=0.987s
+
+val_anchor_7: prompt='(the family solicitor) “and he s'
+GENERATED: es pyof an, saty the an, usandenke t foming walll om and whendangisstilt, the ruren gind, heatn thay s thin
+ge foron sin
+wstutis tid the the steror ndit the i y beligoid he an thes t wi helar the smas...
+H  0: gt_nll=1.78018 gt_top1=0 valid=0.0000 malformed=0.0000
+H 10: gt_nll=5.39822 gt_top1=0 valid=0.6667 malformed=0.3333
+H 25: gt_nll=5.85131 gt_top1=0 valid=0.6667 malformed=0.3333
+H 50: gt_nll=1.88905 gt_top1=1 valid=0.5000 malformed=0.5000
+H100: gt_nll=5.93064 gt_top1=0 valid=0.3889 malformed=0.6111
+H250: gt_nll=3.74161 gt_top1=0 valid=0.5098 malformed=0.4902
+H500: gt_nll=5.36716 gt_top1=0 valid=0.4149 malformed=0.5851
+time=0.948s
+
+MODE: topk20_t1.0
+
+val_anchor_1: prompt='       *       *\n\n_later._--dr. '
+GENERATED:   enol macineinces ye, we t i dol
+
+
+mreltoll osint t e the wore the
+fe reid t itorishin whee ar ba
+ofor pppyor, s horullle thiargors ansin bes ttha thesere wanind cano
+ch, myethe erent fr hi thercreat...
+H  0: gt_nll=5.74322 gt_top1=0 valid=0.0000 malformed=0.0000
+H 10: gt_nll=5.79313 gt_top1=0 valid=0.0000 malformed=1.0000
+H 25: gt_nll=1.47634 gt_top1=1 valid=0.5000 malformed=0.5000
+H 50: gt_nll=3.60723 gt_top1=0 valid=0.4444 malformed=0.5556
+H100: gt_nll=2.34059 gt_top1=0 valid=0.5000 malformed=0.5000
+H250: gt_nll=3.02871 gt_top1=0 valid=0.3043 malformed=0.6957
+H500: gt_nll=5.14775 gt_top1=0 valid=0.3298 malformed=0.6702
+time=0.932s
+
+val_anchor_2: prompt='accept these as\nproofs of so wil'
+GENERATED: mpatss isulp the mires thowe the fore dad told i fere mb t heawed
+w eflat dorke my hal note ined henght d, ay tan blinety tofo ghe tout; llfove wargsery ot mimese,”
+skengeleain,” ich om; the
+ee.
+
+“ish...
+H  0: gt_nll=2.27149 gt_top1=0 valid=0.0000 malformed=0.0000
+H 10: gt_nll=4.75807 gt_top1=0 valid=0.0000 malformed=1.0000
+H 25: gt_nll=7.08305 gt_top1=0 valid=0.4000 malformed=0.6000
+H 50: gt_nll=6.57301 gt_top1=0 valid=0.6364 malformed=0.3636
+H100: gt_nll=1.39583 gt_top1=1 valid=0.5000 malformed=0.5000
+H250: gt_nll=3.57028 gt_top1=0 valid=0.4375 malformed=0.5625
+H500: gt_nll=4.82202 gt_top1=0 valid=0.3684 malformed=0.6316
+time=0.935s
+
+val_anchor_3: prompt='uty. everyone brightened at the '
+GENERATED: hrod donde
+winthe han. bus boknd spry, ofevald. is thou
+f droou d,thermmy acend
+wireras ator tor thanghouh th siff atacpleres thitat t hat nee illang wane meit, ucrd thangharmieg, ived tfomedingelr
+be...
+H  0: gt_nll=2.58362 gt_top1=0 valid=0.0000 malformed=0.0000
+H 10: gt_nll=5.99858 gt_top1=0 valid=0.0000 malformed=1.0000
+H 25: gt_nll=2.79920 gt_top1=0 valid=0.0000 malformed=1.0000
+H 50: gt_nll=3.04315 gt_top1=0 valid=0.2222 malformed=0.7778
+H100: gt_nll=1.63674 gt_top1=1 valid=0.2222 malformed=0.7778
+H250: gt_nll=1.44973 gt_top1=1 valid=0.2619 malformed=0.7381
+H500: gt_nll=2.87789 gt_top1=0 valid=0.2353 malformed=0.7647
+time=0.923s
+
+val_anchor_4: prompt=' with your husband. i can’t unde'
+GENERATED:  tha is pomsstis.
+fof bph.on’ndt ate an to sand
+werigasssg any gea tthe out mune, the
+i dourrs is coulakd ton gas wan tupe it sowig iburer antit plos tuct he
+tthe usuande r proofodd or. mans cht yone ...
+H  0: gt_nll=2.31732 gt_top1=0 valid=0.0000 malformed=0.0000
+H 10: gt_nll=2.54207 gt_top1=0 valid=0.6667 malformed=0.3333
+H 25: gt_nll=2.82144 gt_top1=0 valid=0.2000 malformed=0.8000
+H 50: gt_nll=1.67619 gt_top1=0 valid=0.6000 malformed=0.4000
+H100: gt_nll=2.20030 gt_top1=0 valid=0.5500 malformed=0.4500
+H250: gt_nll=6.89283 gt_top1=0 valid=0.4468 malformed=0.5532
+H500: gt_nll=5.18187 gt_top1=0 valid=0.3736 malformed=0.6264
+time=0.921s
+
+val_anchor_5: prompt=' from an ensign and became emper'
+GENERATED:  twhie aked o pankd fend wisth a bematent be the ashave wh watht
+the isacrested foths sche thite
+gartrer lot hereesey wheth. thangh, ine wim tle the
+wad creeror bes, din lwald thante wed-pplerad s uei...
+H  0: gt_nll=3.09700 gt_top1=0 valid=0.0000 malformed=0.0000
+H 10: gt_nll=5.58741 gt_top1=0 valid=0.0000 malformed=1.0000
+H 25: gt_nll=6.02739 gt_top1=0 valid=0.2000 malformed=0.8000
+H 50: gt_nll=3.69671 gt_top1=0 valid=0.4545 malformed=0.5455
+H100: gt_nll=3.32818 gt_top1=0 valid=0.2632 malformed=0.7368
+H250: gt_nll=6.10273 gt_top1=0 valid=0.2667 malformed=0.7333
+H500: gt_nll=2.34914 gt_top1=0 valid=0.2527 malformed=0.7473
+time=0.954s
+
+val_anchor_6: prompt='sin of the countess’, a man with'
+GENERATED: t.”
+
+
+“with ndro eain ray of the tease the
+fist labe ppooutedstaringentene. t
+noontesin oul enderesis thavad; han, mo lind hit wey whertans lind hepintut meded mynit fore s
+walthe fat he hild wisar ma...
+H  0: gt_nll=0.76986 gt_top1=1 valid=0.0000 malformed=0.0000
+H 10: gt_nll=4.03771 gt_top1=0 valid=1.0000 malformed=0.0000
+H 25: gt_nll=0.42355 gt_top1=1 valid=0.6000 malformed=0.4000
+H 50: gt_nll=5.65489 gt_top1=0 valid=0.8182 malformed=0.1818
+H100: gt_nll=2.99684 gt_top1=0 valid=0.5625 malformed=0.4375
+H250: gt_nll=2.65206 gt_top1=0 valid=0.4444 malformed=0.5556
+H500: gt_nll=6.67146 gt_top1=0 valid=0.4000 malformed=0.6000
+time=0.923s
+
+val_anchor_7: prompt='(the family solicitor) “and he s'
+GENERATED: es pyof an, stot tande rauling, lel samy he he
+thatuld dome isuth
+sald lake lexit om wery
+he af lood o thisho t erond pepam beape hece by doceril atoung ttas seace, enfias r thed weas atil
+ce
+impl ear...
+H  0: gt_nll=1.78018 gt_top1=0 valid=0.0000 malformed=0.0000
+H 10: gt_nll=5.39822 gt_top1=0 valid=0.6667 malformed=0.3333
+H 25: gt_nll=2.92588 gt_top1=0 valid=0.3333 malformed=0.6667
+H 50: gt_nll=2.16599 gt_top1=0 valid=0.3636 malformed=0.6364
+H100: gt_nll=4.58405 gt_top1=0 valid=0.3810 malformed=0.6190
+H250: gt_nll=3.57163 gt_top1=0 valid=0.3333 malformed=0.6667
+H500: gt_nll=5.74219 gt_top1=0 valid=0.3861 malformed=0.6139
+time=1.071s
+
+========================================================================
+FREE-RUNNING DRIFT: Glyph v2 50k
+========================================================================
+
+MODE: greedy
+
+val_anchor_1: prompt='       *       *\n\n_later._--dr. '
+GENERATED:                                                                                                                                                                                                         ...
+H  0: gt_nll=5.33796 gt_top1=0 valid=0.0000 malformed=0.0000
+H 10: gt_nll=5.40271 gt_top1=0 valid=0.0000 malformed=0.0000
+H 25: gt_nll=0.12761 gt_top1=1 valid=0.0000 malformed=0.0000
+H 50: gt_nll=5.93540 gt_top1=0 valid=0.0000 malformed=0.0000
+H100: gt_nll=6.33301 gt_top1=0 valid=0.0000 malformed=0.0000
+H250: gt_nll=0.12476 gt_top1=1 valid=0.0000 malformed=0.0000
+H500: gt_nll=0.12476 gt_top1=1 valid=0.0000 malformed=0.0000
+time=1.104s
+
+val_anchor_2: prompt='accept these as\nproofs of so wil'
+GENERATED: l the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the th...
+H  0: gt_nll=1.94572 gt_top1=0 valid=0.0000 malformed=0.0000
+H 10: gt_nll=6.38516 gt_top1=0 valid=1.0000 malformed=0.0000
+H 25: gt_nll=4.64139 gt_top1=0 valid=1.0000 malformed=0.0000
+H 50: gt_nll=8.33239 gt_top1=0 valid=1.0000 malformed=0.0000
+H100: gt_nll=6.43546 gt_top1=0 valid=1.0000 malformed=0.0000
+H250: gt_nll=3.59637 gt_top1=0 valid=1.0000 malformed=0.0000
+H500: gt_nll=6.36996 gt_top1=0 valid=1.0000 malformed=0.0000
+time=1.140s
+
+val_anchor_3: prompt='uty. everyone brightened at the '
+GENERATED: the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the ...
+H  0: gt_nll=2.37248 gt_top1=0 valid=0.0000 malformed=0.0000
+H 10: gt_nll=6.46895 gt_top1=0 valid=1.0000 malformed=0.0000
+H 25: gt_nll=7.14282 gt_top1=0 valid=1.0000 malformed=0.0000
+H 50: gt_nll=0.48954 gt_top1=1 valid=1.0000 malformed=0.0000
+H100: gt_nll=3.98148 gt_top1=0 valid=1.0000 malformed=0.0000
+H250: gt_nll=6.36996 gt_top1=0 valid=1.0000 malformed=0.0000
+H500: gt_nll=2.64891 gt_top1=0 valid=1.0000 malformed=0.0000
+time=0.798s
+
+val_anchor_4: prompt=' with your husband. i can’t unde'
+GENERATED: r the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the th...
+H  0: gt_nll=1.48991 gt_top1=1 valid=0.0000 malformed=0.0000
+H 10: gt_nll=6.69829 gt_top1=0 valid=1.0000 malformed=0.0000
+H 25: gt_nll=0.53153 gt_top1=1 valid=1.0000 malformed=0.0000
+H 50: gt_nll=3.64152 gt_top1=0 valid=1.0000 malformed=0.0000
+H100: gt_nll=4.69865 gt_top1=0 valid=1.0000 malformed=0.0000
+H250: gt_nll=3.14563 gt_top1=0 valid=1.0000 malformed=0.0000
+H500: gt_nll=5.21876 gt_top1=0 valid=1.0000 malformed=0.0000
+time=0.828s
+
+val_anchor_5: prompt=' from an ensign and became emper'
+GENERATED:  the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the...
+H  0: gt_nll=3.40869 gt_top1=0 valid=0.0000 malformed=0.0000
+H 10: gt_nll=5.40101 gt_top1=0 valid=1.0000 malformed=0.0000
+H 25: gt_nll=6.60206 gt_top1=0 valid=1.0000 malformed=0.0000
+H 50: gt_nll=3.52306 gt_top1=0 valid=1.0000 malformed=0.0000
+H100: gt_nll=4.84138 gt_top1=0 valid=1.0000 malformed=0.0000
+H250: gt_nll=8.13750 gt_top1=0 valid=1.0000 malformed=0.0000
+H500: gt_nll=6.68417 gt_top1=0 valid=1.0000 malformed=0.0000
+time=0.842s
+
+val_anchor_6: prompt='sin of the countess’, a man with'
+GENERATED:  the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the...
+H  0: gt_nll=0.45300 gt_top1=1 valid=0.0000 malformed=0.0000
+H 10: gt_nll=5.46759 gt_top1=0 valid=1.0000 malformed=0.0000
+H 25: gt_nll=6.57161 gt_top1=0 valid=1.0000 malformed=0.0000
+H 50: gt_nll=0.65576 gt_top1=1 valid=1.0000 malformed=0.0000
+H100: gt_nll=4.18737 gt_top1=0 valid=1.0000 malformed=0.0000
+H250: gt_nll=5.78116 gt_top1=0 valid=1.0000 malformed=0.0000
+H500: gt_nll=6.81801 gt_top1=0 valid=1.0000 malformed=0.0000
+time=0.815s
+
+val_anchor_7: prompt='(the family solicitor) “and he s'
+GENERATED: our the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the ...
+H  0: gt_nll=1.81460 gt_top1=0 valid=0.0000 malformed=0.0000
+H 10: gt_nll=7.38957 gt_top1=0 valid=1.0000 malformed=0.0000
+H 25: gt_nll=7.15660 gt_top1=0 valid=1.0000 malformed=0.0000
+H 50: gt_nll=6.30377 gt_top1=0 valid=1.0000 malformed=0.0000
+H100: gt_nll=3.79839 gt_top1=0 valid=1.0000 malformed=0.0000
+H250: gt_nll=7.54253 gt_top1=0 valid=1.0000 malformed=0.0000
+H500: gt_nll=5.87171 gt_top1=0 valid=1.0000 malformed=0.0000
+time=0.829s
+
+MODE: topk20_t0.7
+
+val_anchor_1: prompt='       *       *\n\n_later._--dr. '
+GENERATED: a
+
+
+
+
+
+
+thay tout ir a  wi       in                                                                                                                                                                     ...
+H  0: gt_nll=5.33796 gt_top1=0 valid=0.0000 malformed=0.0000
+H 10: gt_nll=7.97371 gt_top1=0 valid=1.0000 malformed=0.0000
+H 25: gt_nll=5.35891 gt_top1=0 valid=0.6667 malformed=0.3333
+H 50: gt_nll=5.80512 gt_top1=0 valid=0.7143 malformed=0.2857
+H100: gt_nll=6.32624 gt_top1=0 valid=0.7143 malformed=0.2857
+H250: gt_nll=0.12821 gt_top1=1 valid=0.7143 malformed=0.2857
+H500: gt_nll=0.12151 gt_top1=1 valid=0.5556 malformed=0.4444
+time=0.906s
+
+val_anchor_2: prompt='accept these as\nproofs of so wil'
+GENERATED: l for. and bight anderting wor os and matted her to supech lifius han mat the
+halersed and and lisking to the oo suree opee the cof bis, and at the at mot of lercots ucprtage the bin of of and oored w...
+H  0: gt_nll=1.94572 gt_top1=0 valid=0.0000 malformed=0.0000
+H 10: gt_nll=0.32573 gt_top1=1 valid=1.0000 malformed=0.0000
+H 25: gt_nll=5.75357 gt_top1=0 valid=0.6000 malformed=0.4000
+H 50: gt_nll=7.78080 gt_top1=0 valid=0.7273 malformed=0.2727
+H100: gt_nll=5.83576 gt_top1=0 valid=0.6000 malformed=0.4000
+H250: gt_nll=4.94646 gt_top1=0 valid=0.6038 malformed=0.3962
+H500: gt_nll=1.70925 gt_top1=0 valid=0.5701 malformed=0.4299
+time=0.922s
+
+val_anchor_3: prompt='uty. everyone brightened at the '
+GENERATED: his and a
+onnd the he din was boon coreds, of my and and hiwering ton to with of the ough.”
+“in wey rand iseng
+oorstte mon we p at cow theit mussting comate omestor bot with shere the corsed and our o...
+H  0: gt_nll=2.37248 gt_top1=0 valid=0.0000 malformed=0.0000
+H 10: gt_nll=2.96168 gt_top1=0 valid=1.0000 malformed=0.0000
+H 25: gt_nll=2.29706 gt_top1=0 valid=0.8571 malformed=0.1429
+H 50: gt_nll=5.89736 gt_top1=0 valid=0.8462 malformed=0.1538
+H100: gt_nll=4.16716 gt_top1=0 valid=0.7826 malformed=0.2174
+H250: gt_nll=6.13345 gt_top1=0 valid=0.6226 malformed=0.3774
+H500: gt_nll=2.77394 gt_top1=0 valid=0.6364 malformed=0.3636
+time=0.951s
+
+val_anchor_4: prompt=' with your husband. i can’t unde'
+GENERATED: rer a bof are the to aso and
+the the stid to she preeal, ard and a cof ander
+ame the a, wam round ot a
+tremas ythe uchines of an lise out ha as becom the ight speationg nof me hene boolss that on
+as o...
+H  0: gt_nll=1.48991 gt_top1=1 valid=0.0000 malformed=0.0000
+H 10: gt_nll=6.62999 gt_top1=0 valid=0.3333 malformed=0.6667
+H 25: gt_nll=6.56712 gt_top1=0 valid=0.5714 malformed=0.4286
+H 50: gt_nll=1.42277 gt_top1=1 valid=0.7143 malformed=0.2857
+H100: gt_nll=4.54019 gt_top1=0 valid=0.6000 malformed=0.4000
+H250: gt_nll=5.82008 gt_top1=0 valid=0.5690 malformed=0.4310
+H500: gt_nll=4.92420 gt_top1=0 valid=0.6071 malformed=0.3929
+time=0.972s
+
+val_anchor_5: prompt=' from an ensign and became emper'
+GENERATED:  can tee of mor the gecote to ban nofow the the he hall the shad ald
+the is sat sand the am to hip the made bee that, what in o and as his
+firgert it of har ad of hirer, cor ampantaine in is mateing t...
+H  0: gt_nll=3.40869 gt_top1=0 valid=0.0000 malformed=0.0000
+H 10: gt_nll=3.66414 gt_top1=0 valid=1.0000 malformed=0.0000
+H 25: gt_nll=1.09886 gt_top1=1 valid=0.6667 malformed=0.3333
+H 50: gt_nll=4.01990 gt_top1=0 valid=0.7500 malformed=0.2500
+H100: gt_nll=3.54689 gt_top1=0 valid=0.8400 malformed=0.1600
+H250: gt_nll=6.64036 gt_top1=0 valid=0.7833 malformed=0.2167
+H500: gt_nll=3.54576 gt_top1=0 valid=0.7034 malformed=0.2966
+time=0.931s
+
+val_anchor_6: prompt='sin of the countess’, a man with'
+GENERATED:  is at looing he to that geene searked mrof a her of sall the the you soulde
+of gat the the lighis whach
+he mucond, of the chis trended ond or mye lich
+
+thach our to thaghe lip of ith om a ir and of c...
+H  0: gt_nll=0.45300 gt_top1=1 valid=0.0000 malformed=0.0000
+H 10: gt_nll=2.94158 gt_top1=0 valid=1.0000 malformed=0.0000
+H 25: gt_nll=6.50890 gt_top1=0 valid=0.8333 malformed=0.1667
+H 50: gt_nll=2.71811 gt_top1=0 valid=0.6364 malformed=0.3636
+H100: gt_nll=1.92940 gt_top1=0 valid=0.6522 malformed=0.3478
+H250: gt_nll=7.29841 gt_top1=0 valid=0.5789 malformed=0.4211
+H500: gt_nll=4.78826 gt_top1=0 valid=0.5586 malformed=0.4414
+time=0.940s
+
+val_anchor_7: prompt='(the family solicitor) “and he s'
+GENERATED: eacte rof os the
+the she apllant tof the we sof wis so it the sot we the the hasef ir in sof shing; he them he
+con beave and the
+ome ot nee what our sous he prearte ann moangene the so wand the bught,...
+H  0: gt_nll=1.81460 gt_top1=0 valid=0.0000 malformed=0.0000
+H 10: gt_nll=3.10809 gt_top1=0 valid=0.0000 malformed=1.0000
+H 25: gt_nll=6.62941 gt_top1=0 valid=0.6667 malformed=0.3333
+H 50: gt_nll=1.23546 gt_top1=1 valid=0.5833 malformed=0.4167
+H100: gt_nll=4.25488 gt_top1=0 valid=0.5417 malformed=0.4583
+H250: gt_nll=3.20407 gt_top1=0 valid=0.6207 malformed=0.3793
+H500: gt_nll=6.00078 gt_top1=0 valid=0.5364 malformed=0.4636
+time=1.226s
+
+MODE: topk20_t0.9
+
+val_anchor_1: prompt='       *       *\n\n_later._--dr. '
+GENERATED: heind ctoor. id t i
+
+ mors sons emad his of somr the dait and a no so
+sticherr whare of stoke anghoug you muver mins of, ande, wineers won
+athese,
+ wele it ot an fa antt ae exiced atndeded
+avis ountha...
+H  0: gt_nll=5.33796 gt_top1=0 valid=0.0000 malformed=0.0000
+H 10: gt_nll=5.52568 gt_top1=0 valid=0.0000 malformed=1.0000
+H 25: gt_nll=1.24674 gt_top1=1 valid=0.3333 malformed=0.6667
+H 50: gt_nll=3.72773 gt_top1=0 valid=0.5000 malformed=0.5000
+H100: gt_nll=2.04707 gt_top1=0 valid=0.5455 malformed=0.4545
+H250: gt_nll=0.55967 gt_top1=1 valid=0.4200 malformed=0.5800
+H500: gt_nll=3.52461 gt_top1=0 valid=0.3371 malformed=0.6629
+time=1.301s
+
+val_anchor_2: prompt='accept these as\nproofs of so wil'
+GENERATED: lable. and bis that a him the mr. whe mard ine andey
+wato forisy. her bee tite datere to fellotune; this, as streed our sat the comior, warcheng it
+so munding orcthe utckenon dreading is rook bouterin...
+H  0: gt_nll=1.94572 gt_top1=0 valid=0.0000 malformed=0.0000
+H 10: gt_nll=0.20267 gt_top1=1 valid=0.5000 malformed=0.5000
+H 25: gt_nll=3.75167 gt_top1=0 valid=0.6667 malformed=0.3333
+H 50: gt_nll=3.86165 gt_top1=0 valid=0.5833 malformed=0.4167
+H100: gt_nll=6.06347 gt_top1=0 valid=0.4500 malformed=0.5500
+H250: gt_nll=3.15279 gt_top1=0 valid=0.4681 malformed=0.5319
+H500: gt_nll=0.56636 gt_top1=1 valid=0.4574 malformed=0.5426
+time=0.951s
+
+val_anchor_3: prompt='uty. everyone brightened at the '
+GENERATED: his and a
+onnd trempectort to fand beard
+whincin.
+
+whatengevarre beng to with oor has, mecared muad pangesertiring
+ape fin geagret belint ferestoy of parin and whith cancked heer foagh thime he say sh...
+H  0: gt_nll=2.37248 gt_top1=0 valid=0.0000 malformed=0.0000
+H 10: gt_nll=2.96168 gt_top1=0 valid=1.0000 malformed=0.0000
+H 25: gt_nll=4.35877 gt_top1=0 valid=0.6000 malformed=0.4000
+H 50: gt_nll=5.48532 gt_top1=0 valid=0.5556 malformed=0.4444
+H100: gt_nll=4.14319 gt_top1=0 valid=0.4706 malformed=0.5294
+H250: gt_nll=6.31186 gt_top1=0 valid=0.3953 malformed=0.6047
+H500: gt_nll=1.69382 gt_top1=0 valid=0.3820 malformed=0.6180
+time=0.928s
+
+val_anchor_4: prompt=' with your husband. i can’t unde'
+GENERATED: rer abtat alle be to aso anches the
+to we to she prarsowede ar your ou and
+igry soment! habust ee is amas
+cot you she thit obut bretug wind loof the and omy thiler, the nof me hath bys hhe tous whit h...
+H  0: gt_nll=1.48991 gt_top1=1 valid=0.0000 malformed=0.0000
+H 10: gt_nll=6.69800 gt_top1=0 valid=0.0000 malformed=1.0000
+H 25: gt_nll=6.30912 gt_top1=0 valid=0.3333 malformed=0.6667
+H 50: gt_nll=1.47744 gt_top1=1 valid=0.6154 malformed=0.3846
+H100: gt_nll=5.58002 gt_top1=0 valid=0.5000 malformed=0.5000
+H250: gt_nll=2.80161 gt_top1=0 valid=0.5370 malformed=0.4630
+H500: gt_nll=5.29682 gt_top1=0 valid=0.5208 malformed=0.4792
+time=0.935s
+
+val_anchor_5: prompt=' from an ensign and became emper'
+GENERATED:  cagery, sald eand woly but he prewaly the, your, ind a the were a he dind no sot--------slin e
+moverinch the you how it the fown must we ashis, it i of painge, thig; hom’me, on and por tho ave
+sy his...
+H  0: gt_nll=3.40869 gt_top1=0 valid=0.0000 malformed=0.0000
+H 10: gt_nll=4.43489 gt_top1=0 valid=0.5000 malformed=0.5000
+H 25: gt_nll=5.05912 gt_top1=0 valid=0.2000 malformed=0.8000
+H 50: gt_nll=2.29942 gt_top1=0 valid=0.4444 malformed=0.5556
+H100: gt_nll=4.07912 gt_top1=0 valid=0.6000 malformed=0.4000
+H250: gt_nll=7.19179 gt_top1=0 valid=0.6415 malformed=0.3585
+H500: gt_nll=6.04669 gt_top1=0 valid=0.5631 malformed=0.4369
+time=0.910s
+
+val_anchor_6: prompt='sin of the countess’, a man with'
+GENERATED:  is at looied whe allle the
+withing as fondintis, sherst the preaptarsed of seatfer, we therrer, tho
+ imom wthe ath of sneel and isssucedis, hee way shrcouly end prainghs
+ugedttin. he we hilght oit lh...
+H  0: gt_nll=0.45300 gt_top1=1 valid=0.0000 malformed=0.0000
+H 10: gt_nll=2.94158 gt_top1=0 valid=1.0000 malformed=0.0000
+H 25: gt_nll=6.63436 gt_top1=0 valid=0.5000 malformed=0.5000
+H 50: gt_nll=2.32189 gt_top1=0 valid=0.4444 malformed=0.5556
+H100: gt_nll=4.23710 gt_top1=0 valid=0.4706 malformed=0.5294
+H250: gt_nll=2.13641 gt_top1=0 valid=0.4783 malformed=0.5217
+H500: gt_nll=6.55743 gt_top1=0 valid=0.4948 malformed=0.5052
+time=0.916s
+
+val_anchor_7: prompt='(the family solicitor) “and he s'
+GENERATED: eacte rof pporin the a daned wand but doo der hader wis he thit bime. has ligh a eve and a das wit; i ind fen hise me coarng
+stiouch i oar to andd the whe the dould gepousy,
+frer wuche he cound bught,...
+H  0: gt_nll=1.81460 gt_top1=0 valid=0.0000 malformed=0.0000
+H 10: gt_nll=3.10809 gt_top1=0 valid=0.0000 malformed=1.0000
+H 25: gt_nll=3.06088 gt_top1=0 valid=0.5000 malformed=0.5000
+H 50: gt_nll=4.94241 gt_top1=0 valid=0.3636 malformed=0.6364
+H100: gt_nll=4.05557 gt_top1=0 valid=0.4783 malformed=0.5217
+H250: gt_nll=6.00369 gt_top1=0 valid=0.4821 malformed=0.5179
+H500: gt_nll=4.48460 gt_top1=0 valid=0.5047 malformed=0.4953
+time=0.940s
+
+MODE: topk20_t1.0
+
+val_anchor_1: prompt='       *       *\n\n_later._--dr. '
+GENERATED: hake tlass t t fo tine, ho s ill delorsy inon spo soursing ther pores shupr aped; wa i ligh; dedecer ta o mubledy wous has yous lailled. bi buthes
+ers gris, wande.” i hou mablir pancw arte
+avicgentani...
+H  0: gt_nll=5.33796 gt_top1=0 valid=0.0000 malformed=0.0000
+H 10: gt_nll=6.23705 gt_top1=0 valid=0.5000 malformed=0.5000
+H 25: gt_nll=5.99864 gt_top1=0 valid=0.5714 malformed=0.4286
+H 50: gt_nll=2.23529 gt_top1=0 valid=0.5000 malformed=0.5000
+H100: gt_nll=3.46122 gt_top1=0 valid=0.3810 malformed=0.6190
+H250: gt_nll=5.96848 gt_top1=0 valid=0.3400 malformed=0.6600
+H500: gt_nll=0.92441 gt_top1=1 valid=0.2697 malformed=0.7303
+time=0.932s
+
+val_anchor_2: prompt='accept these as\nproofs of so wil'
+GENERATED: labbet deanss, an thard he mis opppere the dot farevis, miny
+dap wor mrest ing datede to fen whe pnin anto o sampiineng son the cof bish anin wattedeng hou wos irs
+sampmact. ing i of hou ye colen arke...
+H  0: gt_nll=1.94572 gt_top1=0 valid=0.0000 malformed=0.0000
+H 10: gt_nll=3.80501 gt_top1=0 valid=0.0000 malformed=1.0000
+H 25: gt_nll=6.99561 gt_top1=0 valid=0.4000 malformed=0.6000
+H 50: gt_nll=4.22758 gt_top1=0 valid=0.5000 malformed=0.5000
+H100: gt_nll=5.65369 gt_top1=0 valid=0.3000 malformed=0.7000
+H250: gt_nll=6.98469 gt_top1=0 valid=0.4082 malformed=0.5918
+H500: gt_nll=1.76435 gt_top1=0 valid=0.3830 malformed=0.6170
+time=0.935s
+
+val_anchor_3: prompt='uty. everyone brightened at the '
+GENERATED: his and a
+onnd trempectopss ocene the fack. stunnt be tast nindet, aid a his deline und.
+both norgo dins iseng
+portiatit of hetlel coan any hares of reeas aint
+mosteed, with sho ave, you is guucces as...
+H  0: gt_nll=2.37248 gt_top1=0 valid=0.0000 malformed=0.0000
+H 10: gt_nll=2.96168 gt_top1=0 valid=1.0000 malformed=0.0000
+H 25: gt_nll=6.19988 gt_top1=0 valid=0.6000 malformed=0.4000
+H 50: gt_nll=1.95364 gt_top1=0 valid=0.4444 malformed=0.5556
+H100: gt_nll=4.36571 gt_top1=0 valid=0.4737 malformed=0.5263
+H250: gt_nll=1.87108 gt_top1=0 valid=0.4694 malformed=0.5306
+H500: gt_nll=3.21605 gt_top1=0 valid=0.4130 malformed=0.5870
+time=0.910s
+
+val_anchor_4: prompt=' with your husband. i can’t unde'
+GENERATED: rer, you nee wacw to aso anches the
+to we to she prars messe and apund an a mee hanict! ha wis forster, waised of she thit obugh dornckses, eeag aur the
+a oof whers,
+wasreno to fanty ipts. a thanede o...
+H  0: gt_nll=1.48991 gt_top1=1 valid=0.0000 malformed=0.0000
+H 10: gt_nll=6.94929 gt_top1=0 valid=0.6667 malformed=0.3333
+H 25: gt_nll=6.57750 gt_top1=0 valid=0.3333 malformed=0.6667
+H 50: gt_nll=1.49726 gt_top1=1 valid=0.6154 malformed=0.3846
+H100: gt_nll=4.17347 gt_top1=0 valid=0.4783 malformed=0.5217
+H250: gt_nll=5.72176 gt_top1=0 valid=0.4510 malformed=0.5490
+H500: gt_nll=4.95710 gt_top1=0 valid=0.3684 malformed=0.6316
+time=0.921s
+
+val_anchor_5: prompt=' from an ensign and became emper'
+GENERATED:  cagery, sald eand woly but he prewaly the, your, ind a the were a yeace be one is the wilor apover the othe mibl,
+so hit this busawe wendersto as it reil reabung overes.”
+
+
+“hin worge inthin. toy bo ...
+H  0: gt_nll=3.40869 gt_top1=0 valid=0.0000 malformed=0.0000
+H 10: gt_nll=4.43489 gt_top1=0 valid=0.5000 malformed=0.5000
+H 25: gt_nll=5.05912 gt_top1=0 valid=0.2000 malformed=0.8000
+H 50: gt_nll=2.29942 gt_top1=0 valid=0.4444 malformed=0.5556
+H100: gt_nll=2.04620 gt_top1=0 valid=0.5714 malformed=0.4286
+H250: gt_nll=6.29484 gt_top1=0 valid=0.4898 malformed=0.5102
+H500: gt_nll=2.53028 gt_top1=0 valid=0.4516 malformed=0.5484
+time=1.054s
+
+val_anchor_6: prompt='sin of the countess’, a man with'
+GENERATED:  is at looied w un wis
+goth sto we garg wous at and antt he natren; tho mor
+hist-of there with
+musthiirg, airne, wint the herourer, oack ickit briiker sreaty por pally oi no
+the the forr aicled ir the...
+H  0: gt_nll=0.45300 gt_top1=1 valid=0.0000 malformed=0.0000
+H 10: gt_nll=2.94158 gt_top1=0 valid=1.0000 malformed=0.0000
+H 25: gt_nll=2.13048 gt_top1=0 valid=0.7143 malformed=0.2857
+H 50: gt_nll=7.15418 gt_top1=0 valid=0.6154 malformed=0.3846
+H100: gt_nll=1.11170 gt_top1=1 valid=0.5455 malformed=0.4545
+H250: gt_nll=4.12750 gt_top1=0 valid=0.3800 malformed=0.6200
+H500: gt_nll=7.47660 gt_top1=0 valid=0.3763 malformed=0.6237
+time=1.234s
+
+val_anchor_7: prompt='(the family solicitor) “and he s'
+GENERATED: eacte rof pporin the a dariblleng froran, dit so meesus
+sin dit muctone, the nettwior me a bis watn ith bls aicine, mave mort oneade
+werad to and the erptury prorieds buesn oad and, omled, i i sonched...
+H  0: gt_nll=1.81460 gt_top1=0 valid=0.0000 malformed=0.0000
+H 10: gt_nll=3.10809 gt_top1=0 valid=0.0000 malformed=1.0000
+H 25: gt_nll=3.06088 gt_top1=0 valid=0.5000 malformed=0.5000
+H 50: gt_nll=6.33584 gt_top1=0 valid=0.4000 malformed=0.6000
+H100: gt_nll=3.86273 gt_top1=0 valid=0.3684 malformed=0.6316
+H250: gt_nll=4.05912 gt_top1=0 valid=0.3800 malformed=0.6200
+H500: gt_nll=5.64474 gt_top1=0 valid=0.3438 malformed=0.6562
+time=1.198s
+
+========================================================================
+FREE-RUNNING DRIFT: Glyph v2 100k
+========================================================================
+
+MODE: greedy
+
+val_anchor_1: prompt='       *       *\n\n_later._--dr. '
+GENERATED: i she said the so the some the so the sook the some of the some
+the some the some the some the some the some the some the some of the
+strange of the strange of the strange of the strange of the start ...
+H  0: gt_nll=5.06891 gt_top1=0 valid=0.0000 malformed=0.0000
+H 10: gt_nll=7.70855 gt_top1=0 valid=1.0000 malformed=0.0000
+H 25: gt_nll=2.77911 gt_top1=0 valid=0.8571 malformed=0.1429
+H 50: gt_nll=3.21596 gt_top1=0 valid=0.8462 malformed=0.1538
+H100: gt_nll=3.69760 gt_top1=0 valid=0.9583 malformed=0.0417
+H250: gt_nll=7.31255 gt_top1=0 valid=0.9821 malformed=0.0179
+H500: gt_nll=7.06926 gt_top1=0 valid=0.9907 malformed=0.0093
+time=0.794s
+
+val_anchor_2: prompt='accept these as\nproofs of so wil'
+GENERATED: l the strees of the stranded the strangess of the strange
+the strange of the strange the strange of the strange of the start of
+the strant of the strange of the strange of the strange of the start of
+...
+H  0: gt_nll=1.50568 gt_top1=0 valid=0.0000 malformed=0.0000
+H 10: gt_nll=5.18593 gt_top1=0 valid=0.6667 malformed=0.3333
+H 25: gt_nll=5.86459 gt_top1=0 valid=0.6667 malformed=0.3333
+H 50: gt_nll=9.48038 gt_top1=0 valid=0.8000 malformed=0.2000
+H100: gt_nll=6.41256 gt_top1=0 valid=0.8947 malformed=0.1053
+H250: gt_nll=3.81641 gt_top1=0 valid=0.9412 malformed=0.0588
+H500: gt_nll=5.86531 gt_top1=0 valid=0.9608 malformed=0.0392
+time=0.809s
+
+val_anchor_3: prompt='uty. everyone brightened at the '
+GENERATED: stand the stranged of the
+strange of the strees of the strange the strange the strange of the
+strange of the strange of the strange of the strange of the start of
+the strange of the strange of the str...
+H  0: gt_nll=2.23831 gt_top1=1 valid=0.0000 malformed=0.0000
+H 10: gt_nll=2.96879 gt_top1=0 valid=1.0000 malformed=0.0000
+H 25: gt_nll=7.77125 gt_top1=0 valid=0.8000 malformed=0.2000
+H 50: gt_nll=6.56937 gt_top1=0 valid=0.8000 malformed=0.2000
+H100: gt_nll=6.16106 gt_top1=0 valid=0.8421 malformed=0.1579
+H250: gt_nll=0.04906 gt_top1=1 valid=0.9600 malformed=0.0400
+H500: gt_nll=2.95374 gt_top1=0 valid=0.9802 malformed=0.0198
+time=0.816s
+
+val_anchor_4: prompt=' with your husband. i can’t unde'
+GENERATED: r the some to the some of the
+could the strange of the strange the strange to the strange the stand
+of the strange of the strant of the strant of the start of the start of
+the strange of the strange o...
+H  0: gt_nll=0.48169 gt_top1=1 valid=0.0000 malformed=0.0000
+H 10: gt_nll=0.73939 gt_top1=1 valid=1.0000 malformed=0.0000
+H 25: gt_nll=0.53252 gt_top1=1 valid=1.0000 malformed=0.0000
+H 50: gt_nll=7.20656 gt_top1=0 valid=1.0000 malformed=0.0000
+H100: gt_nll=3.49423 gt_top1=0 valid=1.0000 malformed=0.0000
+H250: gt_nll=2.98229 gt_top1=0 valid=0.9630 malformed=0.0370
+H500: gt_nll=6.37640 gt_top1=0 valid=0.9810 malformed=0.0190
+time=0.809s
+
+val_anchor_5: prompt=' from an ensign and became emper'
+GENERATED: s of the stree of the strees of
+the strange the strange of the strange the strange of the strange of the
+strange of the strange of the strange of the strange of the start of
+the strange of the strange...
+H  0: gt_nll=4.06673 gt_top1=0 valid=0.0000 malformed=0.0000
+H 10: gt_nll=3.86733 gt_top1=0 valid=1.0000 malformed=0.0000
+H 25: gt_nll=8.32134 gt_top1=0 valid=0.7143 malformed=0.2857
+H 50: gt_nll=1.94546 gt_top1=0 valid=0.8333 malformed=0.1667
+H100: gt_nll=7.63838 gt_top1=0 valid=0.9048 malformed=0.0952
+H250: gt_nll=5.74352 gt_top1=0 valid=0.9615 malformed=0.0385
+H500: gt_nll=2.99063 gt_top1=0 valid=0.9806 malformed=0.0194
+time=0.811s
+
+val_anchor_6: prompt='sin of the countess’, a man with'
+GENERATED:  the some the some to the
+strange of the stree of the strange the strange the strange of the strange
+of the strange of the strant of the strange of the strange of the start
+of the strange of the stran...
+H  0: gt_nll=0.13805 gt_top1=1 valid=0.0000 malformed=0.0000
+H 10: gt_nll=1.89155 gt_top1=1 valid=1.0000 malformed=0.0000
+H 25: gt_nll=0.82771 gt_top1=0 valid=1.0000 malformed=0.0000
+H 50: gt_nll=2.47422 gt_top1=0 valid=0.9091 malformed=0.0909
+H100: gt_nll=5.42439 gt_top1=0 valid=0.9500 malformed=0.0500
+H250: gt_nll=2.43911 gt_top1=1 valid=0.9608 malformed=0.0392
+H500: gt_nll=9.34369 gt_top1=0 valid=0.9806 malformed=0.0194
+time=0.803s
+
+val_anchor_7: prompt='(the family solicitor) “and he s'
+GENERATED: ome the some of the strange of the
+compless of the stree to the strange of the strange of the start of the
+strange of the strange of the strange of the strange of the start of
+the strange of the stran...
+H  0: gt_nll=2.02120 gt_top1=0 valid=0.0000 malformed=0.0000
+H 10: gt_nll=1.03316 gt_top1=1 valid=1.0000 malformed=0.0000
+H 25: gt_nll=2.84838 gt_top1=0 valid=0.8333 malformed=0.1667
+H 50: gt_nll=5.85679 gt_top1=0 valid=0.9091 malformed=0.0909
+H100: gt_nll=3.78797 gt_top1=0 valid=0.9048 malformed=0.0952
+H250: gt_nll=7.64305 gt_top1=0 valid=0.9623 malformed=0.0377
+H500: gt_nll=7.11691 gt_top1=0 valid=0.9808 malformed=0.0192
+time=0.799s
+
+MODE: topk20_t0.7
+
+val_anchor_1: prompt='       *       *\n\n_later._--dr. '
+GENERATED: but see was lookel be to know his earth fould at me a mucker
+                                                           *                                                                               ...
+H  0: gt_nll=5.06891 gt_top1=0 valid=0.0000 malformed=0.0000
+H 10: gt_nll=6.09003 gt_top1=0 valid=1.0000 malformed=0.0000
+H 25: gt_nll=4.90271 gt_top1=0 valid=0.8333 malformed=0.1667
+H 50: gt_nll=1.61148 gt_top1=0 valid=0.8333 malformed=0.1667
+H100: gt_nll=7.06126 gt_top1=0 valid=0.7857 malformed=0.2143
+H250: gt_nll=0.13191 gt_top1=1 valid=0.7857 malformed=0.2143
+H500: gt_nll=0.13191 gt_top1=1 valid=0.7857 malformed=0.2143
+time=0.922s
+
+val_anchor_2: prompt='accept these as\nproofs of so wil'
+GENERATED: l to it from sight of him greiuling that the sip ackal
+propent the strisele before the more the man that soffet in the lett whale
+whing the marre agreinath on that hear, and well feer the twill of the...
+H  0: gt_nll=1.50568 gt_top1=0 valid=0.0000 malformed=0.0000
+H 10: gt_nll=6.50206 gt_top1=0 valid=0.7500 malformed=0.2500
+H 25: gt_nll=4.87487 gt_top1=0 valid=1.0000 malformed=0.0000
+H 50: gt_nll=7.56209 gt_top1=0 valid=0.9167 malformed=0.0833
+H100: gt_nll=7.21094 gt_top1=0 valid=0.8000 malformed=0.2000
+H250: gt_nll=6.02683 gt_top1=0 valid=0.7451 malformed=0.2549
+H500: gt_nll=5.26813 gt_top1=0 valid=0.7379 malformed=0.2621
+time=0.926s
+
+val_anchor_3: prompt='uty. everyone brightened at the '
+GENERATED: let and sond ever
+for him with parsited, the was conce the for propler adfartion,
+i had ten gight is stide be wich post me of bettle of the word
+fuing, the it on tuntler armuly in the of all long it s...
+H  0: gt_nll=2.23831 gt_top1=1 valid=0.0000 malformed=0.0000
+H 10: gt_nll=7.39249 gt_top1=0 valid=1.0000 malformed=0.0000
+H 25: gt_nll=7.73390 gt_top1=0 valid=0.8333 malformed=0.1667
+H 50: gt_nll=3.26967 gt_top1=0 valid=0.8182 malformed=0.1818
+H100: gt_nll=7.25283 gt_top1=0 valid=0.7000 malformed=0.3000
+H250: gt_nll=7.01279 gt_top1=0 valid=0.7115 malformed=0.2885
+H500: gt_nll=4.62569 gt_top1=0 valid=0.7333 malformed=0.2667
+time=0.984s
+
+val_anchor_4: prompt=' with your husband. i can’t unde'
+GENERATED: d and the day nor been
+liighty, and her him gret of her sunged marde in mr. when i the
+the prostance in think hose the beack word in shand the on better
+some a fartaing and to sudders the over her las...
+H  0: gt_nll=0.48169 gt_top1=1 valid=0.0000 malformed=0.0000
+H 10: gt_nll=7.52607 gt_top1=0 valid=1.0000 malformed=0.0000
+H 25: gt_nll=7.18802 gt_top1=0 valid=1.0000 malformed=0.0000
+H 50: gt_nll=4.22170 gt_top1=0 valid=0.8333 malformed=0.1667
+H100: gt_nll=4.19581 gt_top1=0 valid=0.7727 malformed=0.2273
+H250: gt_nll=3.84166 gt_top1=0 valid=0.7547 malformed=0.2453
+H500: gt_nll=4.48537 gt_top1=0 valid=0.7778 malformed=0.2222
+time=0.944s
+
+val_anchor_5: prompt=' from an ensign and became emper'
+GENERATED: t of him. the
+was pertice to low prooss, of the moment of the could of her.
+“you the is as to hat dook he word con to he know we ever the any perted
+post ant head to evered use a me so the word, and t...
+H  0: gt_nll=4.06673 gt_top1=0 valid=0.0000 malformed=0.0000
+H 10: gt_nll=2.82703 gt_top1=0 valid=1.0000 malformed=0.0000
+H 25: gt_nll=0.57466 gt_top1=1 valid=0.8333 malformed=0.1667
+H 50: gt_nll=4.57206 gt_top1=0 valid=0.7500 malformed=0.2500
+H100: gt_nll=3.89254 gt_top1=0 valid=0.9167 malformed=0.0833
+H250: gt_nll=3.74873 gt_top1=0 valid=0.8814 malformed=0.1186
+H500: gt_nll=2.33282 gt_top1=0 valid=0.8348 malformed=0.1652
+time=1.237s
+
+val_anchor_6: prompt='sin of the countess’, a man with'
+GENERATED:  her i ben the
+man some of the for whater at not one tall to be a dessing best exprate
+and shand she she shough silles them deart very not repod, you panged
+the be. me to the boot the shall and and fa...
+H  0: gt_nll=0.13805 gt_top1=1 valid=0.0000 malformed=0.0000
+H 10: gt_nll=2.83213 gt_top1=0 valid=0.6667 malformed=0.3333
+H 25: gt_nll=5.83625 gt_top1=0 valid=0.8571 malformed=0.1429
+H 50: gt_nll=5.19973 gt_top1=0 valid=0.8462 malformed=0.1538
+H100: gt_nll=4.27694 gt_top1=0 valid=0.7826 malformed=0.2174
+H250: gt_nll=4.06155 gt_top1=0 valid=0.7778 malformed=0.2222
+H500: gt_nll=7.97103 gt_top1=0 valid=0.7850 malformed=0.2150
+time=1.329s
+
+val_anchor_7: prompt='(the family solicitor) “and he s'
+GENERATED: aid,”
+“but said in and the plast pece, and he sume to one
+of the the stome to what acke had pain dick, that the the wordable what
+the fell dect and mater one themen arrating to one the pelight
+some of...
+H  0: gt_nll=2.02120 gt_top1=0 valid=0.0000 malformed=0.0000
+H 10: gt_nll=8.99545 gt_top1=0 valid=1.0000 malformed=0.0000
+H 25: gt_nll=7.59753 gt_top1=0 valid=1.0000 malformed=0.0000
+H 50: gt_nll=4.35860 gt_top1=0 valid=0.7273 malformed=0.2727
+H100: gt_nll=4.57004 gt_top1=0 valid=0.7391 malformed=0.2609
+H250: gt_nll=6.11209 gt_top1=0 valid=0.7358 malformed=0.2642
+H500: gt_nll=8.02061 gt_top1=0 valid=0.7965 malformed=0.2035
+time=0.923s
+
+MODE: topk20_t0.9
+
+val_anchor_1: prompt='       *       *\n\n_later._--dr. '
+GENERATED: but see gae?”
+
+
+worgh polke whould hearsoners                   .          falitht                         s    s,      
+
+          **      ”                 *                                  *1321.”...
+H  0: gt_nll=5.06891 gt_top1=0 valid=0.0000 malformed=0.0000
+H 10: gt_nll=5.10437 gt_top1=0 valid=0.6667 malformed=0.3333
+H 25: gt_nll=5.28259 gt_top1=0 valid=0.4000 malformed=0.6000
+H 50: gt_nll=5.70100 gt_top1=0 valid=0.2857 malformed=0.7143
+H100: gt_nll=7.07482 gt_top1=0 valid=0.2500 malformed=0.7500
+H250: gt_nll=0.12343 gt_top1=1 valid=0.4000 malformed=0.6000
+H500: gt_nll=0.13683 gt_top1=1 valid=0.4000 malformed=0.6000
+time=0.925s
+
+val_anchor_2: prompt='accept these as\nproofs of so wil'
+GENERATED: l to it from lust no to he foay. her had the scave.
+suly never bit your dace; and he lizather his unded, as the pellingng
+for she and said and to him fer in a that hear, and well feeth elosos
+destariv...
+H  0: gt_nll=1.50568 gt_top1=0 valid=0.0000 malformed=0.0000
+H 10: gt_nll=6.50206 gt_top1=0 valid=0.7500 malformed=0.2500
+H 25: gt_nll=8.24603 gt_top1=0 valid=1.0000 malformed=0.0000
+H 50: gt_nll=2.80614 gt_top1=0 valid=0.8462 malformed=0.1538
+H100: gt_nll=3.47887 gt_top1=0 valid=0.7826 malformed=0.2174
+H250: gt_nll=3.84716 gt_top1=0 valid=0.7547 malformed=0.2453
+H500: gt_nll=7.19640 gt_top1=0 valid=0.7212 malformed=0.2788
+time=0.966s
+
+val_anchor_3: prompt='uty. everyone brightened at the '
+GENERATED: let and sons up on the
+solly sventing he said low came plating ever the letter of she past a hoh
+chorrawing the pieasss had teivior to stakes.
+
+i, for and is couldlences mucirap to the till aurst it s...
+H  0: gt_nll=2.23831 gt_top1=1 valid=0.0000 malformed=0.0000
+H 10: gt_nll=7.39249 gt_top1=0 valid=1.0000 malformed=0.0000
+H 25: gt_nll=5.51266 gt_top1=0 valid=1.0000 malformed=0.0000
+H 50: gt_nll=3.90691 gt_top1=0 valid=0.8182 malformed=0.1818
+H100: gt_nll=3.25247 gt_top1=0 valid=0.8182 malformed=0.1818
+H250: gt_nll=3.19794 gt_top1=0 valid=0.7200 malformed=0.2800
+H500: gt_nll=7.61917 gt_top1=0 valid=0.7525 malformed=0.2475
+time=0.942s
+
+val_anchor_4: prompt=' with your husband. i can’t unde'
+GENERATED: d and the day, all gater ged
+yes will shough af hads reacy, and on and lave i at syranding in thong,
+which in is a seay. i obe with mr. which ging a be hund shally sortre
+postuch his of passoon. he wi...
+H  0: gt_nll=0.48169 gt_top1=1 valid=0.0000 malformed=0.0000
+H 10: gt_nll=7.52607 gt_top1=0 valid=1.0000 malformed=0.0000
+H 25: gt_nll=7.43840 gt_top1=0 valid=0.8333 malformed=0.1667
+H 50: gt_nll=2.53616 gt_top1=0 valid=0.6667 malformed=0.3333
+H100: gt_nll=8.49928 gt_top1=0 valid=0.6364 malformed=0.3636
+H250: gt_nll=5.45275 gt_top1=0 valid=0.6364 malformed=0.3636
+H500: gt_nll=5.82478 gt_top1=0 valid=0.6442 malformed=0.3558
+time=0.944s
+
+val_anchor_5: prompt=' from an ensign and became emper'
+GENERATED: t of him. the
+was pertice enturle; on as of dentang it hold had the miding, his morous
+pand andight with sort not in to sume of me of the dookned for in fror
+sto that palate on a mr. the lett but the ...
+H  0: gt_nll=4.06673 gt_top1=0 valid=0.0000 malformed=0.0000
+H 10: gt_nll=2.82703 gt_top1=0 valid=1.0000 malformed=0.0000
+H 25: gt_nll=0.57466 gt_top1=1 valid=0.8333 malformed=0.1667
+H 50: gt_nll=3.78240 gt_top1=0 valid=0.7273 malformed=0.2727
+H100: gt_nll=2.23599 gt_top1=0 valid=0.6500 malformed=0.3500
+H250: gt_nll=9.26358 gt_top1=0 valid=0.7636 malformed=0.2364
+H500: gt_nll=3.38555 gt_top1=0 valid=0.7308 malformed=0.2692
+time=0.935s
+
+val_anchor_6: prompt='sin of the countess’, a man with'
+GENERATED:  her i ben surny
+door me. that you herr any cme to connder a for wer whating bean at the
+courid obout the with was to know. the so. nock sow shan’y liked
+a may foration in the through the bettant when...
+H  0: gt_nll=0.13805 gt_top1=1 valid=0.0000 malformed=0.0000
+H 10: gt_nll=2.83213 gt_top1=0 valid=0.6667 malformed=0.3333
+H 25: gt_nll=0.32702 gt_top1=1 valid=0.6667 malformed=0.3333
+H 50: gt_nll=7.47271 gt_top1=0 valid=0.7500 malformed=0.2500
+H100: gt_nll=5.68191 gt_top1=0 valid=0.6818 malformed=0.3182
+H250: gt_nll=3.84932 gt_top1=0 valid=0.7059 malformed=0.2941
+H500: gt_nll=8.28234 gt_top1=0 valid=0.7129 malformed=0.2871
+time=0.936s
+
+val_anchor_7: prompt='(the family solicitor) “and he s'
+GENERATED: a frequest he of our to hear
+in her land ever through one. in the partes the nother ite, for when sunter
+acquesss intereld remating. that not i hald your he sort,
+me he wall cape, and lay. he or and i...
+H  0: gt_nll=2.02120 gt_top1=0 valid=0.0000 malformed=0.0000
+H 10: gt_nll=7.05537 gt_top1=0 valid=0.5000 malformed=0.5000
+H 25: gt_nll=7.96496 gt_top1=0 valid=0.8571 malformed=0.1429
+H 50: gt_nll=5.97270 gt_top1=0 valid=0.9167 malformed=0.0833
+H100: gt_nll=2.22944 gt_top1=0 valid=0.7727 malformed=0.2273
+H250: gt_nll=7.38787 gt_top1=0 valid=0.8113 malformed=0.1887
+H500: gt_nll=6.93275 gt_top1=0 valid=0.7477 malformed=0.2523
+time=0.936s
+
+MODE: topk20_t1.0
+
+val_anchor_1: prompt='       *       *\n\n_later._--dr. '
+GENERATED: but see gae?--
+
+”           _           --               *      cuntured   be                      
+
+
+
+
+
+
+
+’    smudd   *           **      ”     
+
+          
+
+““““thing,             ’         
+      ...
+H  0: gt_nll=5.06891 gt_top1=0 valid=0.0000 malformed=0.0000
+H 10: gt_nll=5.10437 gt_top1=0 valid=0.6667 malformed=0.3333
+H 25: gt_nll=0.14032 gt_top1=1 valid=0.6667 malformed=0.3333
+H 50: gt_nll=6.40350 gt_top1=0 valid=0.6667 malformed=0.3333
+H100: gt_nll=6.81919 gt_top1=0 valid=0.6000 malformed=0.4000
+H250: gt_nll=0.12485 gt_top1=1 valid=0.5714 malformed=0.4286
+H500: gt_nll=0.11366 gt_top1=1 valid=0.5455 malformed=0.4545
+time=0.935s
+
+val_anchor_2: prompt='accept these as\nproofs of so wil'
+GENERATED: l to it from lust no to he foayh
+stappite stil cammie, no the ome light myn.
+
+“a
+“for the ome so and carme, and it for never to last again to of mat. mast on
+there abright the detcart you’s me under c...
+H  0: gt_nll=1.50568 gt_top1=0 valid=0.0000 malformed=0.0000
+H 10: gt_nll=6.50206 gt_top1=0 valid=0.7500 malformed=0.2500
+H 25: gt_nll=8.24603 gt_top1=0 valid=1.0000 malformed=0.0000
+H 50: gt_nll=5.04218 gt_top1=0 valid=0.6667 malformed=0.3333
+H100: gt_nll=0.08605 gt_top1=1 valid=0.7826 malformed=0.2174
+H250: gt_nll=2.81488 gt_top1=0 valid=0.7547 malformed=0.2453
+H500: gt_nll=7.01704 gt_top1=0 valid=0.6832 malformed=0.3168
+time=0.912s
+
+val_anchor_3: prompt='uty. everyone brightened at the '
+GENERATED: let and sons up on the
+solon! gid in coursed and the greatt. father the lettroned sto by
+castunre as i rald be timppost for the wome achaly alfoug
+me a she im. and
+thece my flive with of is moself in ...
+H  0: gt_nll=2.23831 gt_top1=1 valid=0.0000 malformed=0.0000
+H 10: gt_nll=7.39249 gt_top1=0 valid=1.0000 malformed=0.0000
+H 25: gt_nll=5.51266 gt_top1=0 valid=1.0000 malformed=0.0000
+H 50: gt_nll=4.64388 gt_top1=0 valid=0.8333 malformed=0.1667
+H100: gt_nll=6.53591 gt_top1=0 valid=0.7500 malformed=0.2500
+H250: gt_nll=7.51354 gt_top1=0 valid=0.7222 malformed=0.2778
+H500: gt_nll=4.53675 gt_top1=0 valid=0.6733 malformed=0.3267
+time=1.061s
+
+val_anchor_4: prompt=' with your husband. i can’t unde'
+GENERATED: d and the day, all gater ged
+yes will shough af hads reacy, i in at supompeser he rupon of sperte. he
+
+leot agiffing slikeng in the mr. which rad. the flucke to is in
+the lood save trrall agites it se...
+H  0: gt_nll=0.48169 gt_top1=1 valid=0.0000 malformed=0.0000
+H 10: gt_nll=7.52607 gt_top1=0 valid=1.0000 malformed=0.0000
+H 25: gt_nll=7.43840 gt_top1=0 valid=0.8333 malformed=0.1667
+H 50: gt_nll=2.53616 gt_top1=0 valid=0.6667 malformed=0.3333
+H100: gt_nll=6.03240 gt_top1=0 valid=0.5909 malformed=0.4091
+H250: gt_nll=7.30897 gt_top1=0 valid=0.6122 malformed=0.3878
+H500: gt_nll=4.02415 gt_top1=0 valid=0.6042 malformed=0.3958
+time=1.260s
+
+val_anchor_5: prompt=' from an ensign and became emper'
+GENERATED: t of him. trhe
+counce the good for for which rovowals fram and which
+wouldn would that leef and.”
+
+“ye; now. they that anes his be one the stoch in compage his had to larss rier bre
+soffer.
+
+“i have a...
+H  0: gt_nll=4.06673 gt_top1=0 valid=0.0000 malformed=0.0000
+H 10: gt_nll=2.82703 gt_top1=0 valid=1.0000 malformed=0.0000
+H 25: gt_nll=0.14151 gt_top1=1 valid=0.6667 malformed=0.3333
+H 50: gt_nll=2.72661 gt_top1=0 valid=0.7273 malformed=0.2727
+H100: gt_nll=2.40741 gt_top1=0 valid=0.7368 malformed=0.2632
+H250: gt_nll=7.55066 gt_top1=0 valid=0.6863 malformed=0.3137
+H500: gt_nll=6.16254 gt_top1=0 valid=0.6566 malformed=0.3434
+time=1.199s
+
+val_anchor_6: prompt='sin of the countess’, a man with'
+GENERATED:  hem, the
+the crained been mombles whark lost?”
+
+“and his shame spros, thy ome cant the ustaly seper with had the and you,--can, and igw be
+ovity prosenst of the vishing had cilloted be the primse on
+...
+H  0: gt_nll=0.13805 gt_top1=1 valid=0.0000 malformed=0.0000
+H 10: gt_nll=2.74208 gt_top1=0 valid=1.0000 malformed=0.0000
+H 25: gt_nll=3.83995 gt_top1=0 valid=0.8000 malformed=0.2000
+H 50: gt_nll=2.92865 gt_top1=0 valid=0.6250 malformed=0.3750
+H100: gt_nll=2.66718 gt_top1=0 valid=0.6667 malformed=0.3333
+H250: gt_nll=7.35842 gt_top1=0 valid=0.6667 malformed=0.3333
+H500: gt_nll=6.04811 gt_top1=0 valid=0.6354 malformed=0.3646
+time=0.913s
+
+val_anchor_7: prompt='(the family solicitor) “and he s'
+GENERATED: a frequest-man.
+
+crongly seenfuriton, and drefufared, sos heard ded my misnerched and
+flught
+muferseress,” whit i coun arlol, caulle, how carrest it, but and they
+begurd to that in the crrettall was o...
+H  0: gt_nll=2.02120 gt_top1=0 valid=0.0000 malformed=0.0000
+H 10: gt_nll=7.05537 gt_top1=0 valid=0.5000 malformed=0.5000
+H 25: gt_nll=7.53262 gt_top1=0 valid=0.3333 malformed=0.6667
+H 50: gt_nll=2.45351 gt_top1=0 valid=0.3333 malformed=0.6667
+H100: gt_nll=1.69092 gt_top1=0 valid=0.3571 malformed=0.6429
+H250: gt_nll=4.31447 gt_top1=0 valid=0.5349 malformed=0.4651
+H500: gt_nll=2.89449 gt_top1=0 valid=0.5870 malformed=0.4130
+time=0.900s
+
+========================================================================
+AGGREGATE FREE-RUNNING DRIFT
+========================================================================
+Lower gt_nll / higher gt_top1 after self-generated history means the model stays better aligned with real held-out text.
+
+Glyph v2 20k | greedy
+H  0: gt_nll=2.65181 gt_top1=0.1429 valid=0.0000 malformed=0.0000
+H 10: gt_nll=5.36416 gt_top1=0.0000 valid=0.7619 malformed=0.0952
+H 25: gt_nll=5.32917 gt_top1=0.1429 valid=0.8163 malformed=0.0408
+H 50: gt_nll=3.67750 gt_top1=0.2857 valid=0.8352 malformed=0.0220
+H100: gt_nll=3.88379 gt_top1=0.0000 valid=0.8459 malformed=0.0112
+H250: gt_nll=4.48245 gt_top1=0.1429 valid=0.8526 malformed=0.0045
+H500: gt_nll=4.10839 gt_top1=0.1429 valid=0.8549 malformed=0.0023
+
+Glyph v2 20k | topk20_t0.7
+H  0: gt_nll=2.65181 gt_top1=0.1429 valid=0.0000 malformed=0.0000
+H 10: gt_nll=4.67410 gt_top1=0.0000 valid=0.4762 malformed=0.5238
+H 25: gt_nll=4.07833 gt_top1=0.1429 valid=0.5102 malformed=0.4898
+H 50: gt_nll=5.05033 gt_top1=0.0000 valid=0.5843 malformed=0.4157
+H100: gt_nll=3.50457 gt_top1=0.1429 valid=0.4990 malformed=0.5010
+H250: gt_nll=4.12840 gt_top1=0.1429 valid=0.5200 malformed=0.4800
+H500: gt_nll=2.80422 gt_top1=0.4286 valid=0.4976 malformed=0.5024
+
+Glyph v2 20k | topk20_t0.9
+H  0: gt_nll=2.65181 gt_top1=0.1429 valid=0.0000 malformed=0.0000
+H 10: gt_nll=5.09589 gt_top1=0.0000 valid=0.3333 malformed=0.6667
+H 25: gt_nll=5.00564 gt_top1=0.1429 valid=0.4286 malformed=0.5714
+H 50: gt_nll=4.93180 gt_top1=0.1429 valid=0.3837 malformed=0.6163
+H100: gt_nll=2.93798 gt_top1=0.4286 valid=0.4039 malformed=0.5961
+H250: gt_nll=3.75735 gt_top1=0.0000 valid=0.4102 malformed=0.5898
+H500: gt_nll=4.81699 gt_top1=0.0000 valid=0.3700 malformed=0.6300
+
+Glyph v2 20k | topk20_t1.0
+H  0: gt_nll=2.65181 gt_top1=0.1429 valid=0.0000 malformed=0.0000
+H 10: gt_nll=4.87360 gt_top1=0.0000 valid=0.3333 malformed=0.6667
+H 25: gt_nll=3.36527 gt_top1=0.2857 valid=0.3190 malformed=0.6810
+H 50: gt_nll=3.77388 gt_top1=0.0000 valid=0.5056 malformed=0.4944
+H100: gt_nll=2.64036 gt_top1=0.2857 valid=0.4255 malformed=0.5745
+H250: gt_nll=3.89543 gt_top1=0.1429 valid=0.3564 malformed=0.6436
+H500: gt_nll=4.68462 gt_top1=0.0000 valid=0.3351 malformed=0.6649
+
+Glyph v2 50k | greedy
+H  0: gt_nll=2.40320 gt_top1=0.2857 valid=0.0000 malformed=0.0000
+H 10: gt_nll=6.17333 gt_top1=0.0000 valid=0.8571 malformed=0.0000
+H 25: gt_nll=4.68194 gt_top1=0.2857 valid=0.8571 malformed=0.0000
+H 50: gt_nll=4.12592 gt_top1=0.2857 valid=0.8571 malformed=0.0000
+H100: gt_nll=4.89653 gt_top1=0.0000 valid=0.8571 malformed=0.0000
+H250: gt_nll=4.95684 gt_top1=0.1429 valid=0.8571 malformed=0.0000
+H500: gt_nll=4.81947 gt_top1=0.1429 valid=0.8571 malformed=0.0000
+
+Glyph v2 50k | topk20_t0.7
+H  0: gt_nll=2.40320 gt_top1=0.2857 valid=0.0000 malformed=0.0000
+H 10: gt_nll=3.94356 gt_top1=0.1429 valid=0.7619 malformed=0.2381
+H 25: gt_nll=4.88769 gt_top1=0.1429 valid=0.6946 malformed=0.3054
+H 50: gt_nll=4.12564 gt_top1=0.2857 valid=0.7102 malformed=0.2898
+H100: gt_nll=4.37150 gt_top1=0.0000 valid=0.6758 malformed=0.3242
+H250: gt_nll=4.88158 gt_top1=0.1429 valid=0.6418 malformed=0.3582
+H500: gt_nll=3.40910 gt_top1=0.1429 valid=0.5954 malformed=0.4046
+
+Glyph v2 50k | topk20_t0.9
+H  0: gt_nll=2.40320 gt_top1=0.2857 valid=0.0000 malformed=0.0000
+H 10: gt_nll=3.69609 gt_top1=0.1429 valid=0.4286 malformed=0.5714
+H 25: gt_nll=4.34581 gt_top1=0.1429 valid=0.4476 malformed=0.5524
+H 50: gt_nll=3.44512 gt_top1=0.1429 valid=0.5010 malformed=0.4990
+H100: gt_nll=4.31508 gt_top1=0.0000 valid=0.5021 malformed=0.4979
+H250: gt_nll=4.02255 gt_top1=0.1429 valid=0.4889 malformed=0.5111
+H500: gt_nll=4.02433 gt_top1=0.1429 valid=0.4657 malformed=0.5343
+
+Glyph v2 50k | topk20_t1.0
+H  0: gt_nll=2.40320 gt_top1=0.2857 valid=0.0000 malformed=0.0000
+H 10: gt_nll=4.34823 gt_top1=0.0000 valid=0.5238 malformed=0.4762
+H 25: gt_nll=5.14602 gt_top1=0.0000 valid=0.4741 malformed=0.5259
+H 50: gt_nll=3.67189 gt_top1=0.1429 valid=0.5028 malformed=0.4972
+H100: gt_nll=3.52496 gt_top1=0.1429 valid=0.4455 malformed=0.5545
+H250: gt_nll=5.00392 gt_top1=0.0000 valid=0.4169 malformed=0.5831
+H500: gt_nll=3.78765 gt_top1=0.1429 valid=0.3723 malformed=0.6277
+
+Glyph v2 100k | greedy
+H  0: gt_nll=2.21722 gt_top1=0.4286 valid=0.0000 malformed=0.0000
+H 10: gt_nll=3.34210 gt_top1=0.4286 valid=0.9524 malformed=0.0476
+H 25: gt_nll=4.13499 gt_top1=0.1429 valid=0.8388 malformed=0.1612
+H 50: gt_nll=5.24982 gt_top1=0.0000 valid=0.8711 malformed=0.1289
+H100: gt_nll=5.23089 gt_top1=0.0000 valid=0.9221 malformed=0.0779
+H250: gt_nll=4.28371 gt_top1=0.2857 valid=0.9616 malformed=0.0384
+H500: gt_nll=5.95942 gt_top1=0.0000 valid=0.9792 malformed=0.0208
+
+Glyph v2 100k | topk20_t0.7
+H  0: gt_nll=2.21722 gt_top1=0.4286 valid=0.0000 malformed=0.0000
+H 10: gt_nll=6.02361 gt_top1=0.0000 valid=0.9167 malformed=0.0833
+H 25: gt_nll=5.52970 gt_top1=0.1429 valid=0.9082 malformed=0.0918
+H 50: gt_nll=4.39933 gt_top1=0.0000 valid=0.8178 malformed=0.1822
+H100: gt_nll=5.49434 gt_top1=0.0000 valid=0.7853 malformed=0.2147
+H250: gt_nll=4.41937 gt_top1=0.1429 valid=0.7703 malformed=0.2297
+H500: gt_nll=4.69079 gt_top1=0.1429 valid=0.7787 malformed=0.2213
+
+Glyph v2 100k | topk20_t0.9
+H  0: gt_nll=2.21722 gt_top1=0.4286 valid=0.0000 malformed=0.0000
+H 10: gt_nll=5.60565 gt_top1=0.0000 valid=0.7976 malformed=0.2024
+H 25: gt_nll=5.04947 gt_top1=0.2857 valid=0.7986 malformed=0.2014
+H 50: gt_nll=4.59686 gt_top1=0.0000 valid=0.7158 malformed=0.2842
+H100: gt_nll=4.63611 gt_top1=0.0000 valid=0.6560 malformed=0.3440
+H250: gt_nll=4.73172 gt_top1=0.1429 valid=0.6846 malformed=0.3154
+H500: gt_nll=5.62540 gt_top1=0.1429 valid=0.6727 malformed=0.3273
+
+Glyph v2 100k | topk20_t1.0
+H  0: gt_nll=2.21722 gt_top1=0.4286 valid=0.0000 malformed=0.0000
+H 10: gt_nll=5.59278 gt_top1=0.0000 valid=0.8452 malformed=0.1548
+H 25: gt_nll=4.69307 gt_top1=0.2857 valid=0.7571 malformed=0.2429
+H 50: gt_nll=3.81921 gt_top1=0.0000 valid=0.6456 malformed=0.3544
+H100: gt_nll=3.74844 gt_top1=0.1429 valid=0.6406 malformed=0.3594
+H250: gt_nll=5.28368 gt_top1=0.1429 valid=0.6498 malformed=0.3502
+H500: gt_nll=4.39953 gt_top1=0.1429 valid=0.6264 malformed=0.3736

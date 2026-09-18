@@ -1,0 +1,471 @@
+Glyph v2 Benchmark
+================================================================
+Corpus chars     : 5,000,000
+Validation chars : 250,000
+Vocabulary       : 98
+
+
+CHECKPOINT: glyph_v2_best.pt
+----------------------------------------------------------------
+Checkpoint step   : 19500
+Saved best val    : 2.3610776904970407
+Parameters        : 820,224
+Checkpoint finite : YES
+
+Validation
+----------------------------------------------------------------
+Validation loss   : 2.360223
+Perplexity        : 10.5933
+Validation time   : 8.4s
+Validation batches: 62
+
+Generation
+----------------------------------------------------------------
+
+Temperature: 0.7
+
+PROMPT: 'Alice was'
+alice was to beche pretiery the iner sary i and forst omer the at gof thene he mouth war ont and it oute minde thin the outhis whee om t tutthe wathe he te ho forllse cor lalleratt iet ond iche the thithe is we wa the sthe oure to has stomn n tover yofar het whe s ofrere lan, ise pouingle s thaes fopr in owat
+he ate was conong thathe tse wand thind our sthe its orminghey thits ived hint ove
+do to mess fof 
+Stats: words=87, printable=100.00%, repeat_chars=0, repeat_words=0, repeat_trigrams=0, generation_speed=150.93 char/s
+
+PROMPT: 'Alice was sitting'
+alice was sitting to bech bo thal douacled at, mind at whe
+cor ithe the whan an a fo mowh hanghe o her byore this sour thind war aree o hed siger mel
+thinge tow toule f he che thi brous the we shas wind than ofor is oor lour of the thande w ler aibur thcongh ait het whe se a to thoms is ei sthe ind dofchas e onged tothe ast ware incors to o wayound sthe
+t withe of wiso he s thed hearird aras, in lid d tougeawinkin
+Stats: words=92, printable=100.00%, repeat_chars=0, repeat_words=0, repeat_trigrams=0, generation_speed=154.46 char/s
+
+PROMPT: 'The Queen said'
+the queen said to best more gisulld conct iting a our the ath seang a to to par thelak of st tont anoou al te id te the be therisoare ace s of meepe ware t mutond, fo nol thear byouton, oncar ar he ou a thiser i n borereavers icke ande imatite
+uthangghed th, sthe weand isould lany shouly peear sandexitt ras hason whoul of thar yoord wanghe powhe se hind our sary itt he, mar nond mretlllof whesou tht atsenne lin
+Stats: words=83, printable=100.00%, repeat_chars=0, repeat_words=1, repeat_trigrams=0, generation_speed=157.43 char/s
+
+PROMPT: 'Alice looked'
+alice looked to beve bor skishe de
+loter, by in it thi the he tha ar i tous wou ot pe sthered, tou ben of stere sthe
+the thero fite ts hay anche t oulld ot t tho deald and hinengh be cee, our i cor than what is we war athit d me sheread aseryld in rounvedst he, we other, and sostat rend ro ind thaun copl hersan will o the pand more ane sthads thined mor the he itre
+oknd ouand hir s
+atof shenkice indeats ound 
+Stats: words=89, printable=100.00%, repeat_chars=0, repeat_words=0, repeat_trigrams=0, generation_speed=160.53 char/s
+
+PROMPT: 'The rabbit'
+the rabbite and forent waleme rech is ward wath she
+wathin the int gous ont the
+mored storto toue is ind the tand he the maron tor be ighan, m. thend the tan o do pavind is bit ight iso
+
+the it sthe thende wine he s aserrene thande w leate, ar toco m
+tomom tur o other, and she ous pond ore i do ur dod sar speetot ast stee he
+fend ane wam she s thin it the sit icor e ma tyo wis ou
+bor peang or dan aitt he le
+Stats: words=94, printable=100.00%, repeat_chars=0, repeat_words=0, repeat_trigrams=0, generation_speed=184.84 char/s
+
+PROMPT: 'Once upon a time'
+once upon a time to bepe mout gisul ecupeterinces ater thin ase and hear ind thar thee no sor praly and as of sthe t thes be theris gralee ime atoucd there the to on co nosthe of brofeles helyonge he he as borershaplou es amars ime tof antateredibl hed-mat thhime fof the wa tor peave ar peand sand thaes cocar har, a omerd
+the poweed, thard in,
+cre ithend se thar my whend woull
+the mrerk hingh the oud to mest fo a
+Stats: words=85, printable=100.00%, repeat_chars=0, repeat_words=1, repeat_trigrams=0, generation_speed=191.79 char/s
+
+PROMPT: 'What'
+what o the the
+wad is. the fond some o al whend a wo the mean that ar the mouse her wor and ore thinth tou t, be the
+ashe he be ollle
+t, thiter towout on f he che thin o the of omor at se he as fer atr powes ofosthines an t ant
+eritel.
+
+
+
+tkindo hr minllas whe alle apoole t rend co in heat whour he asin oulded the le yoofe she the alo thin he o thee wnomaced re ar nondisingteras, ind or pinde
+a emabur
+Stats: words=91, printable=100.00%, repeat_chars=0, repeat_words=1, repeat_trigrams=0, generation_speed=132.11 char/s
+
+Temperature: 0.9
+
+PROMPT: 'Alice was'
+alice was iths cof promngiginy freatie by ist hande tont and whall beant hantol, a shin trurereaind s thenen ofo ind whowed
+iwir turta gory m. theat the tand, deeinis cong myorele, idakin meng ind an
+on asund, hedin fise la thande whatere
+n ee cnof yort in fone sunch gof la fetot enep, is i douwh chese wits a san hint oum ystof wist sechen tare or hind shelowie o end defoned silfed, dee oves llof
+itt; fis 
+Stats: words=79, printable=100.00%, repeat_chars=0, repeat_words=0, repeat_trigrams=0, generation_speed=143.37 char/s
+
+PROMPT: 'Alice was sitting'
+alice was sitting to bech bo thal dreft
+foont, breerersing, to shar whe whan co nind if nofort pesiced bris, thinto te thin the o solces tthee gon
+ttwe war thime ouss fone coran okallllt we ighinge he wan aniseder,
+loses in fise plin anded
+hatitetctis ocherpeds, inor he po a ushepaiges wabon. id i he syoum por whill isond, the pomow
+se sorthe pree thined moun sis myes, onnt are, saseads ar
+s seas
+pannt atr hareye 
+Stats: words=78, printable=100.00%, repeat_chars=1, repeat_words=0, repeat_trigrams=0, generation_speed=166.41 char/s
+
+PROMPT: 'The Queen said'
+the queen said to best more gisullugtedseriot. ongh nout tonge the burey athat, theay as
+theres, toupioug t sonof our ind itowen ches turssper becwint out owors hof t reperrentltored tar ws.”
+“tho “i tharr has magavenk, to hines an thadiceded smard ocer yoffellet iche owht at peien, oovon e wis sherghabey of as. ald eenthe is obim,”
+
+“is wayow, thinte mis thale
+cl marepo te nof hily prio den msof plondansy fare
+Stats: words=73, printable=100.00%, repeat_chars=0, repeat_words=0, repeat_trigrams=0, generation_speed=175.54 char/s
+
+PROMPT: 'Alice looked'
+alice looked to beve bor sk frord coftertens wis
+ome or atond now, her toulle thed no walld onour br land oftingh thing wick itsmend benig at, mwang e thid tand, for. canked nshatie we oo
+ange it wan anld,
+asat henecked ornd ind andessorere smarterctioy t, sany ithe herour thoos she lit e wisus toe acoknghterin war ase he
+leld
+is thate stwe wanse hin sore hoft itt hei mar re hitrsabush d soopof pler mai olnge
+Stats: words=78, printable=100.00%, repeat_chars=0, repeat_words=0, repeat_trigrams=0, generation_speed=143.28 char/s
+
+PROMPT: 'The rabbit'
+the rabbite an
+deandroncpr prolece harin, cond hande torong rad athan foren thee rerine limss anid ore the
+rang thing stingit.
+
+he bencustelelpe s dored was ilay orem thenghese oons hetye as of he asthiter is oof pof fe fongin anderict ongoioung,hed ghict
+stle he pot sore lepso arky, dey
+oughe a
+chomeng itet ad sofourt has glyeande ouldllice whenghe on suntular. hepr arepe wit, whatly it apon dan adesy fore
+Stats: words=72, printable=100.00%, repeat_chars=0, repeat_words=0, repeat_trigrams=0, generation_speed=178.50 char/s
+
+PROMPT: 'Once upon a time'
+once upon a time to bepe mout gisul ecupeterioong ater mencero of thad here foren
+thed reen her senon bith in staly wand. be theris, halls haing melme hede tot tand, fo nole cor palled the when as os he as bon atthe
+fed outed f dallle totill ondsr of ok aiing, shet we otowen ar litrsses disps head peexity douned, tom ind
+oulend sad ond anthe pree t he stoto the ome sursocke inand ow, iprse loredrsin. toup wend po
+Stats: words=81, printable=100.00%, repeat_chars=0, repeat_words=0, repeat_trigrams=0, generation_speed=167.43 char/s
+
+PROMPT: 'What'
+what o them thil whity the issted blom ath coucht, has ha at ean thalld if no sorevenes an, on inde my tand oully herth untoud om. he, od ther thiche
+
+senouss che teabof tet we ssmor be conorer chitedse igen. tosted icke ande ico hatsk ende.
+“oe ad min. we itho s as lavenerin
+ind ply saperuly. prisseraten wious hes f uild, i as i ofid thi sthal thed sigult hey mar norend. s
+bopr. ine
+teive atthoig ye 
+Stats: words=80, printable=100.00%, repeat_chars=0, repeat_words=0, repeat_trigrams=0, generation_speed=150.63 char/s
+
+Temperature: 1.0
+
+PROMPT: 'Alice was'
+alice was iths cof promngiginy freatie by ist handes a wi she
+o whan fondir wrref hind primon ttthior te haren thing hen arosg saninttt atat.d to ne tot tandin t pemaninergaly oons iltl tooung in athous
+aso dostivongerer pin to toofund
+atr
+asongy adperock, co hesensther abue.”
+
+
+
+dislraland f tkat, pof whilleatind,”
+
+
+
+
+ mu mereer sthedeeanddonge ng thediry sad i rir doind hid oatemop ongten pper mom, coro
+Stats: words=69, printable=100.00%, repeat_chars=0, repeat_words=0, repeat_trigrams=0, generation_speed=174.18 char/s
+
+PROMPT: 'Alice was sitting'
+alice was sitting hin, co meansyerg, nos teart bin a him lichest and il hewher ware hyics his touned an, o he thenthe
+thed be celongukene besos atancut waghe ot tand, corkethe thioof ary se srat asend heate fen atat he
+was apled pind anded
+hatitelfer, ocere; a rrinn woupar, whar petlim wifin n sandoperpit. nto sers ali gase whops glise hating pomongst is rere sisowh
+wrentnt are. wofry sroflye ing.”
+
+byore,
+awi fer
+Stats: words=74, printable=100.00%, repeat_chars=0, repeat_words=0, repeat_trigrams=0, generation_speed=162.76 char/s
+
+PROMPT: 'The Queen said'
+the queen said to best more gisullugt. shilld fo al go suldot as leseated f nongeds. yof
+
+and ilin therne thint, can nthe was ar cditinint. ut maipe ofor t murinthag h yo thene bis he itheevang s
+bee tof chised.
+bamalrt tonge home theres.
+
+to mneas hcha gert ondy i thitar, at licush sthon rale saverppabey orteran wiced, tren fok
+chin ase shat wanst hin see icas. mot hey o doind hiliratht l waspo lfandelldghivan
+Stats: words=76, printable=100.00%, repeat_chars=0, repeat_words=0, repeat_trigrams=0, generation_speed=155.80 char/s
+
+PROMPT: 'Alice looked'
+alice looked to beve bor sk fneake
+ret ondsoor ad recet a our potres gond nerthots d o they hat an, mound warle whe ound ce atolces, bea f ans mthes ee toot he i ber. bunkenghale ie od subl acen greate fen as,
+prmotl toste
+ten than ald
+erouttwed t nerrverteen fofin fellin ornd feliceis pund iou to
+sos rishers, al reerine wig y, she ane inn hut it withe thel wrealt orld arepe wedadschiase indouled. tellikimm, 
+Stats: words=78, printable=100.00%, repeat_chars=0, repeat_words=0, repeat_trigrams=0, generation_speed=157.91 char/s
+
+PROMPT: 'The rabbit'
+the rabbite an
+deandroncpr prolece hario hingh ow pa tont as demas gan tous tid mo shes pente an
+masele ontof of ncoont inditiuten be spore
+tuon iner towo he i cof ughed hipice os spot, of beechan at fendencheshirnt ay os pin tof ala don amfous ock m
+thr. sho we ivestind t spteses parny he saver
+wierkng harangatander hese sk. hinde he thalin saned mor thar myerthin’s ar nontoowad asas
+whed-as pler bomhiakin
+Stats: words=77, printable=100.00%, repeat_chars=0, repeat_words=0, repeat_trigrams=0, generation_speed=167.14 char/s
+
+PROMPT: 'Once upon a time'
+once upon a time to bepe mouthldeg, demr sass mincorermeriatic ong ot
+a to to nengh igiped, hepes, toupind when won she ofo hea ath yonthr omr an
+amthely
+and murintiny on f ther lene he hensuburer ie wat an
+orerdde. calrin fise dallle tom ivithilnge t rougcha ni twarin palling thot.”
+“yovor pall ee tobaty pas wit
+
+
+suprous ste, obiers hatin am w thend hed shel wethitt hepoore d oneead lenast hedyen pindellaoua or
+Stats: words=75, printable=100.00%, repeat_chars=0, repeat_words=1, repeat_trigrams=0, generation_speed=141.99 char/s
+
+PROMPT: 'What'
+what o them thil wbribut; che
+asitad waterr lad a wous licor gof tont theld; in ist har an, mow thint
+len this be wato cfero me sprory mhe wase towors hof ent che thipire ollim w, heratim our an, loun
+abol w
+whamerant, thande icersedsnghatik thd aip hethes ife
+alle thot
+ow whel p drancepeawhee, ed whiore, in hine waveimple wate stwa whe
+reeas
+hind seeeshie ouve as rendimy ivis. pon hashe. to bupmolror
+Stats: words=75, printable=100.00%, repeat_chars=0, repeat_words=0, repeat_trigrams=0, generation_speed=152.56 char/s
+
+Simple memorization signal
+----------------------------------------------------------------
+'Alice was': 0/10 20-char chunks found in corpus
+'Alice was sitting': 0/10 20-char chunks found in corpus
+'The Queen said': 0/10 20-char chunks found in corpus
+'Alice looked': 0/10 20-char chunks found in corpus
+'The rabbit': 0/10 20-char chunks found in corpus
+'Once upon a time': 0/10 20-char chunks found in corpus
+'What': 0/10 20-char chunks found in corpus
+
+CHECKPOINT: glyph_v2.pt
+----------------------------------------------------------------
+Checkpoint step   : 20000
+Saved best val    : 2.3610776904970407
+Parameters        : 820,224
+Checkpoint finite : YES
+
+Validation
+----------------------------------------------------------------
+Validation loss   : 2.358790
+Perplexity        : 10.5781
+Validation time   : 11.4s
+Validation batches: 62
+
+Generation
+----------------------------------------------------------------
+
+Temperature: 0.7
+
+PROMPT: 'Alice was'
+alice was to o fo caretestling et hars ben ast reas tound the is to the nis oms nor therentin t bene thine was the be theris
+
+tondle irer macd tanere ownd, hof tof cound he wherd of oors athe the as feated anet hed athit he than ant, ate ochid ok as thr i the wand oft and hemome n oreres it thaund
+he he att ald tofe ware itt hin anghe pres thinting o the he itt store he, thit oubus hint okid d touges chend
+Stats: words=88, printable=100.00%, repeat_chars=0, repeat_words=1, repeat_trigrams=0, generation_speed=114.93 char/s
+
+PROMPT: 'Alice was sitting'
+alice was sitting to beve mout ghi cod cof ashes con ith the ath and mrored toure
+f wain than t thar and ithe t the t thele the ineral he be he anor. and wind me sthore he fand sonid as, it if shas he wan and sto oule he st fat the thande sis o ad-s her. asrery ore, hour icend ingarge
+tin he yor she tobatt e he a ou malded, ware oritht is he thads thined me thee ot inching mer norend habust lof oven ploreeds of ou
+Stats: words=93, printable=100.00%, repeat_chars=0, repeat_words=0, repeat_trigrams=0, generation_speed=90.05 char/s
+
+PROMPT: 'The Queen said'
+the queen said to bele mout gisul nol thard bee ast nofe tof the the here cowe
+fof me thind de hour be lethed wof he the the hase use t
+thaver meey toute te o sthof ton che the bre ssesthe, out he the as diter is whi l tofe cof oure t ongharediis indred ghain, t, sout hers and hedom sthor nee whe toe a o lee
+somer, in se ind cotomar thed wivine t ould me thele mye menthe ar ren shes lise li the way touldingh ou
+Stats: words=91, printable=100.00%, repeat_chars=0, repeat_words=2, repeat_trigrams=0, generation_speed=119.18 char/s
+
+PROMPT: 'Alice looked'
+alice looked to beve bor skisul emon har
+arst a is fous al she the was toun wo he of so here
+ceat berst thint, at the be theris galy be he anor. thing an me he he the but the das spese weis as oll the theder is spot ind o forin t thart, ate ois s smat un of sthe se fa alld tond here pas n ist of auld
+hed shar, a we ate was be mongher he t
+s wand thi mor the sshe mente mereve hitote ars l stapo e waseats ond a
+Stats: words=98, printable=100.00%, repeat_chars=0, repeat_words=1, repeat_trigrams=0, generation_speed=101.47 char/s
+
+PROMPT: 'The rabbit'
+the rabbit to beve mo thal lin min istoully at sthere a i she hers eang isst shind on of
+tong and whe thine hen thin the steris ichanen or melpe wase towond hof the che this se scot omrming whe he as chisthis he ssof cast dand ande sithis sk eren, asfoff sthe whe seerin orrt faled dond o is sherplllocar hit. tis tof the pan moringhed iner wans
+thin sor icaralery o rand tmand mres.
+theren hene dan amad haby 
+Stats: words=82, printable=100.00%, repeat_chars=0, repeat_words=0, repeat_trigrams=0, generation_speed=98.83 char/s
+
+PROMPT: 'Once upon a time'
+once upon a time to bepe mof oily f dosther is. and wis let selore it ar yof thaly wnous it ind har and his this
+n tandele the hase ghicet he touch re hen thid t thoue so che the brofe the he stoome the as casers
+ane
+omend ce couly tonde w listhuvit thhe mhe it she whe dild, and whe mend wheres he douy ackend se matath ast he pand mo thanghe de he ore stow thee sid wingh on stwe s mretharase ind or dan ait, f pan
+Stats: words=92, printable=100.00%, repeat_chars=0, repeat_words=0, repeat_trigrams=0, generation_speed=88.75 char/s
+
+PROMPT: 'What'
+what ourin the
+whered cot cof ato min toull the ate and omas he cor woulim nd sothines the benge thend tan tre the ofis
+y woupe we an, m. then thicand hour illor chit by as
+the ighinge on wand thithe is we war a sthe wand tha win hatsr ee sround ad i the wand halld thom
+sse ndond pis whe aald is o wit, ald tofe wi re umous th he thads thined me the
+on, ons heid ar nd hitad pr fof heaply langesen orrs 
+Stats: words=89, printable=100.00%, repeat_chars=0, repeat_words=0, repeat_trigrams=0, generation_speed=86.80 char/s
+
+Temperature: 0.9
+
+PROMPT: 'Alice was'
+alice was iths cof paniks, he. de whilds he al gotes ars and om in thant santol, a shin tengereay or thin
+nous thing war ar creests hamed melpe wase towh ouly fo rem thenghale os ssoms of ben yout an oun sund, sapan deavened the art
+eritelk nt fmatef ad i the she heran hecatat. s pat eee ice toby focat wits al o ase wa n ittofe wanghe l id thine
+t wi thas mye menthales d heng habust liced of pleroorif f or
+Stats: words=86, printable=100.00%, repeat_chars=0, repeat_words=0, repeat_trigrams=0, generation_speed=125.07 char/s
+
+PROMPT: 'Alice was sitting'
+alice was sitting to beve mout ghi cod cofferinierin arr ord a is the inget to wend ow
+mould o pralin tug lin thess t thesthe te ar cbees bencuse metn t bout ow to on for
+
+fe corinil ar. se ssarerathe he the
+ared ondiounas ty hines than aly.
+
+a am.
+
+“iswerew hruppecent oppand t thotstis non pthe si prok ache cen pprot indit sthame must sthin t
+al theaned mound sedd itrentnt are. word im, ainghand hok in avicwag le
+Stats: words=82, printable=100.00%, repeat_chars=0, repeat_words=0, repeat_trigrams=0, generation_speed=87.93 char/s
+
+PROMPT: 'The Queen said'
+the queen said to bele mout gisul nol
+teard minstere, prandice ong wa to to pa fofim renghatlesth an
+mar wanth endin nan theand
+aswerinintt. t maiang mor the treeloond than tor byousins hee ous i fond asthitersis hed dan fite pin tof angithise
+utingey at-stte
+heme he pa a utheve fa allm sto we i bee, ssisor ofet a ho a streabe u mof ond the,
+hur it hithe t idit. m dof pan styoulediciiselly onect, es t mesrig
+ee
+Stats: words=82, printable=100.00%, repeat_chars=0, repeat_words=1, repeat_trigrams=0, generation_speed=93.20 char/s
+
+PROMPT: 'Alice looked'
+alice looked to beve bor skasht deve ises by in is fof thor and mron gond setoultt pent wevessing bitice te he fan esthe theris, ont beaccerellsle hede tot tan is the cand sabese oons im, wat i fond as bouthich os wto amed tho than alyserser,hit ascoucpediknt f ime peto gas daspact ngrid dransingeoord llindesin was ase wherd yrato wanghe powh thined mof thar my sprarlaly t, sunguld asesed
+thris pledee whagus 
+Stats: words=74, printable=100.00%, repeat_chars=0, repeat_words=0, repeat_trigrams=0, generation_speed=111.22 char/s
+
+PROMPT: 'The rabbit'
+the rabbit to beve mo thal linofs t ashele ser suinglede, and owid gan tofon imy renthe dee
+fournted sthat, dean nthe he har fithe be ir anon, thirg thir t thow the che thipice hs ssow, he ben yous an, lisellyeert ingerer id than adillly
+a ungangy ai
+t ithou, se is ine as llirt, it. heit he s toblet nd heasan had ase o wighe, we hanghe de he ithor mor thar mimot hey men nontee, was
+foved hating
+t amad chen 
+Stats: words=84, printable=100.00%, repeat_chars=0, repeat_words=0, repeat_trigrams=0, generation_speed=85.09 char/s
+
+PROMPT: 'Once upon a time'
+once upon a time to bepe mof oily’t noo thath m fo alind i ton
+ast shert goust, ond, mage in tous, toud of whend pant thind he sen crenth, otuse me
+re iter t mute hof te. but tor dat he is igend beay ind anorsed stl chevout.
+“t d i toure wa hin mn ee fpathf ad ondy we is inghar d m sinoifing har s de uprdeyounedet ad in out
+thas yhis
+thare s dellounghor more sarelirtt oublind le witthap olde heagen plithat, fago 
+Stats: words=88, printable=100.00%, repeat_chars=0, repeat_words=0, repeat_trigrams=0, generation_speed=110.86 char/s
+
+PROMPT: 'What'
+what ourin
+them, waldy them tis haly so hid da tote and owend thane sane, moun ther imour mpould thene te this be wat
+s ut i bead y tthein wath the to she t reis co sai ang tave bas as olld to tofer omagavenne ty on pl than ald.
+“toug-st toi the trlyo de i ise a gendy, did sthonke ow soure; tow lonthie t
+hour,”
+w whe uclo an at i f ime i thith he mule
+bals hey mas nd hitt odenghine okir prere
+ad olrke
+Stats: words=91, printable=100.00%, repeat_chars=0, repeat_words=0, repeat_trigrams=0, generation_speed=96.57 char/s
+
+Temperature: 1.0
+
+PROMPT: 'Alice was'
+alice was iths cof paniks, cocuains, h blom ald co whar
+hat lad hewh con sthiglove oun lesiced mationg ont, fre ethe he
+chounr he bencust madn tacor towhed hof t reprethit bat oo sthe, he ben yout ankited is he
+pus aiti ids thande h pristtwed t nof yo itas cone sencof ar llol sereich uned sod aald
+has wonglle, in hine whe ysite o as map or thinther of imincaioler, in heve whimad asas
+hong.”
+
+feat bupnerlin
+Stats: words=79, printable=100.00%, repeat_chars=0, repeat_words=0, repeat_trigrams=0, generation_speed=92.39 char/s
+
+PROMPT: 'Alice was sitting'
+alice was sitting hin, co bout ghies nol
+tearstth wer ome om ate and om hey to nend icleped, wag sar an
+casot t try bous he danom isaf he be igh ave, thimme the to she ne, caning p istele
+beay oury he out any l asis spal, tolenge. s tou aly.
+“a hrurmouturedon stthet w the shur heighye, se, he, his sherplee nas ousangort ted hen cok
+chin anghe prtin it or rene icesaly med nel dod serild. asuse ing.”
+
+
+heatary t  fa
+Stats: words=85, printable=100.00%, repeat_chars=0, repeat_words=0, repeat_trigrams=0, generation_speed=108.04 char/s
+
+PROMPT: 'The Queen said'
+the queen said to bele mout gisul nol
+teard mis cath concerys and ston umer nof the
+m, sthing icour biste thint, fin nang headen cbesinine. r amacd t bout hes sorin thoude co hee
+angutt he
+lind i cond at chithide hrsias a ornd he touthes
+busth,l n tochaiure
+ry, co wal heran way, cadend hive she he aallt n fetofure, in hine whe y
+bore anghe deed thou her we ile myes, sey mepey wofucicrerntly
+thrs, plout.
+ emable
+Stats: words=81, printable=100.00%, repeat_chars=0, repeat_words=0, repeat_trigrams=0, generation_speed=88.81 char/s
+
+PROMPT: 'Alice looked'
+alice looked to beve bor skasht deve ises by in is fof tofe as det wak to peechtsieat or
+t tee. anlathe anghas ar thind he
+ishay hallone
+e anin, thing thir tan ind houer fof leerenins hiege as hand thand outellrttho
+s apropent than aly.
+“toug-she hco mwatapo ave ind hert athid feled las exas ind aksemy poul pugains ased. hainosid
+
+
+“is inn ime it son is thas myens i ra a tcondownsiferntu ind; iny. atr sfaved 
+Stats: words=79, printable=100.00%, repeat_chars=0, repeat_words=0, repeat_trigrams=0, generation_speed=123.49 char/s
+
+PROMPT: 'The rabbit'
+the rabbit to beve mo thal linofs t ashele ser suinglede, and owid gan tofof id monge sapedis anid pan tangas of esthe thersetount be sson melpe war thid trent fone chet of broush itiltut ar he wan anled
+ashaptoun
+s amous ply tof alim asteaferd ok ave ad ithl we othert a thotrshe nnte nend ime aal charof as. a ithat, ind fobi hin anghe des
+thes ored he owe myen, hoas ar nd hitt oars. nend, i not as
+tiorem, 
+Stats: words=82, printable=100.00%, repeat_chars=0, repeat_words=0, repeat_trigrams=0, generation_speed=82.55 char/s
+
+PROMPT: 'Once upon a time'
+once upon a time to bepe mof oily’h e coul stow, whad revad ary and ot inoute e
+hanelt nofe ind wo toupithe t sthas sthele me sitis, one beaie an, m
+thinge towh he is nond.
+
+masepired, ad hi noute hand atheeded, sthod odou fornd wande tofrseriselm undey amher, seames, wit, shas laive
+arcrd defar sa toby coioutherin w shath wi danffars wisthe pres thoo o nore ices, itt he, ofuny saselirrerased
+tives pledete, ol, a
+Stats: words=78, printable=100.00%, repeat_chars=0, repeat_words=0, repeat_trigrams=0, generation_speed=92.73 char/s
+
+PROMPT: 'What'
+what ourin
+them, wbrifleieg tath, bre aste concerting dilath ut con hane, mof shind serere
+ited thindicer thing ind arooart, menccthely; thinde tot tan ind houme cong by too ole blour
+cames ate castery, ival
+wity hint, than aly.
+“t hhmat ascereperd, oue houn im her thot
+sist las rice he toeset n fimary a omerd, wi n mumors whend twhed thined re thee siguland rind, e hersidevisonar, oves pledelysy, dis
+Stats: words=71, printable=100.00%, repeat_chars=0, repeat_words=0, repeat_trigrams=0, generation_speed=106.72 char/s
+
+Simple memorization signal
+----------------------------------------------------------------
+'Alice was': 0/10 20-char chunks found in corpus
+'Alice was sitting': 0/10 20-char chunks found in corpus
+'The Queen said': 0/10 20-char chunks found in corpus
+'Alice looked': 0/10 20-char chunks found in corpus
+'The rabbit': 0/10 20-char chunks found in corpus
+'Once upon a time': 0/10 20-char chunks found in corpus
+'What': 0/10 20-char chunks found in corpus
+
+================================================================
+End of benchmark

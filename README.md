@@ -1,99 +1,213 @@
 # Glyph
 
-A small character-level decoder-only Transformer language model, built from scratch.
+A small character-level language model built from scratch in PyTorch.
 
-Glyph is a personal learning and experimentation project focused on understanding how language models work by building and training one from the ground up.
+Glyph is a personal learning and experimentation project focused on understanding how language models work by implementing, training, evaluating, and iterating on the architecture rather than starting from a pretrained model.
 
-## What it is
+Glyph is intentionally small. It is not a production language model, an instruction-tuned assistant, or a general-purpose chatbot.
 
-Glyph predicts the next character given the characters before it.
+## What Glyph does
 
-The current Glyph v1 model uses:
+Glyph learns to predict the next character from the characters before it.
 
-- Architecture: decoder-only Transformer
-- Tokenizer: raw characters
-- Vocabulary: 98 characters for the v1 training corpus
-- Context length: 64 characters
-- Layers: 3
-- Attention heads: 4
-- Embedding dimension: 128
-- Parameters: 614,272
-- Training framework: PyTorch
-- Training device: CPU
-- Training data: 5,000,000 characters
-- Maximum training steps: 20,000
+The project is character-level rather than word- or subword-level, so the model receives individual character IDs and learns spelling, whitespace, punctuation, and longer text patterns directly from sequences of characters.
 
-Glyph is a small experimental language model. It is not a production model or an instruction-following/conversational AI system.
+## Version history
 
-## Project History
+### v1.0.0 — Transformer baseline
 
-Glyph started as a simple NumPy neural network and evolved into the Transformer implementation in this version.
+The first complete Glyph version established the baseline:
 
-The original implementation is kept in Git history to document the project's progression.
-
-The current Transformer implementation uses:
-
-- Multi-head causal self-attention
-- Layer normalization
-- GELU activation
-- Residual connections
-- Weight tying between token embeddings and the output head
-- AdamW optimization
-- Learning-rate warmup
-- Cosine learning-rate decay
-- Gradient clipping
-- Checkpointing
-
-The project intentionally avoids starting from an existing pretrained language model.
-
-## Features
-
-- No pretrained weights
-- No AI APIs
-- Character-level tokenization
 - Decoder-only Transformer
-- Trained from the provided text corpus
-- CPU-based training
-- Inference using the trained checkpoint
-- Benchmarking and generation tests
-- Checkpoint resume support
+- Character-level vocabulary
+- 98-character vocabulary
+- Context length: 64
+- 3 Transformer layers
+- 4 attention heads
+- Embedding size: 128
+- 614,272 parameters
+- 5,000,000-character corpus
+- 20,000 training steps
 
-## Install
+The v1 implementation and checkpoint are preserved in the repository and in the `v1.0.0` Git tag.
 
-### Linux / macOS
-
-```bash
-pip install -r requirements.txt
-```
-
-### Windows
-
-```powershell
-pip install -r requirements.txt
-```
-
-### Termux / Android
-
-PyTorch should be installed through the Termux package manager rather than pip.
+The v1 interactive generator is:
 
 ```bash
-pkg update
-pkg install python python-torch python-numpy
+python glyph_chat.py
 ```
 
-Then verify PyTorch:
+### v2.0.0 — Controlled Transformer experiment
+
+Glyph v2 keeps the same character-level approach while making the evaluation setup more rigorous and increasing model/context capacity.
+
+| Setting | Glyph v2 |
+|---|---:|
+| Architecture | Decoder-only Transformer |
+| Vocabulary | 98 characters |
+| Context length | 128 |
+| Layers | 4 |
+| Attention heads | 4 |
+| Embedding size | 128 |
+| Parameters | 820,224 |
+| Total corpus | 5,000,000 chars |
+| Training split | 4,750,000 chars |
+| Validation split | 250,000 chars |
+| Base training run | 20,000 steps |
+| Extended run | 100,000 steps |
+| Framework | PyTorch |
+
+The main v2 changes were:
+
+- A real held-out validation split using the final 250,000 characters.
+- A larger context window: 128 instead of 64.
+- Four Transformer layers instead of three.
+- Separate v2 checkpoints so the v1 model is never modified.
+- Periodic validation and best-checkpoint tracking.
+- Training history recorded to CSV.
+- Controlled loss, quality, and generation-dynamics benchmarks.
+- CUDA training support for extended runs.
+- An interactive V2 generation script that loads the trained 100k checkpoint.
+
+## Training results
+
+The base v2 run completed at step 20,000 without numerical instability.
+
+The same architecture was then continued to 50,000 and 100,000 steps on a Tesla T4.
+
+Approximate validation results from those experiments:
+
+| Checkpoint | Best validation loss | Approx. perplexity |
+|---|---:|---:|
+| v2 20k | 2.36 | 10.60 |
+| v2 50k | 2.23 | 9.29 |
+| v2 100k | 1.91 | 6.76 |
+
+The 100k run reached its best training-time validation loss at step 99,000, then finished at step 100,000 with a slightly higher validation loss. The released extended checkpoint is therefore the 99k best-validation checkpoint:
+
+```text
+glyph_v2_100k_cuda_best.pt
+```
+
+These numbers are not directly comparable to the original v1 benchmark loss because v1's evaluation used a training-overlap region, while v2 uses a true held-out validation split.
+
+The extended v2 model also produces more recognizable word-like text than the 20k checkpoint under controlled sampling, but long free-running generation can still become repetitive or malformed. Glyph remains an experimental character-level model rather than a general-purpose language model.
+
+## Chat / text generation with Glyph v2
+
+Glyph v2 is a text continuation model, not an instruction-tuned chatbot. A prompt is treated as context and the model generates characters that statistically follow that context.
+
+The interactive V2 generator uses:
+
+```text
+glyph_v2_100k_cuda_best.pt
+```
+
+by default.
+
+Run:
 
 ```bash
-python -c "import torch; print(torch.__version__)"
+python glyph_v2_chat.py
 ```
 
-Do not use `pip install torch` on Termux.
+Example:
 
-## Get Training Data
+```text
+================================================================
+Glyph v2 Interactive Chat
+================================================================
+Checkpoint   : glyph_v2_100k_cuda_best.pt
+Step         : 99000
+Best val loss: 1.909972
+Parameters   : 820,224
+Vocabulary   : 98
+Context      : 128
+Device       : cpu
+Temperature  : 0.7
+Top-k        : 20
+New chars    : 500
+================================================================
+Enter a prompt and Glyph will continue it.
+Commands: :quit, :temp VALUE, :topk VALUE, :tokens VALUE
 
-Glyph can be trained on a large plain-text corpus.
+You: Alice was
+Glyph: Alice was ...
+```
 
-Project Gutenberg is one possible source of public-domain books. The following example downloads several books into one file:
+The default sampling configuration is:
+
+```text
+temperature = 0.7
+top-k = 20
+max new characters = 500
+```
+
+These values are practical defaults for the trained V2 checkpoint; they are not a guarantee of coherent output.
+
+### Chat controls
+
+Inside the interactive program:
+
+```text
+:temp 0.9      change temperature
+:topk 40       change top-k
+:tokens 300    change generation length
+:quit          exit
+```
+
+You can also set them from the command line:
+
+```bash
+python glyph_v2_chat.py --temperature 0.7 --top-k 20 --max-new-tokens 300
+```
+
+To load another compatible V2 checkpoint:
+
+```bash
+python glyph_v2_chat.py --checkpoint glyph_v2.pt
+```
+
+To force CPU:
+
+```bash
+python glyph_v2_chat.py --cpu
+```
+
+The script automatically uses CUDA when available unless `--cpu` is supplied.
+
+## Important checkpoint requirement
+
+The V2 checkpoint stores the vocabulary size but not a standalone copy of the character-to-ID mapping.
+
+The chat and benchmark programs therefore reconstruct the vocabulary with:
+
+```python
+chars = sorted(set(text))
+```
+
+from `data.txt`.
+
+Use the same `data.txt` that was used during training. Changing the corpus can change the vocabulary ordering and make the checkpoint incompatible.
+
+## Training data
+
+The repository contains the 5,000,000-character corpus used by the included runs in `data.txt`.
+
+The v2 split is:
+
+```text
+First 4,750,000 characters  -> training
+Final 250,000 characters    -> validation
+```
+
+The vocabulary is reconstructed from the lowercase corpus.
+
+### Building your own corpus
+
+Glyph can also be trained on another plain-text corpus.
+
+One possible source is Project Gutenberg. For example:
 
 ```bash
 rm -f data.txt
@@ -102,261 +216,217 @@ for id in 11 1661 2701 1342 84 98 345 2600 1400 1260 1080 158 174 120; do
   curl -sL "https://www.gutenberg.org/cache/epub/$id/pg$id.txt" >> data.txt
   echo "" >> data.txt
 done
-
-wc -c data.txt
 ```
 
-You can then remove the Gutenberg headers/footers and prepare the corpus:
+You can then remove Gutenberg markers and prepare the corpus:
 
 ```bash
-python - <<'EOF'
+python - <<'PY'
 import re
 
-t = open('data.txt', 'r', encoding='utf-8', errors='ignore').read()
-t = re.sub(r'\*\*\* ?START OF.*?\*\*\*', '', t, flags=re.S)
-t = re.sub(r'\*\*\* ?END OF.*?\*\*\*', '', t, flags=re.S)
-t = t.lower()[:5_000_000]
+text = open("data.txt", "r", encoding="utf-8", errors="ignore").read()
+text = re.sub(r"\*\*\* ?START OF.*?\*\*\*", "", text, flags=re.S)
+text = re.sub(r"\*\*\* ?END OF.*?\*\*\*", "", text, flags=re.S)
+text = text.lower()[:5_000_000]
 
-open('data.txt', 'w', encoding='utf-8').write(t)
-print(len(t), "chars")
-EOF
+open("data.txt", "w", encoding="utf-8").write(text)
+print(len(text), "chars")
+PY
 ```
 
-The training script currently uses at most the first 5 million characters.
+Changing the corpus means an existing checkpoint may no longer be compatible with the reconstructed vocabulary.
 
-More and better training data can improve results, but training time also increases.
+## Install
 
-## Train
-
-Run:
+### Windows / Linux / macOS
 
 ```bash
-python glyph.py
+pip install -r requirements.txt
 ```
 
-Training is checkpointed to:
+The project requires:
 
 ```text
-glyph.pt
+torch>=2.0
+numpy>=1.24
 ```
 
-A checkpoint is saved every 500 steps. If training is interrupted, running the script again can resume from the last saved checkpoint.
+### Termux / Android
 
-For long CPU training sessions, `tmux` can be useful:
+For Termux, install PyTorch through the Termux package rather than using `pip install torch`:
 
 ```bash
-tmux new -s glyph
-python glyph.py
+pkg update
+pkg install python python-torch python-numpy
 ```
 
-Detach with:
-
-```text
-Ctrl+B
-D
-```
-
-Reattach later with:
+Verify the installation with:
 
 ```bash
-tmux attach -t glyph
+python -c "import torch; print(torch.__version__)"
 ```
 
-## Generate Text
+## Train Glyph v2
 
-After training:
+The main V2 training script is:
 
 ```bash
-python glyph_chat.py
+python glyph_v2.py
 ```
 
-Glyph loads `glyph.pt` and continues a prompt using patterns learned from the training corpus.
+The default configuration trains from scratch for 20,000 steps.
 
-Example:
-
-```text
-Loaded Glyph @ step 20000
-Glyph ready. 'quit' to exit.
-
-> alice was
-```
-
-Type:
-
-```text
-quit
-```
-
-to exit.
-
-This is text generation, not a conversational AI system. Glyph has not been instruction-tuned or specifically trained for dialogue.
-
-### Sampling Parameters
-
-The `generate()` function supports:
-
-- `n` — number of characters to generate
-- `temp` — sampling temperature
-- `top_k` — limits sampling to the top-k predictions
-
-Lower temperatures generally produce more predictable output, while higher temperatures produce more varied output.
-
-## Benchmark
-
-Glyph v1 includes a benchmark script for checking the trained checkpoint and measuring basic generation behavior.
-
-Run:
-
-```bash
-python benchmark.py
-```
-
-The benchmark checks:
-
-- Checkpoint integrity
-- Model parameter count
-- Vocabulary size
-- Evaluation loss
-- Perplexity
-- Generation at multiple temperatures
-- Repetition statistics
-- A simple corpus-overlap/memorization signal
-
-Results are written to:
-
-```text
-benchmark_results.txt
-```
-
-### Glyph v1 Benchmark Results
-
-The completed v1 training run reached step 20,000 with a healthy checkpoint.
-
-```text
-Checkpoint step : 20000
-Parameters      : 614,272
-Vocabulary      : 98
-Corpus chars    : 5,000,000
-
-Checkpoint finite: YES
-
-Evaluation loss : 2.2765
-Perplexity      : 9.74
-```
-
-The evaluation uses the final 100,000 characters of the 5,000,000-character corpus. Because v1 was trained on the first 5,000,000 characters, this is a training-overlap evaluation rather than a true held-out validation set.
-
-The simple memorization check found:
-
-```text
-0/10 20-char chunks found in corpus
-```
-
-for each of the seven benchmark prompts, for a total of:
-
-```text
-0/70
-```
-
-This is only a basic signal and is not a definitive memorization test.
-
-## Training
-
-Training speed and loss depend on the dataset, hardware, PyTorch version, and random initialization.
-
-The completed Glyph v1 training run used:
-
-```text
-Training steps : 20,000
-Peak LR        : 1e-5
-Warmup         : 4,000 steps
-Gradient clip  : 0.05
-Weight decay   : 0.01
-```
-
-The final training step reached:
-
-```text
-step 20000
-loss 2.2675
-```
-
-Actual training time can vary significantly between devices.
-
-## Files
-
-```text
-glyph/
-├── .gitignore
-├── README.md
-├── data.txt
-├── glyph.py
-├── glyph_chat.py
-├── benchmark.py
-├── benchmark_results.txt
-├── glyph.pt
-└── requirements.txt
-```
-
-`data.txt` is included in the repository as the training corpus used by this version of Glyph.
-
-`glyph.pt` is the trained Glyph v1 checkpoint and is included so the model can be used immediately after cloning without retraining.
-
-`benchmark_results.txt` records the benchmark results for the included v1 checkpoint.
-
-## Tuning
-
-The main training parameters are near the top of `glyph.py`:
+Important settings are near the top of the script:
 
 ```python
-BLOCK = 64
-N_LAYER = 3
+BLOCK = 128
+N_LAYER = 4
 N_HEAD = 4
 N_EMB = 128
 BATCH = 32
-MAX_STEPS = 20000
+MAX_STEPS = 20_000
+WARMUP = 4_000
 LR = 1e-5
+WD = 0.01
+GRAD_CLIP = 0.05
+ADAM_EPS = 1e-6
 ```
 
-If training becomes unstable, possible experiments include:
+The base run writes:
 
-- Lowering `LR`
-- Increasing `WARMUP`
-- Lowering the gradient clipping threshold
-- Increasing AdamW `eps`
+```text
+glyph_v2.pt
+glyph_v2_best.pt
+glyph_v2_last_good.pt
+glyph_v2_history.csv
+```
 
-To increase model capacity, you can experiment with:
+The checkpoint contains the model state, optimizer state, training step, best validation loss, and training configuration.
 
-- More layers
-- A larger embedding dimension
-- More attention heads
-- A longer context window
-- More training steps
-- More training data
+## Extended V2 training
 
-Increasing model size and context length also increases training cost.
+The repository also contains continuation scripts used for controlled experiments with the same architecture.
 
-## Why Glyph?
+### 20k -> 50k
 
-The goal of Glyph is to learn by building the system rather than starting with an existing language model.
+```bash
+python glyph_v2_50k.py
+```
 
-Even though it is a small project, it covers several important concepts behind modern language models:
+### 50k -> 100k
 
-- Tokenization
-- Embeddings
-- Self-attention
-- Transformer blocks
-- Residual connections
-- Layer normalization
-- Autoregressive training
-- Sampling
-- Optimization
-- Checkpointing
+For the successful CUDA run:
+
+```bash
+python glyph_v2_100k_cuda.py
+```
+
+The 100k experiment produced separate checkpoints so the original 20k V2 run remained intact.
+
+These continuation scripts are experiment history, not different model architectures.
+
+## Benchmarking
+
+### Base V2 benchmark
+
+```bash
+python benchmark_v2.py
+```
+
+This evaluates the V2 checkpoint, runs generation tests at several temperatures, measures repetition, and performs a simple corpus-overlap signal.
+
+### Loss anatomy
+
+```bash
+python glyph_v2_loss_anatomy.py
+```
+
+This breaks validation behavior into useful components such as:
+
+- overall cross-entropy
+- perplexity
+- top-1 and top-5 accuracy
+- letter prediction loss
+- whitespace prediction loss
+- punctuation prediction loss
+- space precision / recall / F1
+
+### Generation dynamics
+
+```bash
+python glyph_v2_generation_dynamics_v2.py
+```
+
+This uses deterministic held-out validation anchors and measures how generation behavior changes as the model runs farther away from the real context.
+
+The benchmark compares greedy decoding with top-k sampling at several temperatures and reports how well the model's own free-running history stays aligned with the real held-out continuation.
+
+## What the V2 experiments showed
+
+V2 demonstrates why a single validation-loss number is not enough to describe a small language model.
+
+As the model was trained longer, teacher-forced validation performance improved substantially. The 100k model is much better at next-character prediction, including letter and whitespace prediction, than the 20k model.
+
+At the same time, free-running generation can become increasingly self-reinforcing. Greedy decoding in particular can produce highly repetitive text even when the generated characters form valid words. Top-k sampling reduces this failure mode, but long generations can still drift or repeat.
+
+This is why the project uses multiple measurements rather than treating validation loss, word validity, or repetition as a complete quality score by itself.
+
+## Project structure
+
+The repository contains both the historical V1 baseline and the V2 experiments.
+
+Core V2 files:
+
+```text
+README.md
+requirements.txt
+data.txt
+
+glyph_v2.py
+glyph_v2_chat.py
+benchmark_v2.py
+glyph_v2_loss_anatomy.py
+glyph_v2_generation_dynamics_v2.py
+
+glyph_v2.pt
+glyph_v2_best.pt
+glyph_v2_100k_cuda_best.pt
+```
+
+V1 files are preserved as historical baseline artifacts:
+
+```text
+glyph.py
+glyph_chat.py
+benchmark.py
+glyph.pt
+benchmark_results.txt
+```
+
+The repository also contains additional V2 continuation scripts, checkpoints, histories, and benchmark results from the experiments used to reach the 100k model.
+
+## Design principles
+
+Glyph intentionally avoids:
+
+- Pretrained language models
+- External AI APIs
+- Tokenizer libraries
+- Instruction tuning
+- Large-model infrastructure
+
+The goal is to keep the implementation understandable enough to inspect, modify, train, and benchmark directly.
+
+## Why character-level?
+
+Character-level modeling makes the mechanics visible.
+
+The model does not receive a vocabulary of words or subwords. Every input is represented directly as a character ID. This keeps the implementation relatively small and makes the limitations of small language models visible: spelling, word formation, punctuation, whitespace, and long-range coherence all have to emerge from the character sequence alone.
 
 ## Status
 
-**Glyph v1.0.0 — First trained baseline**
+**Glyph v2.0.0 — Controlled Transformer baseline with extended 100k training**
 
-The first complete Glyph version has been trained for 20,000 steps and includes a runnable trained checkpoint and benchmark results.
+Glyph v2 established a cleaner held-out evaluation setup, increased the context/model capacity, and produced an extended 100k checkpoint with substantially lower validation loss than the 20k baseline.
 
-The project remains an ongoing personal learning and experimentation project. Future versions may change the architecture, training procedure, dataset, context length, and model capacity significantly.
+The next major experiment is a controlled recurrent/LSTM architecture at approximately the same parameter budget. That experiment will be treated as a new model version rather than silently changing V2.
