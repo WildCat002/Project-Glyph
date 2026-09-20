@@ -10,3 +10,6 @@ venv/
 # OS files
 .DS_Store
 Thumbs.db
+
+# Jupyter notebook checkpoints
+.ipynb_checkpoints/

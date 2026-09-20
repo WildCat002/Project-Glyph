@@ -1,11 +1,17 @@
 import torch
 import torch.nn.functional as F
+from pathlib import Path
+
 from torch import nn
 
 torch.set_num_threads(4)
 
+ROOT_DIR = Path(__file__).resolve().parents[2]
+DATA_FILE = ROOT_DIR / "data/data.txt"
+CHECKPOINT = ROOT_DIR / "models/v1/glyph.pt"
+
 text = (
-    open("data.txt", "r", encoding="utf-8", errors="ignore").read().lower()[:5_000_000]
+    open(DATA_FILE, "r", encoding="utf-8", errors="ignore").read().lower()[:5_000_000]
 )
 chars = sorted(set(text))
 stoi = {c: i for i, c in enumerate(chars)}
@@ -69,7 +75,7 @@ class Glyph(nn.Module):
 
 
 model = Glyph()
-ck = torch.load("glyph.pt", map_location="cpu")
+ck = torch.load(CHECKPOINT, map_location="cpu")
 model.load_state_dict(ck["model"])
 model.eval()
 print(f"Loaded Glyph @ step {ck['step']}")

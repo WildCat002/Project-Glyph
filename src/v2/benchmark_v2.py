@@ -8,8 +8,9 @@ import torch
 import torch.nn as nn
 import torch.nn.functional as F
 
-DATA_FILE = "data.txt"
-CHECKPOINTS = [("best", "glyph_v2_best.pt"), ("final", "glyph_v2.pt")]
+ROOT_DIR = Path(__file__).resolve().parents[2]
+DATA_FILE = ROOT_DIR / "data/data.txt"
+CHECKPOINTS = [("best", ROOT_DIR / "models/v2/glyph_v2_best.pt"), ("final", ROOT_DIR / "models/v2/glyph_v2.pt")]
 MAX_DATA = 5_000_000
 VAL_CHARS = 250_000
 BLOCK = 128
@@ -285,7 +286,7 @@ def main():
             print(line)
             report.append(line)
     report += ["", "=" * 64, "End of benchmark"]
-    out = Path("benchmark_v2_results.txt")
+    out = ROOT_DIR / "results/v2/benchmark_v2_results.txt"
     out.write_text("\n".join(report), encoding="utf-8")
     print("\n" + "=" * 64)
     print(f"Benchmark complete. Results saved to: {out}")

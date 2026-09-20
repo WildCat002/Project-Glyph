@@ -7,6 +7,7 @@ import numpy as np
 import torch
 import torch.nn as nn
 import torch.nn.functional as F
+from pathlib import Path
 
 # ============================================================
 # Glyph v2 Loss Anatomy Benchmark
@@ -31,7 +32,8 @@ import torch.nn.functional as F
 # ============================================================
 
 SEED = 42
-DATA_FILE = "data.txt"
+ROOT_DIR = Path(__file__).resolve().parents[2]
+DATA_FILE = ROOT_DIR / "data/data.txt"
 MAX_DATA = 5_000_000
 VAL_CHARS = 250_000
 BLOCK = 128
@@ -43,13 +45,13 @@ EVAL_BATCH = 64
 TOP_K = 5
 
 CHECKPOINTS = [
-    ("Glyph v2 20k", "glyph_v2.pt"),
-    ("Glyph v2 50k", "glyph_v2_50k_best.pt"),
-    ("Glyph v2 100k", "glyph_v2_100k_cuda_best.pt"),
+    ("Glyph v2 20k", ROOT_DIR / "models/v2/glyph_v2.pt"),
+    ("Glyph v2 50k", ROOT_DIR / "models/v2/glyph_v2_50k_best.pt"),
+    ("Glyph v2 100k", ROOT_DIR / "models/v2/glyph_v2_100k_cuda_best.pt"),
 ]
 
-OUTPUT_TXT = "glyph_v2_loss_anatomy_results.txt"
-OUTPUT_CSV = "glyph_v2_loss_anatomy_results.csv"
+OUTPUT_TXT = ROOT_DIR / "results/v2/glyph_v2_loss_anatomy_results.txt"
+OUTPUT_CSV = ROOT_DIR / "results/v2/glyph_v2_loss_anatomy_results.csv"
 
 # Prefer GPU when available. The benchmark also works on CPU.
 if torch.cuda.is_available():

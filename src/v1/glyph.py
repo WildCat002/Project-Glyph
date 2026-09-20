@@ -2,6 +2,7 @@ import os
 import time
 import math
 import shutil
+from pathlib import Path
 
 import numpy as np
 import torch
@@ -24,9 +25,11 @@ np.random.seed(42)
 # DATA
 # ============================================================
 
-DATA_FILE = "data.txt"
-CKPT = "glyph.pt"
-BACKUP_CKPT = "glyph_last_good.pt"
+ROOT_DIR = Path(__file__).resolve().parents[2]
+
+DATA_FILE = ROOT_DIR / "data/data.txt"
+CKPT = ROOT_DIR / "models/v1/glyph.pt"
+BACKUP_CKPT = ROOT_DIR / "models/v1/glyph_last_good.pt"
 
 MAX_DATA = 5_000_000
 

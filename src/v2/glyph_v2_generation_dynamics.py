@@ -1,6 +1,7 @@
 import math
 import random
 import time
+from pathlib import Path
 import csv
 from collections import Counter
 
@@ -30,6 +31,7 @@ import torch.nn.functional as F
 
 
 SEED = 42
+ROOT_DIR = Path(__file__).resolve().parents[2]
 MAX_DATA = 5_000_000
 VAL_CHARS = 250_000
 TRAIN_END = MAX_DATA - VAL_CHARS
@@ -54,17 +56,17 @@ FIXED_PROMPTS = [
 ]
 
 MODELS = {
-    "Glyph v2 20k": "glyph_v2.pt",
-    "Glyph v2 50k": "glyph_v2_50k_best.pt",
-    "Glyph v2 100k": "glyph_v2_100k_cuda_best.pt",
+    "Glyph v2 20k": ROOT_DIR / "models/v2/glyph_v2.pt",
+    "Glyph v2 50k": ROOT_DIR / "models/v2/glyph_v2_50k_best.pt",
+    "Glyph v2 100k": ROOT_DIR / "models/v2/glyph_v2_100k_cuda_best.pt",
 }
 
 TEMPS = [0.7, 0.9, 1.0]
 
 DEVICE = torch.device("cuda" if torch.cuda.is_available() else "cpu")
 
-OUT_TXT = "glyph_v2_generation_dynamics_fixed_results.txt"
-OUT_CSV = "glyph_v2_generation_dynamics_fixed_results.csv"
+OUT_TXT = ROOT_DIR / "results/v2/glyph_v2_generation_dynamics_fixed_results.txt"
+OUT_CSV = ROOT_DIR / "results/v2/glyph_v2_generation_dynamics_fixed_results.csv"
 
 
 random.seed(SEED)
@@ -88,7 +90,7 @@ print("=" * 72)
 # Data / vocabulary
 # ============================================================
 
-with open("data.txt", "r", encoding="utf-8") as f:
+with open(ROOT_DIR / "data/data.txt", "r", encoding="utf-8") as f:
     text = f.read()[:MAX_DATA].lower()
 
 chars = sorted(set(text))

@@ -2,7 +2,7 @@
 Glyph v2 Extended Training
 ==========================
 
-Continue the EXISTING Glyph v2 50,000-step checkpoint to step 100,000.
+Continue the EXISTING Glyph v2 20,000-step checkpoint to step 50,000.
 
 This is intentionally NOT a new architecture.
 
@@ -17,23 +17,23 @@ The experiment keeps:
     ADAM_EPS    = 1e-6
 
 It resumes the exact model + AdamW optimizer state from:
-    glyph_v2_50k.pt
+    glyph_v2.pt
 
-At step 50,000 the existing continuation is using LR = 1e-6.
+At step 20,000 the original v2 schedule had reached:
+    LR = 1e-6
 
-For the 50k -> 100k extension, we raise the LR gradually from 1e-6 to
-3e-6 over the first 2,000 steps, then hold it at 3e-6. This is more
-aggressive than the original continuation, but still well below the
-original v2 peak of 1e-5 and avoids an abrupt LR jump.
+For the extension, we keep LR fixed at 1e-6. This avoids an abrupt LR
+increase and makes this experiment specifically about giving the SAME
+trained model another 30,000 optimization steps.
 
 Outputs are kept separate from the original v2 files:
-    glyph_v2_100k.pt
-    glyph_v2_100k_best.pt
-    glyph_v2_100k_last_good.pt
-    glyph_v2_100k_history.csv
+    glyph_v2_50k.pt
+    glyph_v2_50k_best.pt
+    glyph_v2_50k_last_good.pt
+    glyph_v2_50k_history.csv
 
 The script automatically resumes glyph_v2_50k.pt when a previous continuation
-checkpoint exists between 50,000 and 100,000 steps, so interrupted progress is
+checkpoint exists between 20,000 and 50,000 steps, so interrupted progress is
 not discarded.
 
 The CPU thread count is set to 2 because the local speed benchmark measured
@@ -46,6 +46,7 @@ import csv
 import math
 import os
 import time
+from pathlib import Path
 
 import numpy as np
 import torch
@@ -69,14 +70,15 @@ np.random.seed(SEED)
 # FILES
 # ============================================================
 
-DATA_FILE = "data.txt"
+ROOT_DIR = Path(__file__).resolve().parents[2]
+DATA_FILE = ROOT_DIR / "data/data.txt"
 
-BASE_CKPT = "glyph_v2_50k.pt"
+BASE_CKPT = ROOT_DIR / "models/v2/glyph_v2.pt"
 
-CKPT = "glyph_v2_100k.pt"
-BEST_CKPT = "glyph_v2_100k_best.pt"
-LAST_GOOD_CKPT = "glyph_v2_100k_last_good.pt"
-HISTORY_FILE = "glyph_v2_100k_history.csv"
+CKPT = ROOT_DIR / "experiments/v2_50k/glyph_v2_50k.pt"
+BEST_CKPT = ROOT_DIR / "models/v2/glyph_v2_50k_best.pt"
+LAST_GOOD_CKPT = ROOT_DIR / "experiments/v2_50k/glyph_v2_50k_last_good.pt"
+HISTORY_FILE = ROOT_DIR / "experiments/v2_50k/glyph_v2_50k_history.csv"
 
 
 # ============================================================
@@ -160,14 +162,11 @@ DROPOUT = 0.1
 
 BATCH = 32
 
-SOURCE_STEP_REQUIRED = 50_000
-TARGET_STEP = 100_000
+SOURCE_STEP_REQUIRED = 20_000
+TARGET_STEP = 50_000
 
-# Start from the LR used by the 20k -> 50k continuation, then ramp to a
-# moderately higher LR because the laptop run has remained numerically stable.
-CONTINUATION_START_LR = 1e-6
-CONTINUATION_LR = 3e-6
-LR_RAMP_STEPS = 2_000
+# This is the LR reached by the original v2 schedule at step 20,000.
+CONTINUATION_LR = 1e-6
 
 WD = 0.01
 GRAD_CLIP = 0.05
@@ -616,7 +615,7 @@ def make_state(
         "step": step,
         "best_val_loss": best_val_loss,
         "config": {
-            "run": "glyph_v2_extended_100k",
+            "run": "glyph_v2_extended_50k",
             "base_checkpoint": BASE_CKPT,
             "source_step": SOURCE_STEP_REQUIRED,
             "eval_every": EVAL_EVERY,
@@ -624,9 +623,7 @@ def make_state(
             "save_every": SAVE_EVERY,
             "batching": "vectorized_torch_indexing",
             "target_step": TARGET_STEP,
-            "continuation_start_lr": CONTINUATION_START_LR,
             "continuation_lr": CONTINUATION_LR,
-            "lr_ramp_steps": LR_RAMP_STEPS,
             "block": BLOCK,
             "n_layer": N_LAYER,
             "n_head": N_HEAD,
@@ -687,40 +684,12 @@ def save_checkpoint(
 
 
 # ============================================================
-# LEARNING-RATE SCHEDULE
-# ============================================================
-
-
-def lr_for_step(step):
-    """Ramp from 1e-6 to 3e-6 after the 50k checkpoint."""
-    progress = step - SOURCE_STEP_REQUIRED
-
-    if progress <= 0:
-        return CONTINUATION_START_LR
-
-    if progress >= LR_RAMP_STEPS:
-        return CONTINUATION_LR
-
-    alpha = progress / LR_RAMP_STEPS
-
-    return (
-        CONTINUATION_START_LR
-        + alpha * (
-            CONTINUATION_LR
-            - CONTINUATION_START_LR
-        )
-    )
-
-
-# ============================================================
 # LOAD / RESUME CHECKPOINT
 # ============================================================
 
-# Resume an interrupted 100k continuation when its checkpoint exists.
-# If 100k was already completed, stop instead of silently retraining from 50k.
-# Otherwise start from the finished 50k checkpoint.
+# If a previous 50k continuation was interrupted after making progress,
+# resume it. Otherwise start from the original 20k V2 checkpoint.
 resume_path = None
-completed_target = False
 
 if os.path.exists(CKPT):
     try:
@@ -733,17 +702,10 @@ if os.path.exists(CKPT):
             probe.get("step", 0)
         )
 
-        if probe_step >= TARGET_STEP:
-            completed_target = True
-        elif SOURCE_STEP_REQUIRED <= probe_step < TARGET_STEP:
+        if SOURCE_STEP_REQUIRED <= probe_step < TARGET_STEP:
             resume_path = CKPT
     except Exception:
         resume_path = None
-
-if completed_target:
-    print("Glyph v2 is already trained through 100,000 steps.")
-    print(f"Checkpoint: {CKPT}")
-    raise SystemExit(0)
 
 checkpoint_path = (
     resume_path
@@ -756,7 +718,7 @@ if not os.path.exists(
 ):
     raise FileNotFoundError(
         f"Missing checkpoint: {checkpoint_path}. "
-        "Run the Glyph v2 50k continuation first."
+        "Run the original Glyph v2 training first."
     )
 
 print(
@@ -790,8 +752,9 @@ source_config = checkpoint.get(
     {}
 )
 
-# The 50k continuation checkpoint has the same architecture/config fields
-# plus its continuation metadata. These fields must remain identical.
+# The original V2 checkpoint has the canonical architecture/training config.
+# The continuation checkpoint has the same architecture plus its continuation
+# metadata. In both cases these fields must remain identical.
 expected = {
     "block": BLOCK,
     "n_layer": N_LAYER,
@@ -827,10 +790,9 @@ opt.load_state_dict(
     checkpoint["opt"]
 )
 
-# The actual per-step LR is selected by lr_for_step() during training.
-# Start at the safe low LR before the ramp begins.
+# Force the continuation LR explicitly.
 for group in opt.param_groups:
-    group["lr"] = lr_for_step(source_step)
+    group["lr"] = CONTINUATION_LR
 
 start_step = source_step
 
@@ -851,9 +813,8 @@ print(
 )
 
 print(
-    f"LR schedule     : "
-    f"{CONTINUATION_START_LR:.2e} -> {CONTINUATION_LR:.2e} "
-    f"over {LR_RAMP_STEPS:,} steps"
+    f"Continuation LR : "
+    f"{CONTINUATION_LR:.2e}"
 )
 
 print(
@@ -944,11 +905,10 @@ for step in range(
 
     model.train()
 
-    # Gradually raise the LR from 1e-6 to 3e-6, then hold it there.
-    current_lr = lr_for_step(step)
-
+    # Keep the LR fixed at the final LR of the original
+    # 20k-step schedule.
     for group in opt.param_groups:
-        group["lr"] = current_lr
+        group["lr"] = CONTINUATION_LR
 
     x, y = get_batch(
         train_tensor,
@@ -1037,7 +997,7 @@ for step in range(
             f"step {step:5d} | "
             f"train {avg_train_loss:.4f} | "
             f"val {val_loss:.4f} | "
-            f"lr {current_lr:.2e} | "
+            f"lr {CONTINUATION_LR:.2e} | "
             f"grad {float(grad_norm):.3f} | "
             f"maxW {max_weight():.2f} | "
             f"time {elapsed / 60:.1f}m"
@@ -1048,7 +1008,7 @@ for step in range(
                 step,
                 f"{avg_train_loss:.6f}",
                 f"{val_loss:.6f}",
-                f"{current_lr:.8e}",
+                f"{CONTINUATION_LR:.8e}",
                 f"{float(grad_norm):.6f}",
                 f"{max_weight():.6f}",
                 f"{elapsed:.2f}",
@@ -1096,7 +1056,7 @@ history_file.close()
 
 print()
 print("=" * 64)
-print("Glyph v2 100k continuation finished")
+print("Glyph v2 extended training finished")
 print("=" * 64)
 print(
     f"Final step      : "

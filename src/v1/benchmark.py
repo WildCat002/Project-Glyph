@@ -30,8 +30,9 @@ N_HEAD = 4
 N_EMB = 128
 DROPOUT = 0.1
 
-CKPT = "glyph.pt"
-DATA = "data.txt"
+ROOT_DIR = Path(__file__).resolve().parents[2]
+CKPT = ROOT_DIR / "models/v1/glyph.pt"
+DATA = ROOT_DIR / "data/data.txt"
 
 EVAL_CHARS = 100_000
 EVAL_BATCH = 16
@@ -485,7 +486,7 @@ def main():
     report.append("=" * 60)
     report.append("End of benchmark")
 
-    output_path = Path("benchmark_results.txt")
+    output_path = ROOT_DIR / "results/v1/benchmark_results.txt"
     output_path.write_text(
         "\n".join(report),
         encoding="utf-8",

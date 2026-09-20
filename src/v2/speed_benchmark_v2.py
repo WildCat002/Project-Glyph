@@ -37,6 +37,7 @@ import math
 import os
 import statistics
 import time
+from pathlib import Path
 
 import numpy as np
 import torch
@@ -44,8 +45,9 @@ import torch.nn.functional as F
 from torch import nn
 
 
-DATA_FILE = "data.txt"
-CHECKPOINT = "glyph_v2.pt"
+ROOT_DIR = Path(__file__).resolve().parents[2]
+DATA_FILE = ROOT_DIR / "data/data.txt"
+CHECKPOINT = ROOT_DIR / "models/v2/glyph_v2.pt"
 
 MAX_DATA = 5_000_000
 VAL_CHARS = 250_000

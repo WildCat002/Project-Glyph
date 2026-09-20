@@ -1,12 +1,15 @@
 """
-Glyph v2 Extended Training
-==========================
+Glyph v2 Extended Training — CUDA / Google Colab T4
+====================================================
 
-Continue the EXISTING Glyph v2 20,000-step checkpoint to step 50,000.
+Continue the EXISTING Glyph v2 50,000-step checkpoint to step 100,000
+using a CUDA GPU (for example, the Google Colab NVIDIA T4).
 
-This is intentionally NOT a new architecture.
+This keeps the same model architecture and training schedule as the
+100k continuation, but moves the model and the full train/validation
+character tensors onto the GPU so the T4 actually performs the work.
 
-The experiment keeps:
+Architecture:
     BLOCK       = 128
     N_LAYER     = 4
     N_HEAD      = 4
@@ -16,28 +19,28 @@ The experiment keeps:
     GRAD_CLIP   = 0.05
     ADAM_EPS    = 1e-6
 
-It resumes the exact model + AdamW optimizer state from:
-    glyph_v2.pt
+Continuation schedule:
+    50,000 -> 52,000 : LR ramps 1e-6 -> 3e-6
+    52,000 -> 100,000: LR held at 3e-6
 
-At step 20,000 the original v2 schedule had reached:
-    LR = 1e-6
-
-For the extension, we keep LR fixed at 1e-6. This avoids an abrupt LR
-increase and makes this experiment specifically about giving the SAME
-trained model another 30,000 optimization steps.
-
-Outputs are kept separate from the original v2 files:
+Source checkpoint:
     glyph_v2_50k.pt
-    glyph_v2_50k_best.pt
-    glyph_v2_50k_last_good.pt
-    glyph_v2_50k_history.csv
 
-The script automatically resumes glyph_v2_50k.pt when a previous continuation
-checkpoint exists between 20,000 and 50,000 steps, so interrupted progress is
-not discarded.
+CUDA outputs are kept separate so they do not conflict with a local
+laptop 100k run:
+    glyph_v2_100k_cuda.pt
+    glyph_v2_100k_cuda_best.pt
+    glyph_v2_100k_cuda_last_good.pt
+    glyph_v2_100k_cuda_history.csv
 
-The CPU thread count is set to 2 because the local speed benchmark measured
-2 threads as the fastest configuration on the current 4-logical-CPU laptop.
+Notes:
+    - The trainer uses CUDA when available and stops with an error if CUDA
+      is unavailable. This prevents silently falling back to CPU.
+    - Training stays in float32 for closer numerical behavior to the
+      existing CPU experiment. The T4 still performs the matrix operations.
+    - The first step can be slower because CUDA kernels/context are warming up.
+    - Checkpoint tensors are saved normally; they can later be loaded on CPU
+      with map_location='cpu'.
 """
 
 from __future__ import annotations
@@ -46,6 +49,7 @@ import csv
 import math
 import os
 import time
+from pathlib import Path
 
 import numpy as np
 import torch
@@ -54,13 +58,11 @@ from torch import nn
 
 
 # ============================================================
-# REPRODUCIBILITY / CPU
+# REPRODUCIBILITY
 # ============================================================
 
 SEED = 42
-CPU_THREADS = 2
 
-torch.set_num_threads(CPU_THREADS)
 torch.manual_seed(SEED)
 np.random.seed(SEED)
 
@@ -69,14 +71,39 @@ np.random.seed(SEED)
 # FILES
 # ============================================================
 
-DATA_FILE = "data.txt"
+ROOT_DIR = Path(__file__).resolve().parents[2]
+DATA_FILE = ROOT_DIR / "data/data.txt"
+BASE_CKPT = ROOT_DIR / "experiments/v2_50k/glyph_v2_50k.pt"
 
-BASE_CKPT = "glyph_v2.pt"
+CKPT = ROOT_DIR / "experiments/v2_100k/glyph_v2_100k_cuda.pt"
+BEST_CKPT = ROOT_DIR / "models/v2/glyph_v2_100k_cuda_best.pt"
+LAST_GOOD_CKPT = ROOT_DIR / "experiments/v2_100k/glyph_v2_100k_cuda_last_good.pt"
+HISTORY_FILE = ROOT_DIR / "experiments/v2_100k/glyph_v2_100k_cuda_history.csv"
 
-CKPT = "glyph_v2_50k.pt"
-BEST_CKPT = "glyph_v2_50k_best.pt"
-LAST_GOOD_CKPT = "glyph_v2_50k_last_good.pt"
-HISTORY_FILE = "glyph_v2_50k_history.csv"
+
+# ============================================================
+# CUDA DEVICE
+# ============================================================
+
+if not torch.cuda.is_available():
+    raise RuntimeError(
+        "CUDA is not available. In Google Colab, enable a GPU runtime "
+        "(Runtime -> Change runtime type -> T4 GPU) and run again."
+    )
+
+DEVICE = torch.device("cuda")
+GPU_NAME = torch.cuda.get_device_name(0)
+GPU_PROPS = torch.cuda.get_device_properties(0)
+
+print("=" * 64)
+print("Glyph v2 Extended Training — CUDA")
+print("=" * 64)
+print(f"Device       : {DEVICE}")
+print(f"GPU          : {GPU_NAME}")
+print(f"VRAM         : {GPU_PROPS.total_memory / (1024**3):.2f} GB")
+print(f"PyTorch      : {torch.__version__}")
+print("=" * 64)
+print()
 
 
 # ============================================================
@@ -87,12 +114,13 @@ MAX_DATA = 5_000_000
 VAL_CHARS = 250_000
 TRAIN_END = MAX_DATA - VAL_CHARS
 
-raw_text = open(
+with open(
     DATA_FILE,
     "r",
     encoding="utf-8",
     errors="ignore",
-).read().lower()
+) as f:
+    raw_text = f.read().lower()
 
 text = raw_text[:MAX_DATA]
 
@@ -111,7 +139,6 @@ train_text = text[:TRAIN_END]
 val_text = text[TRAIN_END:]
 
 chars = sorted(set(text))
-
 stoi = {c: i for i, c in enumerate(chars)}
 itos = {i: c for c, i in stoi.items()}
 
@@ -127,17 +154,10 @@ val_data = np.array(
     dtype=np.uint16,
 )
 
-print("=" * 64)
-print("Glyph v2 Extended Training")
-print("=" * 64)
-print("Batching     : vectorized PyTorch indexing")
-print("Validation   : every 1,000 steps / 64 batches")
-print("Checkpoint   : every 2,000 steps + every new best")
-print("=" * 64)
-print(f"Total chars : {len(text):,}")
-print(f"Train chars : {len(train_data):,}")
-print(f"Val chars   : {len(val_data):,}")
-print(f"Vocab       : {V}")
+print(f"Total chars  : {len(text):,}")
+print(f"Train chars  : {len(train_data):,}")
+print(f"Val chars    : {len(val_data):,}")
+print(f"Vocab        : {V}")
 print()
 
 
@@ -146,11 +166,9 @@ print()
 # ============================================================
 
 BLOCK = 128
-
 N_LAYER = 4
 N_HEAD = 4
 N_EMB = 128
-
 DROPOUT = 0.1
 
 
@@ -159,12 +177,12 @@ DROPOUT = 0.1
 # ============================================================
 
 BATCH = 32
+SOURCE_STEP_REQUIRED = 50_000
+TARGET_STEP = 100_000
 
-SOURCE_STEP_REQUIRED = 20_000
-TARGET_STEP = 50_000
-
-# This is the LR reached by the original v2 schedule at step 20,000.
-CONTINUATION_LR = 1e-6
+CONTINUATION_START_LR = 1e-6
+CONTINUATION_LR = 3e-6
+LR_RAMP_STEPS = 2_000
 
 WD = 0.01
 GRAD_CLIP = 0.05
@@ -172,7 +190,6 @@ ADAM_EPS = 1e-6
 
 SAVE_EVERY = 2_000
 EVAL_EVERY = 1_000
-
 VAL_BATCHES = 64
 
 
@@ -206,35 +223,22 @@ class Attn(nn.Module):
 
         head_dim = C // N_HEAD
 
+        # Keep the attention calculation in float32 to match the existing
+        # CPU trainer numerically as closely as practical.
         q = (
-            q.view(
-                B,
-                T,
-                N_HEAD,
-                head_dim,
-            )
+            q.view(B, T, N_HEAD, head_dim)
             .transpose(1, 2)
             .float()
         )
 
         k = (
-            k.view(
-                B,
-                T,
-                N_HEAD,
-                head_dim,
-            )
+            k.view(B, T, N_HEAD, head_dim)
             .transpose(1, 2)
             .float()
         )
 
         v = (
-            v.view(
-                B,
-                T,
-                N_HEAD,
-                head_dim,
-            )
+            v.view(B, T, N_HEAD, head_dim)
             .transpose(1, 2)
             .float()
         )
@@ -253,9 +257,7 @@ class Attn(nn.Module):
             .view(B, T, C)
         )
 
-        return self.drop(
-            self.proj(y)
-        )
+        return self.drop(self.proj(y))
 
 
 class Block(nn.Module):
@@ -267,25 +269,15 @@ class Block(nn.Module):
         self.ln2 = nn.LayerNorm(N_EMB)
 
         self.mlp = nn.Sequential(
-            nn.Linear(
-                N_EMB,
-                4 * N_EMB,
-            ),
+            nn.Linear(N_EMB, 4 * N_EMB),
             nn.GELU(),
-            nn.Linear(
-                4 * N_EMB,
-                N_EMB,
-            ),
+            nn.Linear(4 * N_EMB, N_EMB),
             nn.Dropout(DROPOUT),
         )
 
     def forward(self, x):
-        x = x + self.attn(
-            self.ln1(x)
-        )
-        x = x + self.mlp(
-            self.ln2(x)
-        )
+        x = x + self.attn(self.ln1(x))
+        x = x + self.mlp(self.ln2(x))
         return x
 
 
@@ -293,42 +285,23 @@ class Glyph(nn.Module):
     def __init__(self):
         super().__init__()
 
-        self.tok = nn.Embedding(
-            V,
-            N_EMB,
-        )
-
-        self.pos = nn.Embedding(
-            BLOCK,
-            N_EMB,
-        )
+        self.tok = nn.Embedding(V, N_EMB)
+        self.pos = nn.Embedding(BLOCK, N_EMB)
 
         self.blocks = nn.Sequential(
-            *[
-                Block()
-                for _ in range(N_LAYER)
-            ]
+            *[Block() for _ in range(N_LAYER)]
         )
 
-        self.ln_f = nn.LayerNorm(
-            N_EMB
-        )
-
-        self.head = nn.Linear(
-            N_EMB,
-            V,
-            bias=False,
-        )
+        self.ln_f = nn.LayerNorm(N_EMB)
+        self.head = nn.Linear(N_EMB, V, bias=False)
 
         self._initialize_weights()
 
         # Weight tying, same as original v2.
         self.head.weight = self.tok.weight
 
-        # Same GPT-style residual projection scaling as original v2.
-        scale = 1.0 / math.sqrt(
-            2 * N_LAYER
-        )
+        # Same residual projection scaling as original v2.
+        scale = 1.0 / math.sqrt(2 * N_LAYER)
 
         for block in self.blocks:
             nn.init.normal_(
@@ -345,7 +318,6 @@ class Glyph(nn.Module):
 
     def _initialize_weights(self):
         for module in self.modules():
-
             if isinstance(module, nn.Linear):
                 nn.init.normal_(
                     module.weight,
@@ -354,25 +326,16 @@ class Glyph(nn.Module):
                 )
 
                 if module.bias is not None:
-                    nn.init.zeros_(
-                        module.bias
-                    )
+                    nn.init.zeros_(module.bias)
 
-            elif isinstance(
-                module,
-                nn.Embedding,
-            ):
+            elif isinstance(module, nn.Embedding):
                 nn.init.normal_(
                     module.weight,
                     mean=0.0,
                     std=0.02,
                 )
 
-    def forward(
-        self,
-        idx,
-        targets=None,
-    ):
+    def forward(self, idx, targets=None):
         B, T = idx.shape
 
         if T > BLOCK:
@@ -385,14 +348,9 @@ class Glyph(nn.Module):
             device=idx.device,
         )
 
-        x = (
-            self.tok(idx)
-            + self.pos(pos)
-        )
-
+        x = self.tok(idx) + self.pos(pos)
         x = self.blocks(x)
         x = self.ln_f(x)
-
         logits = self.head(x)
 
         if targets is None:
@@ -410,31 +368,24 @@ class Glyph(nn.Module):
 # MODEL / OPTIMIZER
 # ============================================================
 
-device = torch.device("cpu")
-
-model = Glyph().to(device)
+model = Glyph().to(DEVICE)
 
 num_params = sum(
     p.numel()
     for p in model.parameters()
 )
 
-print(
-    f"Parameters  : {num_params:,} "
-    f"({num_params / 1e6:.2f}M)"
-)
-print(f"Context     : {BLOCK}")
-print(f"Layers      : {N_LAYER}")
-print(f"Heads       : {N_HEAD}")
-print(f"Embedding   : {N_EMB}")
-print()
+print(f"Parameters   : {num_params:,} ({num_params / 1e6:.2f}M)")
+print(f"Context      : {BLOCK}")
+print(f"Layers       : {N_LAYER}")
+print(f"Heads        : {N_HEAD}")
+print(f"Embedding    : {N_EMB}")
 
 
 decay = []
 no_decay = []
 
-for name, param in model.named_parameters():
-
+for _, param in model.named_parameters():
     if not param.requires_grad:
         continue
 
@@ -443,15 +394,8 @@ for name, param in model.named_parameters():
     else:
         no_decay.append(param)
 
-print(
-    "Decay params    : "
-    f"{sum(p.numel() for p in decay):,}"
-)
-
-print(
-    "No-decay params : "
-    f"{sum(p.numel() for p in no_decay):,}"
-)
+print(f"Decay params    : {sum(p.numel() for p in decay):,}")
+print(f"No-decay params : {sum(p.numel() for p in no_decay):,}")
 
 opt = torch.optim.AdamW(
     [
@@ -471,54 +415,61 @@ opt = torch.optim.AdamW(
 
 
 # ============================================================
-# BATCHES
+# MOVE DATA TO GPU
+# ============================================================
+
+# The entire corpus fits comfortably in T4 VRAM.
+# CUDA does not support advanced indexing on UInt16 tensors, so store
+# the token IDs directly as int64 on the GPU. This is still tiny:
+# about 40 MB for train and 2 MB for validation.
+train_tensor = torch.from_numpy(train_data).to(
+    DEVICE,
+    dtype=torch.long,
+    non_blocking=True,
+)
+
+val_tensor = torch.from_numpy(val_data).to(
+    DEVICE,
+    dtype=torch.long,
+    non_blocking=True,
+)
+
+print(
+    f"GPU data      : train {train_tensor.numel():,} chars, "
+    f"val {val_tensor.numel():,} chars"
+)
+print()
+
+
+# ============================================================
+# GPU BATCHING
 # ============================================================
 
 
-# Convert the corpus once. The old implementation rebuilt each batch
-# with Python list-comprehensions + np.stack(). This version performs the
-# same random window selection, but the actual batch extraction is handled
-# by PyTorch indexing.
-train_tensor = torch.from_numpy(train_data)
-val_tensor = torch.from_numpy(val_data)
-
-_batch_offsets = torch.arange(
-    BLOCK + 1,
-    dtype=torch.long,
-)
-
-
-def get_batch(
-    source,
-    bs,
-):
+def get_batch(source, bs):
     if source.numel() <= BLOCK + 1:
         raise ValueError(
             "Dataset split is too small for the context length."
         )
 
-    # Keep NumPy's RNG here so the random window-selection mechanism remains
-    # the same as the original script.
-    ix_np = np.random.randint(
+    # Generate random start positions directly on the GPU.
+    ix = torch.randint(
         0,
         source.numel() - BLOCK - 1,
-        size=bs,
+        (bs,),
+        device=DEVICE,
     )
 
-    ix = torch.from_numpy(ix_np).long()
-
-    # Shape: [BATCH, BLOCK + 1]
-    positions = (
-        ix[:, None]
-        + _batch_offsets[None, :]
+    # Build the [B, BLOCK + 1] windows directly on the GPU.
+    offsets = torch.arange(
+        BLOCK + 1,
+        device=DEVICE,
     )
 
-    batch = source[positions].long()
+    positions = ix[:, None] + offsets[None, :]
+    batch = source[positions]
 
-    return (
-        batch[:, :-1],
-        batch[:, 1:],
-    )
+    return batch[:, :-1], batch[:, 1:]
 
 
 # ============================================================
@@ -535,13 +486,10 @@ def parameters_are_finite():
 
 def gradients_are_finite():
     for param in model.parameters():
-
         if param.grad is None:
             continue
 
-        if not torch.isfinite(
-            param.grad
-        ).all():
+        if not torch.isfinite(param.grad).all():
             return False
 
     return True
@@ -556,6 +504,7 @@ def max_weight():
                 param.detach()
                 .abs()
                 .max()
+                .item()
             )
         )
 
@@ -568,24 +517,13 @@ def max_weight():
 
 
 @torch.no_grad()
-def evaluate_validation(
-    num_batches=VAL_BATCHES,
-):
+def evaluate_validation(num_batches=VAL_BATCHES):
     model.eval()
-
     total_loss = 0.0
 
     for _ in range(num_batches):
-
-        x, y = get_batch(
-            val_tensor,
-            BATCH,
-        )
-
-        _, loss = model(
-            x,
-            y,
-        )
+        x, y = get_batch(val_tensor, BATCH)
+        _, loss = model(x, y)
 
         if not torch.isfinite(loss):
             model.train()
@@ -594,7 +532,6 @@ def evaluate_validation(
         total_loss += loss.item()
 
     model.train()
-
     return total_loss / num_batches
 
 
@@ -603,25 +540,26 @@ def evaluate_validation(
 # ============================================================
 
 
-def make_state(
-    step,
-    best_val_loss,
-):
+def make_state(step, best_val_loss):
     return {
         "model": model.state_dict(),
         "opt": opt.state_dict(),
         "step": step,
         "best_val_loss": best_val_loss,
         "config": {
-            "run": "glyph_v2_extended_50k",
+            "run": "glyph_v2_extended_100k_cuda",
             "base_checkpoint": BASE_CKPT,
             "source_step": SOURCE_STEP_REQUIRED,
+            "device": "cuda",
+            "gpu_name": GPU_NAME,
             "eval_every": EVAL_EVERY,
             "val_batches": VAL_BATCHES,
             "save_every": SAVE_EVERY,
-            "batching": "vectorized_torch_indexing",
+            "batching": "gpu_torch_indexing",
             "target_step": TARGET_STEP,
+            "continuation_start_lr": CONTINUATION_START_LR,
             "continuation_lr": CONTINUATION_LR,
+            "lr_ramp_steps": LR_RAMP_STEPS,
             "block": BLOCK,
             "n_layer": N_LAYER,
             "n_head": N_HEAD,
@@ -633,61 +571,54 @@ def make_state(
             "train_chars": len(train_data),
             "val_chars": len(val_data),
             "vocab": V,
+            "float32_training": True,
         },
     }
 
 
-def atomic_torch_save(
-    state,
-    path,
-):
+def atomic_torch_save(state, path):
     tmp = f"{path}.tmp"
-
-    torch.save(
-        state,
-        tmp,
-    )
-
-    os.replace(
-        tmp,
-        path,
-    )
+    torch.save(state, tmp)
+    os.replace(tmp, path)
 
 
-def save_checkpoint(
-    step,
-    best_val_loss,
-    best=False,
-):
-    state = make_state(
-        step,
-        best_val_loss,
-    )
+def save_checkpoint(step, best_val_loss, best=False):
+    state = make_state(step, best_val_loss)
 
-    atomic_torch_save(
-        state,
-        CKPT,
-    )
-
-    atomic_torch_save(
-        state,
-        LAST_GOOD_CKPT,
-    )
+    atomic_torch_save(state, CKPT)
+    atomic_torch_save(state, LAST_GOOD_CKPT)
 
     if best:
-        atomic_torch_save(
-            state,
-            BEST_CKPT,
-        )
+        atomic_torch_save(state, BEST_CKPT)
+
+
+# ============================================================
+# LEARNING-RATE SCHEDULE
+# ============================================================
+
+
+def lr_for_step(step):
+    progress = step - SOURCE_STEP_REQUIRED
+
+    if progress <= 0:
+        return CONTINUATION_START_LR
+
+    if progress >= LR_RAMP_STEPS:
+        return CONTINUATION_LR
+
+    alpha = progress / LR_RAMP_STEPS
+
+    return CONTINUATION_START_LR + alpha * (
+        CONTINUATION_LR - CONTINUATION_START_LR
+    )
 
 
 # ============================================================
 # LOAD / RESUME CHECKPOINT
 # ============================================================
 
-# If a previous 50k continuation was interrupted after making progress,
-# resume it. Otherwise start from the original 20k V2 checkpoint.
 resume_path = None
+completed_target = False
 
 if os.path.exists(CKPT):
     try:
@@ -696,14 +627,21 @@ if os.path.exists(CKPT):
             map_location="cpu",
             weights_only=False,
         )
-        probe_step = int(
-            probe.get("step", 0)
-        )
 
-        if SOURCE_STEP_REQUIRED <= probe_step < TARGET_STEP:
+        probe_step = int(probe.get("step", 0))
+
+        if probe_step >= TARGET_STEP:
+            completed_target = True
+        elif SOURCE_STEP_REQUIRED <= probe_step < TARGET_STEP:
             resume_path = CKPT
+
     except Exception:
         resume_path = None
+
+if completed_target:
+    print("Glyph v2 CUDA is already trained through 100,000 steps.")
+    print(f"Checkpoint: {CKPT}")
+    raise SystemExit(0)
 
 checkpoint_path = (
     resume_path
@@ -711,18 +649,13 @@ checkpoint_path = (
     else BASE_CKPT
 )
 
-if not os.path.exists(
-    checkpoint_path
-):
+if not os.path.exists(checkpoint_path):
     raise FileNotFoundError(
         f"Missing checkpoint: {checkpoint_path}. "
-        "Run the original Glyph v2 training first."
+        "Upload glyph_v2_50k.pt to the Colab working directory."
     )
 
-print(
-    f"Loading checkpoint: "
-    f"{checkpoint_path}"
-)
+print(f"Loading checkpoint: {checkpoint_path}")
 
 checkpoint = torch.load(
     checkpoint_path,
@@ -730,9 +663,7 @@ checkpoint = torch.load(
     weights_only=False,
 )
 
-source_step = int(
-    checkpoint.get("step", 0)
-)
+source_step = int(checkpoint.get("step", 0))
 
 if not (
     SOURCE_STEP_REQUIRED
@@ -745,14 +676,8 @@ if not (
         f"but found {source_step:,}."
     )
 
-source_config = checkpoint.get(
-    "config",
-    {}
-)
+source_config = checkpoint.get("config", {})
 
-# The original V2 checkpoint has the canonical architecture/training config.
-# The continuation checkpoint has the same architecture plus its continuation
-# metadata. In both cases these fields must remain identical.
 expected = {
     "block": BLOCK,
     "n_layer": N_LAYER,
@@ -768,70 +693,61 @@ expected = {
 }
 
 for key, expected_value in expected.items():
-
-    actual_value = source_config.get(
-        key
-    )
+    actual_value = source_config.get(key)
 
     if actual_value != expected_value:
         raise RuntimeError(
-            f"Checkpoint config mismatch for "
-            f"{key}: expected {expected_value!r}, "
-            f"found {actual_value!r}."
+            f"Checkpoint config mismatch for {key}: "
+            f"expected {expected_value!r}, found {actual_value!r}."
         )
 
-model.load_state_dict(
-    checkpoint["model"]
-)
+model.load_state_dict(checkpoint["model"])
 
-opt.load_state_dict(
-    checkpoint["opt"]
-)
+opt.load_state_dict(checkpoint["opt"])
 
-# Force the continuation LR explicitly.
+# Optimizer states loaded from a CPU checkpoint need to be moved to CUDA.
+for state in opt.state.values():
+    for key, value in list(state.items()):
+        if torch.is_tensor(value):
+            state[key] = value.to(DEVICE)
+
 for group in opt.param_groups:
-    group["lr"] = CONTINUATION_LR
+    group["lr"] = lr_for_step(source_step)
 
 start_step = source_step
-
 best_val_loss = float(
-    checkpoint.get(
-        "best_val_loss",
-        float("inf"),
-    )
+    checkpoint.get("best_val_loss", float("inf"))
 )
 
+print(f"Loaded step     : {start_step:,}")
+print(f"Best val loss   : {best_val_loss:.6f}")
 print(
-    f"Loaded step     : {start_step:,}"
+    f"LR schedule     : {CONTINUATION_START_LR:.2e} -> "
+    f"{CONTINUATION_LR:.2e} over {LR_RAMP_STEPS:,} steps"
 )
-
-print(
-    f"Best val loss   : "
-    f"{best_val_loss:.6f}"
-)
-
-print(
-    f"Continuation LR : "
-    f"{CONTINUATION_LR:.2e}"
-)
-
-print(
-    f"CPU threads     : "
-    f"{CPU_THREADS}"
-)
-
+print(f"GPU             : {GPU_NAME}")
 print()
 
-# SAFETY EVALUATION BEFORE CONTINUING
+
+# ============================================================
+# SAFETY / CUDA WARM-UP
 # ============================================================
 
 if not parameters_are_finite():
     raise RuntimeError(
-        "Source checkpoint contains "
-        "non-finite model parameters."
+        "Source checkpoint contains non-finite model parameters."
     )
 
+print("Running CUDA warm-up...")
+
+with torch.no_grad():
+    warm_x, _ = get_batch(train_tensor, BATCH)
+    _ = model(warm_x)
+
+torch.cuda.synchronize()
+
 anchor_val = evaluate_validation()
+torch.cuda.synchronize()
 
 print(
     f"Validation at step {start_step:,}: "
@@ -840,8 +756,7 @@ print(
 
 if not math.isfinite(anchor_val):
     raise RuntimeError(
-        "Source checkpoint produced "
-        "non-finite validation loss."
+        "Source checkpoint produced non-finite validation loss."
     )
 
 print()
@@ -851,9 +766,7 @@ print()
 # HISTORY
 # ============================================================
 
-history_exists = os.path.exists(
-    HISTORY_FILE
-)
+history_exists = os.path.exists(HISTORY_FILE)
 
 history_file = open(
     HISTORY_FILE,
@@ -862,9 +775,7 @@ history_file = open(
     encoding="utf-8",
 )
 
-history_writer = csv.writer(
-    history_file
-)
+history_writer = csv.writer(history_file)
 
 if not history_exists:
     history_writer.writerow(
@@ -881,12 +792,12 @@ if not history_exists:
 
 
 # ============================================================
-# TRAIN EXTENSION
+# TRAIN
 # ============================================================
 
 print("=" * 64)
 print(
-    f"Continuing Glyph v2: "
+    f"Continuing Glyph v2 on {GPU_NAME}: "
     f"{start_step:,} -> {TARGET_STEP:,}"
 )
 print("=" * 64)
@@ -896,106 +807,69 @@ running_loss = 0.0
 start_time = time.time()
 last_completed_step = start_step
 
-for step in range(
-    start_step + 1,
-    TARGET_STEP + 1,
-):
-
+for step in range(start_step + 1, TARGET_STEP + 1):
     model.train()
 
-    # Keep the LR fixed at the final LR of the original
-    # 20k-step schedule.
+    current_lr = lr_for_step(step)
+
     for group in opt.param_groups:
-        group["lr"] = CONTINUATION_LR
+        group["lr"] = current_lr
 
-    x, y = get_batch(
-        train_tensor,
-        BATCH,
-    )
+    x, y = get_batch(train_tensor, BATCH)
 
-    opt.zero_grad(
-        set_to_none=True
-    )
+    opt.zero_grad(set_to_none=True)
 
-    _, loss = model(
-        x,
-        y,
-    )
+    _, loss = model(x, y)
 
     if not torch.isfinite(loss):
         print()
-        print(
-            f"STOP: non-finite loss "
-            f"at step {step}: {loss}"
-        )
+        print(f"STOP: non-finite loss at step {step}: {loss}")
         break
 
     loss.backward()
 
     if not gradients_are_finite():
         print()
-        print(
-            f"STOP: non-finite gradient "
-            f"at step {step}"
-        )
+        print(f"STOP: non-finite gradient at step {step}")
         break
 
-    grad_norm = (
-        torch.nn.utils
-        .clip_grad_norm_(
-            model.parameters(),
-            GRAD_CLIP,
-        )
+    grad_norm = torch.nn.utils.clip_grad_norm_(
+        model.parameters(),
+        GRAD_CLIP,
     )
 
-    if not torch.isfinite(
-        grad_norm
-    ):
+    if not torch.isfinite(grad_norm):
         print()
-        print(
-            f"STOP: non-finite gradient norm "
-            f"at step {step}"
-        )
+        print(f"STOP: non-finite gradient norm at step {step}")
         break
 
     opt.step()
 
     if not parameters_are_finite():
         print()
-        print(
-            f"STOP: non-finite model parameter "
-            f"at step {step}"
-        )
+        print(f"STOP: non-finite model parameter at step {step}")
         break
 
     running_loss += loss.item()
     last_completed_step = step
 
-    # --------------------------------------------------------
-    # Logging / validation
-    # --------------------------------------------------------
-
     if step % EVAL_EVERY == 0:
+        # Make sure all GPU work is complete before measuring elapsed time.
+        torch.cuda.synchronize()
 
-        avg_train_loss = (
-            running_loss
-            / EVAL_EVERY
-        )
-
+        avg_train_loss = running_loss / EVAL_EVERY
         running_loss = 0.0
 
         val_loss = evaluate_validation()
+        torch.cuda.synchronize()
 
-        elapsed = (
-            time.time()
-            - start_time
-        )
+        elapsed = time.time() - start_time
 
         print(
             f"step {step:5d} | "
             f"train {avg_train_loss:.4f} | "
             f"val {val_loss:.4f} | "
-            f"lr {CONTINUATION_LR:.2e} | "
+            f"lr {current_lr:.2e} | "
             f"grad {float(grad_norm):.3f} | "
             f"maxW {max_weight():.2f} | "
             f"time {elapsed / 60:.1f}m"
@@ -1006,44 +880,38 @@ for step in range(
                 step,
                 f"{avg_train_loss:.6f}",
                 f"{val_loss:.6f}",
-                f"{CONTINUATION_LR:.8e}",
+                f"{current_lr:.8e}",
                 f"{float(grad_norm):.6f}",
                 f"{max_weight():.6f}",
                 f"{elapsed:.2f}",
             ]
         )
-
         history_file.flush()
 
-        is_best = (
-            val_loss < best_val_loss
-        )
+        is_best = val_loss < best_val_loss
 
         if is_best:
             best_val_loss = val_loss
-
             print(
-                "  -> new best "
-                f"validation loss: "
+                "  -> new best validation loss: "
                 f"{best_val_loss:.6f}"
             )
 
-        if (
-            step % SAVE_EVERY == 0
-            or is_best
-        ):
+        if step % SAVE_EVERY == 0 or is_best:
             save_checkpoint(
                 step,
                 best_val_loss,
                 best=is_best,
             )
 
+
 # ============================================================
 # FINAL SAVE
 # ============================================================
 
-if parameters_are_finite():
+torch.cuda.synchronize()
 
+if parameters_are_finite():
     save_checkpoint(
         last_completed_step,
         best_val_loss,
@@ -1052,25 +920,15 @@ if parameters_are_finite():
 
 history_file.close()
 
+torch.cuda.empty_cache()
+
 print()
 print("=" * 64)
-print("Glyph v2 extended training finished")
+print("Glyph v2 100k CUDA continuation finished")
 print("=" * 64)
-print(
-    f"Final step      : "
-    f"{last_completed_step:,}"
-)
-print(
-    f"Best val loss   : "
-    f"{best_val_loss:.6f}"
-)
-print(
-    f"Final checkpoint: {CKPT}"
-)
-print(
-    f"Best checkpoint : {BEST_CKPT}"
-)
-print(
-    f"History         : {HISTORY_FILE}"
-)
+print(f"Final step      : {last_completed_step:,}")
+print(f"Best val loss   : {best_val_loss:.6f}")
+print(f"Final checkpoint: {CKPT}")
+print(f"Best checkpoint : {BEST_CKPT}")
+print(f"History         : {HISTORY_FILE}")
 print("=" * 64)

@@ -43,8 +43,9 @@ N_HEAD = 4
 N_EMB = 128
 DROPOUT = 0.1
 
-DEFAULT_CHECKPOINT = "glyph_v2_100k_cuda_best.pt"
-DATA_FILE = "data.txt"
+ROOT_DIR = Path(__file__).resolve().parents[2]
+DEFAULT_CHECKPOINT = ROOT_DIR / "models/v2/glyph_v2_100k_cuda_best.pt"
+DATA_FILE = ROOT_DIR / "data/data.txt"
 
 DEFAULT_TEMPERATURE = 0.7
 DEFAULT_TOP_K = 20

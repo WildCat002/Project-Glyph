@@ -2,6 +2,7 @@ import csv
 import math
 import os
 import time
+from pathlib import Path
 
 import numpy as np
 import torch
@@ -40,7 +41,8 @@ np.random.seed(SEED)
 # DATA
 # ============================================================
 
-DATA_FILE = "data.txt"
+ROOT_DIR = Path(__file__).resolve().parents[2]
+DATA_FILE = ROOT_DIR / "data/data.txt"
 
 MAX_DATA = 5_000_000
 VAL_CHARS = 250_000
@@ -130,10 +132,10 @@ EVAL_EVERY = 500
 # Final benchmark can run a full validation pass.
 VAL_BATCHES = 128
 
-CKPT = "glyph_v2.pt"
-BEST_CKPT = "glyph_v2_best.pt"
-LAST_GOOD_CKPT = "glyph_v2_last_good.pt"
-HISTORY_FILE = "glyph_v2_history.csv"
+CKPT = ROOT_DIR / "models/v2/glyph_v2.pt"
+BEST_CKPT = ROOT_DIR / "models/v2/glyph_v2_best.pt"
+LAST_GOOD_CKPT = ROOT_DIR / "experiments/v2_20k/glyph_v2_last_good.pt"
+HISTORY_FILE = ROOT_DIR / "experiments/v2_20k/glyph_v2_history.csv"
 
 # Start v2 from scratch.
 RESUME = False
