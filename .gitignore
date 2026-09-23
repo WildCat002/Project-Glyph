@@ -3,6 +3,9 @@ __pycache__/
 *.pyc
 *.pyo
 
+# Pycharm
+.idea/
+
 # Virtual environments
 .venv/
 venv/

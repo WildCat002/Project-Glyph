@@ -1,0 +1,1406 @@
+Glyph V3 EXACT TASK BENCHMARK
+========================================================================
+temperature=0.7
+top_k=20
+seeds=[42, 43, 44, 45, 46]
+
+[V3-A best]
+step=91000
+best_val_loss=1.4991813618689775
+
+arith seed=42 FAIL
+prompt='user: what is 7 + 8?\nassistant:'
+expected='15'
+answer='so look as they first of an electronic whales seemed to have seated for her forebidded a little gat'
+
+arith seed=43 FAIL
+prompt='user: what is 7 + 8?\nassistant:'
+expected='15'
+answer='he has reached on the streets of the others were in my passions of the seamen are to increase to de'
+
+arith seed=44 FAIL
+prompt='user: what is 7 + 8?\nassistant:'
+expected='15'
+answer='“here is a struck, my course talking without being during their room. miles right the maidly boat-'
+
+arith seed=45 FAIL
+prompt='user: what is 7 + 8?\nassistant:'
+expected='15'
+answer='it was a strange standing and right and strong and spent,'
+
+arith seed=46 FAIL
+prompt='user: what is 7 + 8?\nassistant:'
+expected='15'
+answer='to the sight and'
+
+arith seed=42 FAIL
+prompt='user: what is 80 - 4?\nassistant:'
+expected='76'
+answer='i am commence of all the other intended to be an human cut all at the following and cheerful really'
+
+arith seed=43 FAIL
+prompt='user: what is 80 - 4?\nassistant:'
+expected='76'
+answer='now, and diver the captain about the side of the'
+
+arith seed=44 FAIL
+prompt='user: what is 80 - 4?\nassistant:'
+expected='76'
+answer='looking my sisters,'
+
+arith seed=45 FAIL
+prompt='user: what is 80 - 4?\nassistant:'
+expected='76'
+answer='“i was not to be are his signity of my mother’s enterting in his face is unfected in her been its'
+
+arith seed=46 FAIL
+prompt='user: what is 80 - 4?\nassistant:'
+expected='76'
+answer='--'
+
+arith seed=42 FAIL
+prompt='user: what is 12 times 4?\nassistant:'
+expected='48'
+answer='--'
+
+arith seed=43 FAIL
+prompt='user: what is 12 times 4?\nassistant:'
+expected='48'
+answer='the fact of the contraction of conclusions of scene, the adigiant time. the street, i have the appe'
+
+arith seed=44 FAIL
+prompt='user: what is 12 times 4?\nassistant:'
+expected='48'
+answer='but some black, however, which you will have a varge of one of the days of the street whales stones'
+
+arith seed=45 FAIL
+prompt='user: what is 12 times 4?\nassistant:'
+expected='48'
+answer='and the darkness of her fashion. one knows'
+
+arith seed=46 FAIL
+prompt='user: what is 12 times 4?\nassistant:'
+expected='48'
+answer='“you was an evil'
+
+arith seed=42 FAIL
+prompt='user: what is 81 divided by 9?\nassistant:'
+expected='9'
+answer='“i dread to return to coming the stranger calling to the'
+
+arith seed=43 FAIL
+prompt='user: what is 81 divided by 9?\nassistant:'
+expected='9'
+answer='but all the top, it was of married as they had had ready to my companions where the law and said af'
+
+arith seed=44 FAIL
+prompt='user: what is 81 divided by 9?\nassistant:'
+expected='9'
+answer='he said, “if you often save a rather ready at the same day, are a glass for the hard, a discoverenc'
+
+arith seed=45 FAIL
+prompt='user: what is 81 divided by 9?\nassistant:'
+expected='9'
+answer='i shall see a case of the tall of your'
+
+arith seed=46 FAIL
+prompt='user: what is 81 divided by 9?\nassistant:'
+expected='9'
+answer='the lovely work of the black street. as that of the white bench of some time to take his breaths wh'
+
+yesno seed=42 FAIL
+prompt='user: is 17 greater than 9?\nassistant:'
+expected='yes'
+answer='it was returned to'
+
+yesno seed=43 FAIL
+prompt='user: is 17 greater than 9?\nassistant:'
+expected='yes'
+answer='again, but i was engaged, as there is sequired by the matters will put out his latters'
+
+yesno seed=44 FAIL
+prompt='user: is 17 greater than 9?\nassistant:'
+expected='yes'
+answer='she was all the'
+
+yesno seed=45 FAIL
+prompt='user: is 17 greater than 9?\nassistant:'
+expected='yes'
+answer='--'
+
+yesno seed=46 FAIL
+prompt='user: is 17 greater than 9?\nassistant:'
+expected='yes'
+answer='then i wanted up at the evening in his hands and to'
+
+yesno seed=42 FAIL
+prompt='user: is 4 less than 2?\nassistant:'
+expected='no'
+answer='--'
+
+yesno seed=43 FAIL
+prompt='user: is 4 less than 2?\nassistant:'
+expected='no'
+answer='she was the same time of the crowd, and slanding at his barren gentlemen with her listened hat, the'
+
+yesno seed=44 FAIL
+prompt='user: is 4 less than 2?\nassistant:'
+expected='no'
+answer='man! when i saw round the lodges of the sea. her words a raved and mecrated in the bad grow with a'
+
+yesno seed=45 FAIL
+prompt='user: is 4 less than 2?\nassistant:'
+expected='no'
+answer='locks and dark-night, so that they had not conceived that a fancy is'
+
+yesno seed=46 FAIL
+prompt='user: is 4 less than 2?\nassistant:'
+expected='no'
+answer='--'
+
+compare seed=42 FAIL
+prompt='user: which is larger, 30 or 87?\nassistant:'
+expected='87'
+answer='but there were them the steadful better manette and near the pressionable leaders was before like a'
+
+compare seed=43 FAIL
+prompt='user: which is larger, 30 or 87?\nassistant:'
+expected='87'
+answer='he sat the barmer on the stretched directions and relice and complete. then the'
+
+compare seed=44 FAIL
+prompt='user: which is larger, 30 or 87?\nassistant:'
+expected='87'
+answer='--'
+
+compare seed=45 FAIL
+prompt='user: which is larger, 30 or 87?\nassistant:'
+expected='87'
+answer='a significan torments was such a great feeling-or the spirits fat upon him. when he english that ma'
+
+compare seed=46 FAIL
+prompt='user: which is larger, 30 or 87?\nassistant:'
+expected='87'
+answer='for the look of the same breast the chase'
+
+compare seed=42 FAIL
+prompt='user: which is smaller, 23 or 76?\nassistant:'
+expected='23'
+answer='“and i could not be out of the white counter and men and looked to disturb after what with his'
+
+compare seed=43 FAIL
+prompt='user: which is smaller, 23 or 76?\nassistant:'
+expected='23'
+answer='it was meant'
+
+compare seed=44 FAIL
+prompt='user: which is smaller, 23 or 76?\nassistant:'
+expected='23'
+answer='she was never his playing out of the dormouses in him to the sound. i shall be made to the gall'
+
+compare seed=45 FAIL
+prompt='user: which is smaller, 23 or 76?\nassistant:'
+expected='23'
+answer='but i had been something a face which will not know when he had been more with my labours, and inst'
+
+compare seed=46 FAIL
+prompt='user: which is smaller, 23 or 76?\nassistant:'
+expected='23'
+answer='--'
+
+seq seed=42 FAIL
+prompt='user: what comes next: 2, 5, 8, 11, ?\nassistant:'
+expected='14'
+answer='and the brave effect, and the count complete unknown upon his'
+
+seq seed=43 FAIL
+prompt='user: what comes next: 2, 5, 8, 11, ?\nassistant:'
+expected='14'
+answer='“i say your mind lost to find him, i would not be at some teaching like set from the ball and love,'
+
+seq seed=44 FAIL
+prompt='user: what comes next: 2, 5, 8, 11, ?\nassistant:'
+expected='14'
+answer='and the gloom had seen into the need. and the cause; ahab possible to himself in the'
+
+seq seed=45 FAIL
+prompt='user: what comes next: 2, 5, 8, 11, ?\nassistant:'
+expected='14'
+answer='it was down to the powers to perhaps in the look of his change of the stranger. she did not eusing'
+
+seq seed=46 FAIL
+prompt='user: what comes next: 2, 5, 8, 11, ?\nassistant:'
+expected='14'
+answer='so before the same face towards a words, he had done what they were not a strange and side of a mos'
+
+seq seed=42 FAIL
+prompt='user: what comes next: 10, 16, 22, 28, ?\nassistant:'
+expected='34'
+answer='--'
+
+seq seed=43 FAIL
+prompt='user: what comes next: 10, 16, 22, 28, ?\nassistant:'
+expected='34'
+answer='as he thought with the boat had only descrimed by the old moment would be soon as though a question'
+
+seq seed=44 FAIL
+prompt='user: what comes next: 10, 16, 22, 28, ?\nassistant:'
+expected='34'
+answer='he found at the pequod, and in the murder of the continual'
+
+seq seed=45 FAIL
+prompt='user: what comes next: 10, 16, 22, 28, ?\nassistant:'
+expected='34'
+answer='“oh, not uneasy as how me to mr. holmes americans to precede and little, and the duty of the second'
+
+seq seed=46 FAIL
+prompt='user: what comes next: 10, 16, 22, 28, ?\nassistant:'
+expected='34'
+answer='“he had always get.”'
+
+string seed=42 FAIL
+prompt='user: reverse the word stone.\nassistant:'
+expected='enots'
+answer='he then had'
+
+string seed=43 FAIL
+prompt='user: reverse the word stone.\nassistant:'
+expected='enots'
+answer='and there was a smile, danger, when a'
+
+string seed=44 FAIL
+prompt='user: reverse the word stone.\nassistant:'
+expected='enots'
+answer='“i could see the man of this stubb, and forget a sort of things i never saw captain as the'
+
+string seed=45 FAIL
+prompt='user: reverse the word stone.\nassistant:'
+expected='enots'
+answer='she could see me. when i almost to be a sharp things and congrising'
+
+string seed=46 FAIL
+prompt='user: reverse the word stone.\nassistant:'
+expected='enots'
+answer='--'
+
+string seed=42 FAIL
+prompt='user: how many letters are in apple?\nassistant:'
+expected='5'
+answer='and so as i could not have so over me in the project gutenberg elizabeth, to uneasy and the lord st'
+
+string seed=43 FAIL
+prompt='user: how many letters are in apple?\nassistant:'
+expected='5'
+answer='some things, which was breaking us. then he had been on the professor, and the moment in the bows t'
+
+string seed=44 FAIL
+prompt='user: how many letters are in apple?\nassistant:'
+expected='5'
+answer='he shall be the golden seamen'
+
+string seed=45 FAIL
+prompt='user: how many letters are in apple?\nassistant:'
+expected='5'
+answer='--'
+
+string seed=46 FAIL
+prompt='user: how many letters are in apple?\nassistant:'
+expected='5'
+answer='--'
+
+logic seed=42 FAIL
+prompt='user: all zibs are blue. alice is a zib. what color is alice?\nassistant:'
+expected='blue'
+answer='he is no take it with him; and was to be strong to hope.'
+
+logic seed=43 FAIL
+prompt='user: all zibs are blue. alice is a zib. what color is alice?\nassistant:'
+expected='blue'
+answer='cross the prisoner, the expression of this particular literary things reply to the point of his'
+
+logic seed=44 FAIL
+prompt='user: all zibs are blue. alice is a zib. what color is alice?\nassistant:'
+expected='blue'
+answer='--'
+
+logic seed=45 FAIL
+prompt='user: all zibs are blue. alice is a zib. what color is alice?\nassistant:'
+expected='blue'
+answer='--'
+
+logic seed=46 FAIL
+prompt='user: all zibs are blue. alice is a zib. what color is alice?\nassistant:'
+expected='blue'
+answer='--'
+
+logic seed=42 FAIL
+prompt='user: alice is taller than bob. bob is taller than carol. who is tallest?\nassistant:'
+expected='alice'
+answer='--'
+
+logic seed=43 FAIL
+prompt='user: alice is taller than bob. bob is taller than carol. who is tallest?\nassistant:'
+expected='alice'
+answer='she was'
+
+logic seed=44 FAIL
+prompt='user: alice is taller than bob. bob is taller than carol. who is tallest?\nassistant:'
+expected='alice'
+answer='“i think if this project gutenberg electronic work, he came to me a moment and late and round the l'
+
+logic seed=45 FAIL
+prompt='user: alice is taller than bob. bob is taller than carol. who is tallest?\nassistant:'
+expected='alice'
+answer='i take the door is a time to the complete for the performations of the whale; but we starts him tha'
+
+logic seed=46 FAIL
+prompt='user: alice is taller than bob. bob is taller than carol. who is tallest?\nassistant:'
+expected='alice'
+answer='i have been some tongs of'
+
+logic seed=42 FAIL
+prompt='user: bob arrives before carol. carol arrives before david. who arrives first?\nassistant:'
+expected='bob'
+answer='as we have any deed blessed minutes of men as a thing exceedingly and reflecting all this, and the'
+
+logic seed=43 FAIL
+prompt='user: bob arrives before carol. carol arrives before david. who arrives first?\nassistant:'
+expected='bob'
+answer='--'
+
+logic seed=44 FAIL
+prompt='user: bob arrives before carol. carol arrives before david. who arrives first?\nassistant:'
+expected='bob'
+answer='he had seen the earnest whale; and defarge to a'
+
+logic seed=45 FAIL
+prompt='user: bob arrives before carol. carol arrives before david. who arrives first?\nassistant:'
+expected='bob'
+answer='a sight of the deceives, and he had turned on with a great out of the made how part of the shock wh'
+
+logic seed=46 FAIL
+prompt='user: bob arrives before carol. carol arrives before david. who arrives first?\nassistant:'
+expected='bob'
+answer='he is so small will as i sat what he began to think of the parts of each hour. they had come and th'
+
+chat seed=42 FAIL
+prompt='user: hello\nassistant:'
+expected='hello'
+answer='they saw her'
+
+chat seed=43 FAIL
+prompt='user: hello\nassistant:'
+expected='hello'
+answer='seemed watching his hands of the bratches as a little was more to deway in reeder that you were dou'
+
+chat seed=44 FAIL
+prompt='user: hello\nassistant:'
+expected='hello'
+answer='he has been spoken with a small very of the god of the relations of the rings of the sea. he have n'
+
+chat seed=45 FAIL
+prompt='user: hello\nassistant:'
+expected='hello'
+answer='--'
+
+chat seed=46 FAIL
+prompt='user: hello\nassistant:'
+expected='hello'
+answer='--'
+
+chat seed=42 FAIL
+prompt='user: thank you\nassistant:'
+expected='welcome'
+answer='he could not leave my friends? i was not so very number to myself to miss power; thou was contempar'
+
+chat seed=43 FAIL
+prompt='user: thank you\nassistant:'
+expected='welcome'
+answer='and thy old water'
+
+chat seed=44 FAIL
+prompt='user: thank you\nassistant:'
+expected='welcome'
+answer='for i have no note, have willing to one of the instant that could be passing all it is a little cau'
+
+chat seed=45 FAIL
+prompt='user: thank you\nassistant:'
+expected='welcome'
+answer='--'
+
+chat seed=46 FAIL
+prompt='user: thank you\nassistant:'
+expected='welcome'
+answer='i have without a man remurded. i have a blast man. a curous rest which we have taken a people of an'
+
+chat seed=42 FAIL
+prompt='user: goodbye\nassistant:'
+expected='goodbye'
+answer='there are the'
+
+chat seed=43 FAIL
+prompt='user: goodbye\nassistant:'
+expected='goodbye'
+answer='“what is the subject very to that side, and with a century,” said hit very deprived'
+
+chat seed=44 FAIL
+prompt='user: goodbye\nassistant:'
+expected='goodbye'
+answer='and i saw'
+
+chat seed=45 FAIL
+prompt='user: goodbye\nassistant:'
+expected='goodbye'
+answer='--'
+
+chat seed=46 FAIL
+prompt='user: goodbye\nassistant:'
+expected='goodbye'
+answer='the whole of the rest was such a consideration of the little desire of the project gutenberg ely wa'
+
+- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - 
+V3-A best overall: 0/90 = 0.0000
+
+V3-A best arith: 0/20 = 0.0000
+V3-A best yesno: 0/10 = 0.0000
+V3-A best compare: 0/10 = 0.0000
+V3-A best seq: 0/10 = 0.0000
+V3-A best string: 0/10 = 0.0000
+V3-A best logic: 0/15 = 0.0000
+V3-A best chat: 0/15 = 0.0000
+
+[V3-B best]
+step=44000
+best_val_loss=1.2037831166526303
+
+arith seed=42 FAIL
+prompt='user: what is 7 + 8?\nassistant:'
+expected='15'
+answer='30.'
+
+arith seed=43 FAIL
+prompt='user: what is 7 + 8?\nassistant:'
+expected='15'
+answer='10.'
+
+arith seed=44 FAIL
+prompt='user: what is 7 + 8?\nassistant:'
+expected='15'
+answer='33.'
+
+arith seed=45 FAIL
+prompt='user: what is 7 + 8?\nassistant:'
+expected='15'
+answer='51.'
+
+arith seed=46 FAIL
+prompt='user: what is 7 + 8?\nassistant:'
+expected='15'
+answer='40.'
+
+arith seed=42 FAIL
+prompt='user: what is 80 - 4?\nassistant:'
+expected='76'
+answer='15.'
+
+arith seed=43 FAIL
+prompt='user: what is 80 - 4?\nassistant:'
+expected='76'
+answer='95.'
+
+arith seed=44 FAIL
+prompt='user: what is 80 - 4?\nassistant:'
+expected='76'
+answer='23.'
+
+arith seed=45 FAIL
+prompt='user: what is 80 - 4?\nassistant:'
+expected='76'
+answer='70.'
+
+arith seed=46 FAIL
+prompt='user: what is 80 - 4?\nassistant:'
+expected='76'
+answer='10.'
+
+arith seed=42 FAIL
+prompt='user: what is 12 times 4?\nassistant:'
+expected='48'
+answer='50.'
+
+arith seed=43 FAIL
+prompt='user: what is 12 times 4?\nassistant:'
+expected='48'
+answer='30.'
+
+arith seed=44 FAIL
+prompt='user: what is 12 times 4?\nassistant:'
+expected='48'
+answer='16.'
+
+arith seed=45 FAIL
+prompt='user: what is 12 times 4?\nassistant:'
+expected='48'
+answer='100.'
+
+arith seed=46 FAIL
+prompt='user: what is 12 times 4?\nassistant:'
+expected='48'
+answer='55.'
+
+arith seed=42 FAIL
+prompt='user: what is 81 divided by 9?\nassistant:'
+expected='9'
+answer='5.'
+
+arith seed=43 FAIL
+prompt='user: what is 81 divided by 9?\nassistant:'
+expected='9'
+answer='1.'
+
+arith seed=44 FAIL
+prompt='user: what is 81 divided by 9?\nassistant:'
+expected='9'
+answer='14.'
+
+arith seed=45 FAIL
+prompt='user: what is 81 divided by 9?\nassistant:'
+expected='9'
+answer='6.'
+
+arith seed=46 FAIL
+prompt='user: what is 81 divided by 9?\nassistant:'
+expected='9'
+answer='3.'
+
+yesno seed=42 PASS
+prompt='user: is 17 greater than 9?\nassistant:'
+expected='yes'
+answer='yes.'
+
+yesno seed=43 PASS
+prompt='user: is 17 greater than 9?\nassistant:'
+expected='yes'
+answer='yes.'
+
+yesno seed=44 PASS
+prompt='user: is 17 greater than 9?\nassistant:'
+expected='yes'
+answer='yes.'
+
+yesno seed=45 PASS
+prompt='user: is 17 greater than 9?\nassistant:'
+expected='yes'
+answer='yes.'
+
+yesno seed=46 FAIL
+prompt='user: is 17 greater than 9?\nassistant:'
+expected='yes'
+answer='no.'
+
+yesno seed=42 PASS
+prompt='user: is 4 less than 2?\nassistant:'
+expected='no'
+answer='no.'
+
+yesno seed=43 PASS
+prompt='user: is 4 less than 2?\nassistant:'
+expected='no'
+answer='no.'
+
+yesno seed=44 PASS
+prompt='user: is 4 less than 2?\nassistant:'
+expected='no'
+answer='no.'
+
+yesno seed=45 PASS
+prompt='user: is 4 less than 2?\nassistant:'
+expected='no'
+answer='no.'
+
+yesno seed=46 PASS
+prompt='user: is 4 less than 2?\nassistant:'
+expected='no'
+answer='no.'
+
+compare seed=42 FAIL
+prompt='user: which is larger, 30 or 87?\nassistant:'
+expected='87'
+answer='31 is larger.'
+
+compare seed=43 FAIL
+prompt='user: which is larger, 30 or 87?\nassistant:'
+expected='87'
+answer='79 is larger.'
+
+compare seed=44 FAIL
+prompt='user: which is larger, 30 or 87?\nassistant:'
+expected='87'
+answer='86 is larger.'
+
+compare seed=45 FAIL
+prompt='user: which is larger, 30 or 87?\nassistant:'
+expected='87'
+answer='59 is larger.'
+
+compare seed=46 FAIL
+prompt='user: which is larger, 30 or 87?\nassistant:'
+expected='87'
+answer='86 is larger.'
+
+compare seed=42 FAIL
+prompt='user: which is smaller, 23 or 76?\nassistant:'
+expected='23'
+answer='75 is smaller.'
+
+compare seed=43 FAIL
+prompt='user: which is smaller, 23 or 76?\nassistant:'
+expected='23'
+answer='35 is smaller.'
+
+compare seed=44 FAIL
+prompt='user: which is smaller, 23 or 76?\nassistant:'
+expected='23'
+answer='46 is smaller.'
+
+compare seed=45 FAIL
+prompt='user: which is smaller, 23 or 76?\nassistant:'
+expected='23'
+answer='50 is smaller.'
+
+compare seed=46 FAIL
+prompt='user: which is smaller, 23 or 76?\nassistant:'
+expected='23'
+answer='53 is smaller.'
+
+seq seed=42 FAIL
+prompt='user: what comes next: 2, 5, 8, 11, ?\nassistant:'
+expected='14'
+answer='11.'
+
+seq seed=43 FAIL
+prompt='user: what comes next: 2, 5, 8, 11, ?\nassistant:'
+expected='14'
+answer='10.'
+
+seq seed=44 FAIL
+prompt='user: what comes next: 2, 5, 8, 11, ?\nassistant:'
+expected='14'
+answer='11.'
+
+seq seed=45 FAIL
+prompt='user: what comes next: 2, 5, 8, 11, ?\nassistant:'
+expected='14'
+answer='12.'
+
+seq seed=46 FAIL
+prompt='user: what comes next: 2, 5, 8, 11, ?\nassistant:'
+expected='14'
+answer='12.'
+
+seq seed=42 FAIL
+prompt='user: what comes next: 10, 16, 22, 28, ?\nassistant:'
+expected='34'
+answer='33.'
+
+seq seed=43 FAIL
+prompt='user: what comes next: 10, 16, 22, 28, ?\nassistant:'
+expected='34'
+answer='27.'
+
+seq seed=44 FAIL
+prompt='user: what comes next: 10, 16, 22, 28, ?\nassistant:'
+expected='34'
+answer='32.'
+
+seq seed=45 FAIL
+prompt='user: what comes next: 10, 16, 22, 28, ?\nassistant:'
+expected='34'
+answer='37.'
+
+seq seed=46 FAIL
+prompt='user: what comes next: 10, 16, 22, 28, ?\nassistant:'
+expected='34'
+answer='31.'
+
+string seed=42 FAIL
+prompt='user: reverse the word stone.\nassistant:'
+expected='enots'
+answer='the sea looked at having engaged the ground.'
+
+string seed=43 FAIL
+prompt='user: reverse the word stone.\nassistant:'
+expected='enots'
+answer='eert.'
+
+string seed=44 FAIL
+prompt='user: reverse the word stone.\nassistant:'
+expected='enots'
+answer='emma arrives before david. david is tallest.'
+
+string seed=45 FAIL
+prompt='user: reverse the word stone.\nassistant:'
+expected='enots'
+answer='elin.'
+
+string seed=46 FAIL
+prompt='user: reverse the word stone.\nassistant:'
+expected='enots'
+answer='ealls.'
+
+string seed=42 PASS
+prompt='user: how many letters are in apple?\nassistant:'
+expected='5'
+answer='5 letters.'
+
+string seed=43 PASS
+prompt='user: how many letters are in apple?\nassistant:'
+expected='5'
+answer='5 letters.'
+
+string seed=44 PASS
+prompt='user: how many letters are in apple?\nassistant:'
+expected='5'
+answer='5 letters.'
+
+string seed=45 PASS
+prompt='user: how many letters are in apple?\nassistant:'
+expected='5'
+answer='5 letters.'
+
+string seed=46 PASS
+prompt='user: how many letters are in apple?\nassistant:'
+expected='5'
+answer='5 letters.'
+
+logic seed=42 PASS
+prompt='user: all zibs are blue. alice is a zib. what color is alice?\nassistant:'
+expected='blue'
+answer='blue.'
+
+logic seed=43 PASS
+prompt='user: all zibs are blue. alice is a zib. what color is alice?\nassistant:'
+expected='blue'
+answer='blue.'
+
+logic seed=44 PASS
+prompt='user: all zibs are blue. alice is a zib. what color is alice?\nassistant:'
+expected='blue'
+answer='blue.'
+
+logic seed=45 PASS
+prompt='user: all zibs are blue. alice is a zib. what color is alice?\nassistant:'
+expected='blue'
+answer='blue.'
+
+logic seed=46 PASS
+prompt='user: all zibs are blue. alice is a zib. what color is alice?\nassistant:'
+expected='blue'
+answer='blue.'
+
+logic seed=42 FAIL
+prompt='user: alice is taller than bob. bob is taller than carol. who is tallest?\nassistant:'
+expected='alice'
+answer='chapter 90. wickham.'
+
+logic seed=43 FAIL
+prompt='user: alice is taller than bob. bob is taller than carol. who is tallest?\nassistant:'
+expected='alice'
+answer='kate is tallest.'
+
+logic seed=44 FAIL
+prompt='user: alice is taller than bob. bob is taller than carol. who is tallest?\nassistant:'
+expected='alice'
+answer='say something faint as he seemed to be the large chapter like a hands of done of an end on the ligh'
+
+logic seed=45 FAIL
+prompt='user: alice is taller than bob. bob is taller than carol. who is tallest?\nassistant:'
+expected='alice'
+answer='emma is tallest.'
+
+logic seed=46 FAIL
+prompt='user: alice is taller than bob. bob is taller than carol. who is tallest?\nassistant:'
+expected='alice'
+answer='emma arrives first.'
+
+logic seed=42 FAIL
+prompt='user: bob arrives before carol. carol arrives before david. who arrives first?\nassistant:'
+expected='bob'
+answer='henry we went to my dear man.'
+
+logic seed=43 FAIL
+prompt='user: bob arrives before carol. carol arrives before david. who arrives first?\nassistant:'
+expected='bob'
+answer='david arrives first.'
+
+logic seed=44 FAIL
+prompt='user: bob arrives before carol. carol arrives before david. who arrives first?\nassistant:'
+expected='bob'
+answer='kate is tallest.'
+
+logic seed=45 FAIL
+prompt='user: bob arrives before carol. carol arrives before david. who arrives first?\nassistant:'
+expected='bob'
+answer='henry arrives before emma. emma arrives before jack. who arrives first?'
+
+logic seed=46 FAIL
+prompt='user: bob arrives before carol. carol arrives before david. who arrives first?\nassistant:'
+expected='bob'
+answer='jack is tallest.'
+
+chat seed=42 PASS
+prompt='user: hello\nassistant:'
+expected='hello'
+answer='hello! who arrives first?'
+
+chat seed=43 PASS
+prompt='user: hello\nassistant:'
+expected='hello'
+answer='hello! it is nice to talk with you.'
+
+chat seed=44 PASS
+prompt='user: hello\nassistant:'
+expected='hello'
+answer='hello! what can i do for you?'
+
+chat seed=45 PASS
+prompt='user: hello\nassistant:'
+expected='hello'
+answer='hello! i give to help with you.'
+
+chat seed=46 PASS
+prompt='user: hello\nassistant:'
+expected='hello'
+answer='hello! what can i do for you?'
+
+chat seed=42 FAIL
+prompt='user: thank you\nassistant:'
+expected='welcome'
+answer='glad to help.'
+
+chat seed=43 FAIL
+prompt='user: thank you\nassistant:'
+expected='welcome'
+answer='glad to help.'
+
+chat seed=44 PASS
+prompt='user: thank you\nassistant:'
+expected='welcome'
+answer='you are welcome.'
+
+chat seed=45 FAIL
+prompt='user: thank you\nassistant:'
+expected='welcome'
+answer='glad to help.'
+
+chat seed=46 FAIL
+prompt='user: thank you\nassistant:'
+expected='welcome'
+answer='glad to leo, no. can a stone swim?'
+
+chat seed=42 PASS
+prompt='user: goodbye\nassistant:'
+expected='goodbye'
+answer='goodbye! have a good assistant: 5 apples.'
+
+chat seed=43 PASS
+prompt='user: goodbye\nassistant:'
+expected='goodbye'
+answer='goodbye!'
+
+chat seed=44 PASS
+prompt='user: goodbye\nassistant:'
+expected='goodbye'
+answer='goodbye! who arrives first?'
+
+chat seed=45 PASS
+prompt='user: goodbye\nassistant:'
+expected='goodbye'
+answer='goodbye! have a good tanner, remembering to me this is the present companion for it proper to it to'
+
+chat seed=46 PASS
+prompt='user: goodbye\nassistant:'
+expected='goodbye'
+answer='goodbye!'
+
+- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - 
+V3-B best overall: 30/90 = 0.3333
+
+V3-B best arith: 0/20 = 0.0000
+V3-B best yesno: 9/10 = 0.9000
+V3-B best compare: 0/10 = 0.0000
+V3-B best seq: 0/10 = 0.0000
+V3-B best string: 5/10 = 0.5000
+V3-B best logic: 5/15 = 0.3333
+V3-B best chat: 11/15 = 0.7333
+
+[V3-B final]
+step=50000
+best_val_loss=1.2037831166526303
+
+arith seed=42 FAIL
+prompt='user: what is 7 + 8?\nassistant:'
+expected='15'
+answer='33.'
+
+arith seed=43 FAIL
+prompt='user: what is 7 + 8?\nassistant:'
+expected='15'
+answer='10.'
+
+arith seed=44 FAIL
+prompt='user: what is 7 + 8?\nassistant:'
+expected='15'
+answer='32.'
+
+arith seed=45 FAIL
+prompt='user: what is 7 + 8?\nassistant:'
+expected='15'
+answer='56.'
+
+arith seed=46 FAIL
+prompt='user: what is 7 + 8?\nassistant:'
+expected='15'
+answer='42.'
+
+arith seed=42 FAIL
+prompt='user: what is 80 - 4?\nassistant:'
+expected='76'
+answer='15.'
+
+arith seed=43 FAIL
+prompt='user: what is 80 - 4?\nassistant:'
+expected='76'
+answer='95.'
+
+arith seed=44 FAIL
+prompt='user: what is 80 - 4?\nassistant:'
+expected='76'
+answer='23.'
+
+arith seed=45 FAIL
+prompt='user: what is 80 - 4?\nassistant:'
+expected='76'
+answer='70.'
+
+arith seed=46 FAIL
+prompt='user: what is 80 - 4?\nassistant:'
+expected='76'
+answer='10.'
+
+arith seed=42 FAIL
+prompt='user: what is 12 times 4?\nassistant:'
+expected='48'
+answer='50.'
+
+arith seed=43 FAIL
+prompt='user: what is 12 times 4?\nassistant:'
+expected='48'
+answer='20.'
+
+arith seed=44 FAIL
+prompt='user: what is 12 times 4?\nassistant:'
+expected='48'
+answer='16.'
+
+arith seed=45 FAIL
+prompt='user: what is 12 times 4?\nassistant:'
+expected='48'
+answer='100.'
+
+arith seed=46 FAIL
+prompt='user: what is 12 times 4?\nassistant:'
+expected='48'
+answer='57.'
+
+arith seed=42 PASS
+prompt='user: what is 81 divided by 9?\nassistant:'
+expected='9'
+answer='9.'
+
+arith seed=43 FAIL
+prompt='user: what is 81 divided by 9?\nassistant:'
+expected='9'
+answer='1.'
+
+arith seed=44 FAIL
+prompt='user: what is 81 divided by 9?\nassistant:'
+expected='9'
+answer='1.'
+
+arith seed=45 FAIL
+prompt='user: what is 81 divided by 9?\nassistant:'
+expected='9'
+answer='6.'
+
+arith seed=46 FAIL
+prompt='user: what is 81 divided by 9?\nassistant:'
+expected='9'
+answer='3.'
+
+yesno seed=42 PASS
+prompt='user: is 17 greater than 9?\nassistant:'
+expected='yes'
+answer='yes.'
+
+yesno seed=43 PASS
+prompt='user: is 17 greater than 9?\nassistant:'
+expected='yes'
+answer='yes.'
+
+yesno seed=44 PASS
+prompt='user: is 17 greater than 9?\nassistant:'
+expected='yes'
+answer='yes.'
+
+yesno seed=45 PASS
+prompt='user: is 17 greater than 9?\nassistant:'
+expected='yes'
+answer='yes.'
+
+yesno seed=46 FAIL
+prompt='user: is 17 greater than 9?\nassistant:'
+expected='yes'
+answer='no.'
+
+yesno seed=42 FAIL
+prompt='user: is 4 less than 2?\nassistant:'
+expected='no'
+answer='yes.'
+
+yesno seed=43 PASS
+prompt='user: is 4 less than 2?\nassistant:'
+expected='no'
+answer='no.'
+
+yesno seed=44 PASS
+prompt='user: is 4 less than 2?\nassistant:'
+expected='no'
+answer='no.'
+
+yesno seed=45 PASS
+prompt='user: is 4 less than 2?\nassistant:'
+expected='no'
+answer='no.'
+
+yesno seed=46 PASS
+prompt='user: is 4 less than 2?\nassistant:'
+expected='no'
+answer='no.'
+
+compare seed=42 FAIL
+prompt='user: which is larger, 30 or 87?\nassistant:'
+expected='87'
+answer='51 is larger.'
+
+compare seed=43 FAIL
+prompt='user: which is larger, 30 or 87?\nassistant:'
+expected='87'
+answer='76 is larger.'
+
+compare seed=44 FAIL
+prompt='user: which is larger, 30 or 87?\nassistant:'
+expected='87'
+answer='86 is larger.'
+
+compare seed=45 FAIL
+prompt='user: which is larger, 30 or 87?\nassistant:'
+expected='87'
+answer='66 is larger.'
+
+compare seed=46 FAIL
+prompt='user: which is larger, 30 or 87?\nassistant:'
+expected='87'
+answer='86 is larger.'
+
+compare seed=42 FAIL
+prompt='user: which is smaller, 23 or 76?\nassistant:'
+expected='23'
+answer='76 is smaller.'
+
+compare seed=43 FAIL
+prompt='user: which is smaller, 23 or 76?\nassistant:'
+expected='23'
+answer='35 is smaller.'
+
+compare seed=44 FAIL
+prompt='user: which is smaller, 23 or 76?\nassistant:'
+expected='23'
+answer='45 is smaller.'
+
+compare seed=45 FAIL
+prompt='user: which is smaller, 23 or 76?\nassistant:'
+expected='23'
+answer='50 is smaller.'
+
+compare seed=46 FAIL
+prompt='user: which is smaller, 23 or 76?\nassistant:'
+expected='23'
+answer='53 is smaller.'
+
+seq seed=42 FAIL
+prompt='user: what comes next: 2, 5, 8, 11, ?\nassistant:'
+expected='14'
+answer='12.'
+
+seq seed=43 FAIL
+prompt='user: what comes next: 2, 5, 8, 11, ?\nassistant:'
+expected='14'
+answer='12.'
+
+seq seed=44 FAIL
+prompt='user: what comes next: 2, 5, 8, 11, ?\nassistant:'
+expected='14'
+answer='12.'
+
+seq seed=45 FAIL
+prompt='user: what comes next: 2, 5, 8, 11, ?\nassistant:'
+expected='14'
+answer='11.'
+
+seq seed=46 FAIL
+prompt='user: what comes next: 2, 5, 8, 11, ?\nassistant:'
+expected='14'
+answer='17.'
+
+seq seed=42 FAIL
+prompt='user: what comes next: 10, 16, 22, 28, ?\nassistant:'
+expected='34'
+answer='37.'
+
+seq seed=43 FAIL
+prompt='user: what comes next: 10, 16, 22, 28, ?\nassistant:'
+expected='34'
+answer='46.'
+
+seq seed=44 FAIL
+prompt='user: what comes next: 10, 16, 22, 28, ?\nassistant:'
+expected='34'
+answer='36.'
+
+seq seed=45 FAIL
+prompt='user: what comes next: 10, 16, 22, 28, ?\nassistant:'
+expected='34'
+answer='35.'
+
+seq seed=46 FAIL
+prompt='user: what comes next: 10, 16, 22, 28, ?\nassistant:'
+expected='34'
+answer='38.'
+
+string seed=42 FAIL
+prompt='user: reverse the word stone.\nassistant:'
+expected='enots'
+answer='a pone answer of thanks again and gets 2 more. how many apples does alice arrives before leo. who i'
+
+string seed=43 FAIL
+prompt='user: reverse the word stone.\nassistant:'
+expected='enots'
+answer='eert.'
+
+string seed=44 FAIL
+prompt='user: reverse the word stone.\nassistant:'
+expected='enots'
+answer='emma arrives before david. david is tallest.'
+
+string seed=45 FAIL
+prompt='user: reverse the word stone.\nassistant:'
+expected='enots'
+answer='elin.'
+
+string seed=46 FAIL
+prompt='user: reverse the word stone.\nassistant:'
+expected='enots'
+answer='ealls.'
+
+string seed=42 PASS
+prompt='user: how many letters are in apple?\nassistant:'
+expected='5'
+answer='5 letters.'
+
+string seed=43 PASS
+prompt='user: how many letters are in apple?\nassistant:'
+expected='5'
+answer='5 letters.'
+
+string seed=44 PASS
+prompt='user: how many letters are in apple?\nassistant:'
+expected='5'
+answer='5 letters.'
+
+string seed=45 PASS
+prompt='user: how many letters are in apple?\nassistant:'
+expected='5'
+answer='5 letters.'
+
+string seed=46 PASS
+prompt='user: how many letters are in apple?\nassistant:'
+expected='5'
+answer='5 letters.'
+
+logic seed=42 PASS
+prompt='user: all zibs are blue. alice is a zib. what color is alice?\nassistant:'
+expected='blue'
+answer='blue.'
+
+logic seed=43 PASS
+prompt='user: all zibs are blue. alice is a zib. what color is alice?\nassistant:'
+expected='blue'
+answer='blue.'
+
+logic seed=44 PASS
+prompt='user: all zibs are blue. alice is a zib. what color is alice?\nassistant:'
+expected='blue'
+answer='blue.'
+
+logic seed=45 PASS
+prompt='user: all zibs are blue. alice is a zib. what color is alice?\nassistant:'
+expected='blue'
+answer='blue.'
+
+logic seed=46 PASS
+prompt='user: all zibs are blue. alice is a zib. what color is alice?\nassistant:'
+expected='blue'
+answer='blue.'
+
+logic seed=42 FAIL
+prompt='user: alice is taller than bob. bob is taller than carol. who is tallest?\nassistant:'
+expected='alice'
+answer='chapter 90. wickham.'
+
+logic seed=43 FAIL
+prompt='user: alice is taller than bob. bob is taller than carol. who is tallest?\nassistant:'
+expected='alice'
+answer='henry is tallest.'
+
+logic seed=44 FAIL
+prompt='user: alice is taller than bob. bob is taller than carol. who is tallest?\nassistant:'
+expected='alice'
+answer='rain falls from clouds and gets 2 more. how many apples does henry have?'
+
+logic seed=45 FAIL
+prompt='user: alice is taller than bob. bob is taller than carol. who is tallest?\nassistant:'
+expected='alice'
+answer='kate is tallest.'
+
+logic seed=46 FAIL
+prompt='user: alice is taller than bob. bob is taller than carol. who is tallest?\nassistant:'
+expected='alice'
+answer='kate is tallest?'
+
+logic seed=42 FAIL
+prompt='user: bob arrives before carol. carol arrives before david. who arrives first?\nassistant:'
+expected='bob'
+answer='henry sheer, “that’s the house has been the coapse surprise. she said in fire,'
+
+logic seed=43 FAIL
+prompt='user: bob arrives before carol. carol arrives before david. who arrives first?\nassistant:'
+expected='bob'
+answer='david arrives first.'
+
+logic seed=44 FAIL
+prompt='user: bob arrives before carol. carol arrives before david. who arrives first?\nassistant:'
+expected='bob'
+answer='kate is tallest.'
+
+logic seed=45 FAIL
+prompt='user: bob arrives before carol. carol arrives before david. who arrives first?\nassistant:'
+expected='bob'
+answer='henry arrives before emma. emma arrives before jack. who arrives first?'
+
+logic seed=46 FAIL
+prompt='user: bob arrives before carol. carol arrives before david. who arrives first?\nassistant:'
+expected='bob'
+answer='jack is tallest.'
+
+chat seed=42 PASS
+prompt='user: hello\nassistant:'
+expected='hello'
+answer='hello! who arrives first?'
+
+chat seed=43 PASS
+prompt='user: hello\nassistant:'
+expected='hello'
+answer='hello! it is nice to talk welcome.'
+
+chat seed=44 PASS
+prompt='user: hello\nassistant:'
+expected='hello'
+answer='hello! what can i do for you?'
+
+chat seed=45 PASS
+prompt='user: hello\nassistant:'
+expected='hello'
+answer='hello! i give to help the word world?'
+
+chat seed=46 PASS
+prompt='user: hello\nassistant:'
+expected='hello'
+answer='hello! what can i do for you?'
+
+chat seed=42 PASS
+prompt='user: thank you\nassistant:'
+expected='welcome'
+answer='you are welcome.'
+
+chat seed=43 PASS
+prompt='user: thank you\nassistant:'
+expected='welcome'
+answer='you are welcome.'
+
+chat seed=44 FAIL
+prompt='user: thank you\nassistant:'
+expected='welcome'
+answer='glad to help.'
+
+chat seed=45 PASS
+prompt='user: thank you\nassistant:'
+expected='welcome'
+answer='you are welcome.'
+
+chat seed=46 PASS
+prompt='user: thank you\nassistant:'
+expected='welcome'
+answer='you are welcome.'
+
+chat seed=42 PASS
+prompt='user: goodbye\nassistant:'
+expected='goodbye'
+answer='goodbye!'
+
+chat seed=43 PASS
+prompt='user: goodbye\nassistant:'
+expected='goodbye'
+answer='goodbye! have i can do for you?'
+
+chat seed=44 PASS
+prompt='user: goodbye\nassistant:'
+expected='goodbye'
+answer='goodbye!'
+
+chat seed=45 PASS
+prompt='user: goodbye\nassistant:'
+expected='goodbye'
+answer='goodbye!'
+
+chat seed=46 PASS
+prompt='user: goodbye\nassistant:'
+expected='goodbye'
+answer='goodbye! have a good day of the first blow.'
+
+- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - 
+V3-B final overall: 33/90 = 0.3667
+
+V3-B final arith: 1/20 = 0.0500
+V3-B final yesno: 8/10 = 0.8000
+V3-B final compare: 0/10 = 0.0000
+V3-B final seq: 0/10 = 0.0000
+V3-B final string: 5/10 = 0.5000
+V3-B final logic: 5/15 = 0.3333
+V3-B final chat: 14/15 = 0.9333
+
+SUMMARY
+========================================================================
+V3-A best       : 0.0000
+V3-B best       : 0.3333
+V3-B final      : 0.3667

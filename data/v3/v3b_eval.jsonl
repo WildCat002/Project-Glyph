@@ -1,0 +1,16 @@
+{"prompt": "user: what is 7 + 8?\nassistant:", "expected": "15"}
+{"prompt": "user: what is 12 times 4?\nassistant:", "expected": "48"}
+{"prompt": "user: what is 81 divided by 9?\nassistant:", "expected": "9"}
+{"prompt": "user: is 17 greater than 9?\nassistant:", "expected": "yes."}
+{"prompt": "user: is 4 less than 2?\nassistant:", "expected": "no."}
+{"prompt": "user: all zibs are blue. alice is a zib. what color is alice?\nassistant:", "expected": "blue."}
+{"prompt": "user: alice is taller than bob. bob is taller than carol. who is tallest?\nassistant:", "expected": "alice is tallest."}
+{"prompt": "user: bob arrives before carol. carol arrives before david. who arrives first?\nassistant:", "expected": "bob arrives first."}
+{"prompt": "user: what comes next: 2, 5, 8, 11, ?\nassistant:", "expected": "14."}
+{"prompt": "user: reverse the word stone.\nassistant:", "expected": "enots."}
+{"prompt": "user: how many letters are in apple?\nassistant:", "expected": "5 letters."}
+{"prompt": "user: hello\nassistant:", "expected": "hello"}
+{"prompt": "user: thank you\nassistant:", "expected": "welcome"}
+{"prompt": "user: goodbye\nassistant:", "expected": "goodbye"}
+{"prompt": "user: answer with one word: yes or no. is water wet?\nassistant:", "expected": "yes."}
+{"prompt": "user: answer with one word: yes or no. can a stone swim?\nassistant:", "expected": "no."}

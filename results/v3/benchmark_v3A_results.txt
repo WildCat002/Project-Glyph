@@ -1,0 +1,68 @@
+====================================================================
+Glyph v3-A Benchmark
+====================================================================
+Checkpoint   : E:\Python-Projects\Project-Glyph\Glyph\models\v3\glyph_v3_lstm_best.pt
+Step         : 91000
+Best val loss: 1.499181
+Parameters   : 820,226
+Device       : cpu
+====================================================================
+
+--- 'alice was' ---
+ acquainted and true to the prayes that i said there in
+answer, which has
+been better to the low do on board to really be compared to a companion to him, and i have sat and then
+were so carted upon the room, which has been that many in the project gutenberg literary pride, for any of the immediate w
+metrics: valid=0.983 malformed=0.017 adj_repeat=0.000 punct=0.013
+
+--- 'the king' ---
+ part of such an objects were wild to suffer to tell the purpoice of the aurowing and body, and almostly
+began to
+be so stated on him, hardly destroyed the sun as soon as the professor of the project gutenberg electronic works of terrible angel to let with her with a ship was all between the proper 
+metrics: valid=0.947 malformed=0.053 adj_repeat=0.000 punct=0.007
+
+--- 'the queen' ---
+ shoes and fire and near his hairs through the time to the fall whale.
+
+it would we felt it, they were all going to think with his father, even before it was never saw the evening from the
+points of the ways of crying his butting of what had been a work or old man, and he asked him to louded to ente
+metrics: valid=0.952 malformed=0.048 adj_repeat=0.000 punct=0.013
+
+--- 'once upon a time' ---
+s were the hearting of grand whale in her supprised, who were have been a solitude of the confidence, and the carriage of the days were much into the case in one in that sperm whaleman, did his wife, and the counting sister further standing. and said, and looking about the business attending away an
+metrics: valid=0.964 malformed=0.036 adj_repeat=0.000 punct=0.020
+
+--- 'she looked at the' ---
+ good hands on his glasses when the man were seen in the horses that mr. well, was the wranting and turns was nothing over into a sleep of some time of her head and at the hole in her head, came to have a great tail street was reason for himself that was here alone and the character and on the garde
+metrics: valid=0.968 malformed=0.032 adj_repeat=0.000 punct=0.010
+
+--- 'the man' ---
+ who had been to prevent his boats, which the fame of the strong ship, and what the anxious stole of the arm with her attention of the abode, and then she been set the dinner continued along the sailors in the common that i will in our father reply when
+the street the meaning like a thing to a way t
+metrics: valid=1.000 malformed=0.000 adj_repeat=0.000 punct=0.010
+
+--- 'user: hello\nassistant:' ---
+ and i shall take him the high humour and horribly returned to make you not.”
+
+she had distributed the floor where the end of his cost of the same days, when the
+siture of his subjigness and
+leazed to deal to the room of a
+ship. that is my
+heart at the whole to my way together and the shadows of his
+metrics: valid=0.952 malformed=0.048 adj_repeat=0.000 punct=0.010
+
+--- 'user: what is 2 + 2?\nassistant:' ---
+ “i am sure to my take ago. i get in to-day, i have not destrobey, if he is a bolf and the first particular conscious that i had put in the conversation is done out in natura, with a word is the begged one-trembling shock. she was stood with me, in all the sworth is not victood, and which
+they pause
+metrics: valid=0.921 malformed=0.079 adj_repeat=0.000 punct=0.023
+
+--- 'user: explain gravity in one sentence.\nassistant:' ---
+ the father shade and dark and stood like the was safe, saying the ship, and revetened than a which the greater happiness and reading for the first to accomparing the sun and hand away to save morning all the good
+good-side of the whale. i told the black coat with the night, and the read; the
+equal 
+metrics: valid=0.966 malformed=0.034 adj_repeat=0.018 punct=0.017
+
+Aggregate valid-word ratio: 0.9614
+
+================================================================
+End of benchmark

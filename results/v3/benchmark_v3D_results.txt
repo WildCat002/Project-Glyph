@@ -1,0 +1,618 @@
+Glyph V3-D Task Benchmark
+====================================================================
+Checkpoint   : E:\Python-Projects\Project-Glyph\Glyph\models\v3\glyph_v3d.pt
+Step         : 50000
+Best val loss: not stored
+Best combined: 1.185931306798011
+Best task    : not stored
+Best natural : not stored
+Parameters   : 820,226
+Device       : cpu
+Temperature  : 0.7
+Top-k        : 20
+New chars    : 120
+Seeds        : [42, 43, 44, 45, 46]
+Tasks        : 18
+Conversation scoring: accepted-response sets (not one exact phrase).
+
+TASK 01 | arithmetic   | seed=42 | FAIL
+prompt:   'user: what is 7 + 8?\nassistant:'
+expected: '15'
+acceptable: [exact / category rule]
+answer:   '95'
+
+TASK 01 | arithmetic   | seed=43 | FAIL
+prompt:   'user: what is 7 + 8?\nassistant:'
+expected: '15'
+acceptable: [exact / category rule]
+answer:   '97'
+
+TASK 01 | arithmetic   | seed=44 | FAIL
+prompt:   'user: what is 7 + 8?\nassistant:'
+expected: '15'
+acceptable: [exact / category rule]
+answer:   '94'
+
+TASK 01 | arithmetic   | seed=45 | FAIL
+prompt:   'user: what is 7 + 8?\nassistant:'
+expected: '15'
+acceptable: [exact / category rule]
+answer:   '100'
+
+TASK 01 | arithmetic   | seed=46 | FAIL
+prompt:   'user: what is 7 + 8?\nassistant:'
+expected: '15'
+acceptable: [exact / category rule]
+answer:   '86'
+
+TASK 01 accuracy: 0/5 = 0.0000
+
+TASK 02 | arithmetic   | seed=42 | FAIL
+prompt:   'user: what is 80 - 4?\nassistant:'
+expected: '76'
+acceptable: [exact / category rule]
+answer:   '0'
+
+TASK 02 | arithmetic   | seed=43 | FAIL
+prompt:   'user: what is 80 - 4?\nassistant:'
+expected: '76'
+acceptable: [exact / category rule]
+answer:   '1'
+
+TASK 02 | arithmetic   | seed=44 | FAIL
+prompt:   'user: what is 80 - 4?\nassistant:'
+expected: '76'
+acceptable: [exact / category rule]
+answer:   '1'
+
+TASK 02 | arithmetic   | seed=45 | FAIL
+prompt:   'user: what is 80 - 4?\nassistant:'
+expected: '76'
+acceptable: [exact / category rule]
+answer:   '10'
+
+TASK 02 | arithmetic   | seed=46 | FAIL
+prompt:   'user: what is 80 - 4?\nassistant:'
+expected: '76'
+acceptable: [exact / category rule]
+answer:   '2'
+
+TASK 02 accuracy: 0/5 = 0.0000
+
+TASK 03 | arithmetic   | seed=42 | FAIL
+prompt:   'user: what is 12 times 4?\nassistant:'
+expected: '48'
+acceptable: [exact / category rule]
+answer:   '10'
+
+TASK 03 | arithmetic   | seed=43 | FAIL
+prompt:   'user: what is 12 times 4?\nassistant:'
+expected: '48'
+acceptable: [exact / category rule]
+answer:   '10'
+
+TASK 03 | arithmetic   | seed=44 | FAIL
+prompt:   'user: what is 12 times 4?\nassistant:'
+expected: '48'
+acceptable: [exact / category rule]
+answer:   '10'
+
+TASK 03 | arithmetic   | seed=45 | FAIL
+prompt:   'user: what is 12 times 4?\nassistant:'
+expected: '48'
+acceptable: [exact / category rule]
+answer:   '10'
+
+TASK 03 | arithmetic   | seed=46 | FAIL
+prompt:   'user: what is 12 times 4?\nassistant:'
+expected: '48'
+acceptable: [exact / category rule]
+answer:   '10'
+
+TASK 03 accuracy: 0/5 = 0.0000
+
+TASK 04 | arithmetic   | seed=42 | PASS
+prompt:   'user: what is 81 divided by 9?\nassistant:'
+expected: '9'
+acceptable: [exact / category rule]
+answer:   '9'
+
+TASK 04 | arithmetic   | seed=43 | PASS
+prompt:   'user: what is 81 divided by 9?\nassistant:'
+expected: '9'
+acceptable: [exact / category rule]
+answer:   '9'
+
+TASK 04 | arithmetic   | seed=44 | PASS
+prompt:   'user: what is 81 divided by 9?\nassistant:'
+expected: '9'
+acceptable: [exact / category rule]
+answer:   '9'
+
+TASK 04 | arithmetic   | seed=45 | PASS
+prompt:   'user: what is 81 divided by 9?\nassistant:'
+expected: '9'
+acceptable: [exact / category rule]
+answer:   '9'
+
+TASK 04 | arithmetic   | seed=46 | PASS
+prompt:   'user: what is 81 divided by 9?\nassistant:'
+expected: '9'
+acceptable: [exact / category rule]
+answer:   '9'
+
+TASK 04 accuracy: 5/5 = 1.0000
+
+TASK 05 | comparison   | seed=42 | FAIL
+prompt:   'user: which is larger, 30 or 87?\nassistant:'
+expected: '87'
+acceptable: [exact / category rule]
+answer:   '58'
+
+TASK 05 | comparison   | seed=43 | FAIL
+prompt:   'user: which is larger, 30 or 87?\nassistant:'
+expected: '87'
+acceptable: [exact / category rule]
+answer:   '58'
+
+TASK 05 | comparison   | seed=44 | FAIL
+prompt:   'user: which is larger, 30 or 87?\nassistant:'
+expected: '87'
+acceptable: [exact / category rule]
+answer:   '58'
+
+TASK 05 | comparison   | seed=45 | FAIL
+prompt:   'user: which is larger, 30 or 87?\nassistant:'
+expected: '87'
+acceptable: [exact / category rule]
+answer:   '58'
+
+TASK 05 | comparison   | seed=46 | FAIL
+prompt:   'user: which is larger, 30 or 87?\nassistant:'
+expected: '87'
+acceptable: [exact / category rule]
+answer:   '58'
+
+TASK 05 accuracy: 0/5 = 0.0000
+
+TASK 06 | comparison   | seed=42 | FAIL
+prompt:   'user: which is smaller, 23 or 76?\nassistant:'
+expected: '23'
+acceptable: [exact / category rule]
+answer:   '24'
+
+TASK 06 | comparison   | seed=43 | FAIL
+prompt:   'user: which is smaller, 23 or 76?\nassistant:'
+expected: '23'
+acceptable: [exact / category rule]
+answer:   '25'
+
+TASK 06 | comparison   | seed=44 | FAIL
+prompt:   'user: which is smaller, 23 or 76?\nassistant:'
+expected: '23'
+acceptable: [exact / category rule]
+answer:   '24'
+
+TASK 06 | comparison   | seed=45 | FAIL
+prompt:   'user: which is smaller, 23 or 76?\nassistant:'
+expected: '23'
+acceptable: [exact / category rule]
+answer:   '24'
+
+TASK 06 | comparison   | seed=46 | FAIL
+prompt:   'user: which is smaller, 23 or 76?\nassistant:'
+expected: '23'
+acceptable: [exact / category rule]
+answer:   '24'
+
+TASK 06 accuracy: 0/5 = 0.0000
+
+TASK 07 | sequence     | seed=42 | PASS
+prompt:   'user: what comes next: 2, 5, 8, 11, ?\nassistant:'
+expected: '14'
+acceptable: [exact / category rule]
+answer:   '14'
+
+TASK 07 | sequence     | seed=43 | PASS
+prompt:   'user: what comes next: 2, 5, 8, 11, ?\nassistant:'
+expected: '14'
+acceptable: [exact / category rule]
+answer:   '14'
+
+TASK 07 | sequence     | seed=44 | PASS
+prompt:   'user: what comes next: 2, 5, 8, 11, ?\nassistant:'
+expected: '14'
+acceptable: [exact / category rule]
+answer:   '14'
+
+TASK 07 | sequence     | seed=45 | PASS
+prompt:   'user: what comes next: 2, 5, 8, 11, ?\nassistant:'
+expected: '14'
+acceptable: [exact / category rule]
+answer:   '14'
+
+TASK 07 | sequence     | seed=46 | PASS
+prompt:   'user: what comes next: 2, 5, 8, 11, ?\nassistant:'
+expected: '14'
+acceptable: [exact / category rule]
+answer:   '14'
+
+TASK 07 accuracy: 5/5 = 1.0000
+
+TASK 08 | sequence     | seed=42 | PASS
+prompt:   'user: what comes next: 10, 16, 22, 28, ?\nassistant:'
+expected: '34'
+acceptable: [exact / category rule]
+answer:   '34'
+
+TASK 08 | sequence     | seed=43 | PASS
+prompt:   'user: what comes next: 10, 16, 22, 28, ?\nassistant:'
+expected: '34'
+acceptable: [exact / category rule]
+answer:   '34'
+
+TASK 08 | sequence     | seed=44 | PASS
+prompt:   'user: what comes next: 10, 16, 22, 28, ?\nassistant:'
+expected: '34'
+acceptable: [exact / category rule]
+answer:   '34'
+
+TASK 08 | sequence     | seed=45 | PASS
+prompt:   'user: what comes next: 10, 16, 22, 28, ?\nassistant:'
+expected: '34'
+acceptable: [exact / category rule]
+answer:   '34'
+
+TASK 08 | sequence     | seed=46 | PASS
+prompt:   'user: what comes next: 10, 16, 22, 28, ?\nassistant:'
+expected: '34'
+acceptable: [exact / category rule]
+answer:   '34'
+
+TASK 08 accuracy: 5/5 = 1.0000
+
+TASK 09 | yes_no       | seed=42 | FAIL
+prompt:   'user: is 17 greater than 9?\nassistant:'
+expected: 'yes'
+acceptable: [exact / category rule]
+answer:   'no'
+
+TASK 09 | yes_no       | seed=43 | FAIL
+prompt:   'user: is 17 greater than 9?\nassistant:'
+expected: 'yes'
+acceptable: [exact / category rule]
+answer:   'no'
+
+TASK 09 | yes_no       | seed=44 | FAIL
+prompt:   'user: is 17 greater than 9?\nassistant:'
+expected: 'yes'
+acceptable: [exact / category rule]
+answer:   'no'
+
+TASK 09 | yes_no       | seed=45 | FAIL
+prompt:   'user: is 17 greater than 9?\nassistant:'
+expected: 'yes'
+acceptable: [exact / category rule]
+answer:   'no'
+
+TASK 09 | yes_no       | seed=46 | FAIL
+prompt:   'user: is 17 greater than 9?\nassistant:'
+expected: 'yes'
+acceptable: [exact / category rule]
+answer:   'no'
+
+TASK 09 accuracy: 0/5 = 0.0000
+
+TASK 10 | yes_no       | seed=42 | PASS
+prompt:   'user: is 4 less than 2?\nassistant:'
+expected: 'no'
+acceptable: [exact / category rule]
+answer:   'no'
+
+TASK 10 | yes_no       | seed=43 | PASS
+prompt:   'user: is 4 less than 2?\nassistant:'
+expected: 'no'
+acceptable: [exact / category rule]
+answer:   'no'
+
+TASK 10 | yes_no       | seed=44 | PASS
+prompt:   'user: is 4 less than 2?\nassistant:'
+expected: 'no'
+acceptable: [exact / category rule]
+answer:   'no'
+
+TASK 10 | yes_no       | seed=45 | PASS
+prompt:   'user: is 4 less than 2?\nassistant:'
+expected: 'no'
+acceptable: [exact / category rule]
+answer:   'no'
+
+TASK 10 | yes_no       | seed=46 | PASS
+prompt:   'user: is 4 less than 2?\nassistant:'
+expected: 'no'
+acceptable: [exact / category rule]
+answer:   'no'
+
+TASK 10 accuracy: 5/5 = 1.0000
+
+TASK 11 | string       | seed=42 | PASS
+prompt:   'user: reverse the word stone.\nassistant:'
+expected: 'enots'
+acceptable: [exact / category rule]
+answer:   'enots'
+
+TASK 11 | string       | seed=43 | PASS
+prompt:   'user: reverse the word stone.\nassistant:'
+expected: 'enots'
+acceptable: [exact / category rule]
+answer:   'enots'
+
+TASK 11 | string       | seed=44 | PASS
+prompt:   'user: reverse the word stone.\nassistant:'
+expected: 'enots'
+acceptable: [exact / category rule]
+answer:   'enots'
+
+TASK 11 | string       | seed=45 | PASS
+prompt:   'user: reverse the word stone.\nassistant:'
+expected: 'enots'
+acceptable: [exact / category rule]
+answer:   'enots'
+
+TASK 11 | string       | seed=46 | PASS
+prompt:   'user: reverse the word stone.\nassistant:'
+expected: 'enots'
+acceptable: [exact / category rule]
+answer:   'enots'
+
+TASK 11 accuracy: 5/5 = 1.0000
+
+TASK 12 | string       | seed=42 | PASS
+prompt:   'user: how many letters are in apple?\nassistant:'
+expected: '5'
+acceptable: [exact / category rule]
+answer:   '5'
+
+TASK 12 | string       | seed=43 | PASS
+prompt:   'user: how many letters are in apple?\nassistant:'
+expected: '5'
+acceptable: [exact / category rule]
+answer:   '5'
+
+TASK 12 | string       | seed=44 | PASS
+prompt:   'user: how many letters are in apple?\nassistant:'
+expected: '5'
+acceptable: [exact / category rule]
+answer:   '5'
+
+TASK 12 | string       | seed=45 | PASS
+prompt:   'user: how many letters are in apple?\nassistant:'
+expected: '5'
+acceptable: [exact / category rule]
+answer:   '5'
+
+TASK 12 | string       | seed=46 | PASS
+prompt:   'user: how many letters are in apple?\nassistant:'
+expected: '5'
+acceptable: [exact / category rule]
+answer:   '5'
+
+TASK 12 accuracy: 5/5 = 1.0000
+
+TASK 13 | logic        | seed=42 | PASS
+prompt:   'user: all zibs are blue. alice is a zib. what color is alice?\nassistant:'
+expected: 'blue'
+acceptable: [exact / category rule]
+answer:   'blue'
+
+TASK 13 | logic        | seed=43 | FAIL
+prompt:   'user: all zibs are blue. alice is a zib. what color is alice?\nassistant:'
+expected: 'blue'
+acceptable: [exact / category rule]
+answer:   'green'
+
+TASK 13 | logic        | seed=44 | FAIL
+prompt:   'user: all zibs are blue. alice is a zib. what color is alice?\nassistant:'
+expected: 'blue'
+acceptable: [exact / category rule]
+answer:   'green'
+
+TASK 13 | logic        | seed=45 | FAIL
+prompt:   'user: all zibs are blue. alice is a zib. what color is alice?\nassistant:'
+expected: 'blue'
+acceptable: [exact / category rule]
+answer:   'green'
+
+TASK 13 | logic        | seed=46 | PASS
+prompt:   'user: all zibs are blue. alice is a zib. what color is alice?\nassistant:'
+expected: 'blue'
+acceptable: [exact / category rule]
+answer:   'blue'
+
+TASK 13 accuracy: 2/5 = 0.4000
+
+TASK 14 | logic        | seed=42 | FAIL
+prompt:   'user: alice is taller than bob. bob is taller than carol. who is tallest?\nassistant:'
+expected: 'alice'
+acceptable: [exact / category rule]
+answer:   'grace'
+
+TASK 14 | logic        | seed=43 | FAIL
+prompt:   'user: alice is taller than bob. bob is taller than carol. who is tallest?\nassistant:'
+expected: 'alice'
+acceptable: [exact / category rule]
+answer:   'frank'
+
+TASK 14 | logic        | seed=44 | FAIL
+prompt:   'user: alice is taller than bob. bob is taller than carol. who is tallest?\nassistant:'
+expected: 'alice'
+acceptable: [exact / category rule]
+answer:   'frank'
+
+TASK 14 | logic        | seed=45 | FAIL
+prompt:   'user: alice is taller than bob. bob is taller than carol. who is tallest?\nassistant:'
+expected: 'alice'
+acceptable: [exact / category rule]
+answer:   'emma'
+
+TASK 14 | logic        | seed=46 | FAIL
+prompt:   'user: alice is taller than bob. bob is taller than carol. who is tallest?\nassistant:'
+expected: 'alice'
+acceptable: [exact / category rule]
+answer:   'david'
+
+TASK 14 accuracy: 0/5 = 0.0000
+
+TASK 15 | logic        | seed=42 | FAIL
+prompt:   'user: bob arrives before carol. carol arrives before david. who arrives first?\nassistant:'
+expected: 'bob'
+acceptable: [exact / category rule]
+answer:   'carol'
+
+TASK 15 | logic        | seed=43 | FAIL
+prompt:   'user: bob arrives before carol. carol arrives before david. who arrives first?\nassistant:'
+expected: 'bob'
+acceptable: [exact / category rule]
+answer:   'frank'
+
+TASK 15 | logic        | seed=44 | PASS
+prompt:   'user: bob arrives before carol. carol arrives before david. who arrives first?\nassistant:'
+expected: 'bob'
+acceptable: [exact / category rule]
+answer:   'bob'
+
+TASK 15 | logic        | seed=45 | FAIL
+prompt:   'user: bob arrives before carol. carol arrives before david. who arrives first?\nassistant:'
+expected: 'bob'
+acceptable: [exact / category rule]
+answer:   'carol'
+
+TASK 15 | logic        | seed=46 | FAIL
+prompt:   'user: bob arrives before carol. carol arrives before david. who arrives first?\nassistant:'
+expected: 'bob'
+acceptable: [exact / category rule]
+answer:   'grace'
+
+TASK 15 accuracy: 1/5 = 0.2000
+
+TASK 16 | conversation | seed=42 | PASS
+prompt:   'user: hello\nassistant:'
+expected: 'hello'
+acceptable: ['hello', 'hi', 'hey', 'hi there', 'hello there', 'greetings']
+answer:   'hello'
+
+TASK 16 | conversation | seed=43 | PASS
+prompt:   'user: hello\nassistant:'
+expected: 'hello'
+acceptable: ['hello', 'hi', 'hey', 'hi there', 'hello there', 'greetings']
+answer:   'hello'
+
+TASK 16 | conversation | seed=44 | PASS
+prompt:   'user: hello\nassistant:'
+expected: 'hello'
+acceptable: ['hello', 'hi', 'hey', 'hi there', 'hello there', 'greetings']
+answer:   'hello'
+
+TASK 16 | conversation | seed=45 | PASS
+prompt:   'user: hello\nassistant:'
+expected: 'hello'
+acceptable: ['hello', 'hi', 'hey', 'hi there', 'hello there', 'greetings']
+answer:   'hello'
+
+TASK 16 | conversation | seed=46 | PASS
+prompt:   'user: hello\nassistant:'
+expected: 'hello'
+acceptable: ['hello', 'hi', 'hey', 'hi there', 'hello there', 'greetings']
+answer:   'hello'
+
+TASK 16 accuracy: 5/5 = 1.0000
+
+TASK 17 | conversation | seed=42 | PASS
+prompt:   'user: thank you\nassistant:'
+expected: 'happy'
+acceptable: ['happy', 'happy to help', 'glad to help', "you're welcome", 'you are welcome', 'welcome', 'my pleasure', 'no problem', 'anytime', 'of course', 'sure thing']
+answer:   'welcome'
+
+TASK 17 | conversation | seed=43 | PASS
+prompt:   'user: thank you\nassistant:'
+expected: 'happy'
+acceptable: ['happy', 'happy to help', 'glad to help', "you're welcome", 'you are welcome', 'welcome', 'my pleasure', 'no problem', 'anytime', 'of course', 'sure thing']
+answer:   'welcome'
+
+TASK 17 | conversation | seed=44 | PASS
+prompt:   'user: thank you\nassistant:'
+expected: 'happy'
+acceptable: ['happy', 'happy to help', 'glad to help', "you're welcome", 'you are welcome', 'welcome', 'my pleasure', 'no problem', 'anytime', 'of course', 'sure thing']
+answer:   'welcome'
+
+TASK 17 | conversation | seed=45 | PASS
+prompt:   'user: thank you\nassistant:'
+expected: 'happy'
+acceptable: ['happy', 'happy to help', 'glad to help', "you're welcome", 'you are welcome', 'welcome', 'my pleasure', 'no problem', 'anytime', 'of course', 'sure thing']
+answer:   'welcome'
+
+TASK 17 | conversation | seed=46 | PASS
+prompt:   'user: thank you\nassistant:'
+expected: 'happy'
+acceptable: ['happy', 'happy to help', 'glad to help', "you're welcome", 'you are welcome', 'welcome', 'my pleasure', 'no problem', 'anytime', 'of course', 'sure thing']
+answer:   'welcome'
+
+TASK 17 accuracy: 5/5 = 1.0000
+
+TASK 18 | conversation | seed=42 | PASS
+prompt:   'user: good bye\nassistant:'
+expected: 'goodbye'
+acceptable: ['goodbye', 'good bye', 'bye', 'see you', 'take care', 'farewell']
+answer:   'goodbye'
+
+TASK 18 | conversation | seed=43 | PASS
+prompt:   'user: good bye\nassistant:'
+expected: 'goodbye'
+acceptable: ['goodbye', 'good bye', 'bye', 'see you', 'take care', 'farewell']
+answer:   'goodbye'
+
+TASK 18 | conversation | seed=44 | PASS
+prompt:   'user: good bye\nassistant:'
+expected: 'goodbye'
+acceptable: ['goodbye', 'good bye', 'bye', 'see you', 'take care', 'farewell']
+answer:   'goodbye'
+
+TASK 18 | conversation | seed=45 | PASS
+prompt:   'user: good bye\nassistant:'
+expected: 'goodbye'
+acceptable: ['goodbye', 'good bye', 'bye', 'see you', 'take care', 'farewell']
+answer:   'goodbye'
+
+TASK 18 | conversation | seed=46 | PASS
+prompt:   'user: good bye\nassistant:'
+expected: 'goodbye'
+acceptable: ['goodbye', 'good bye', 'bye', 'see you', 'take care', 'farewell']
+answer:   'goodbye'
+
+TASK 18 accuracy: 5/5 = 1.0000
+
+====================================================================
+CATEGORY RESULTS
+====================================================================
+arithmetic    : 5/20 = 0.2500
+comparison    : 0/10 = 0.0000
+sequence      : 10/10 = 1.0000
+yes_no        : 5/10 = 0.5000
+string        : 10/10 = 1.0000
+logic         : 3/15 = 0.2000
+conversation  : 15/15 = 1.0000
+
+====================================================================
+Expected-answer hit rate: 0.5333
+Total correct: 48/90
+====================================================================
+
+Method notes:
+1. Every task is sampled with five deterministic seeds.
+2. Only the first non-empty assistant answer is scored.
+3. Fabricated later user/assistant turns are excluded.
+4. Arithmetic/comparison/sequence require the expected number.
+5. Yes/no requires the expected first token.
+6. String tasks require the expected exact prefix/value.
+7. Logic tasks use a bounded expected-answer match.
+8. Conversation tasks use an acceptable-response set; the old single target is shown only as a reference.

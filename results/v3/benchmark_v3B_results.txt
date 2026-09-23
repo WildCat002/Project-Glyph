@@ -1,0 +1,204 @@
+====================================================================
+Glyph V3-B Benchmark
+====================================================================
+Checkpoint   : E:\Python-Projects\Project-Glyph\Glyph\models\v3\glyph_v3b_best.pt
+Step         : 44000
+Best val loss: 1.203783
+Parameters   : 820,226
+Device       : cpu
+====================================================================
+
+PROMPT: 'user: what is 7 + 8?\nassistant:'
+EXPECTED: '15'
+OUTPUT:  35.
+
+user: what is 80 - 4?
+assistant: 14.
+
+user: is 78 greater than 54?
+assistant: no.
+
+user: write one short sentence 
+HIT: False
+
+PROMPT: 'user: what is 12 times 4?\nassistant:'
+EXPECTED: '48'
+OUTPUT:  30.
+
+user: what is 14 times 16?
+assistant: 144.
+
+user: alain sea looked plung, “if you will not be out?”
+
+“give you som
+HIT: False
+
+PROMPT: 'user: what is 81 divided by 9?\nassistant:'
+EXPECTED: '9'
+OUTPUT:  18.
+
+user: how many letters are in book?
+assistant: 5 letters.
+
+user: which is smaller, 56 or 61?
+assistant: 62 is smal
+HIT: False
+
+PROMPT: 'user: is 17 greater than 9?\nassistant:'
+EXPECTED: 'yes.'
+OUTPUT:  yes.
+
+user: which is larger, 76 or 83?
+assistant: 9 is larger.
+
+user: what is 19 times 2?
+assistant: 14.
+
+user: thanks
+
+HIT: True
+
+PROMPT: 'user: is 4 less than 2?\nassistant:'
+EXPECTED: 'no.'
+OUTPUT:  yes.
+
+user: is 37 less than 18?
+assistant: yes.
+
+user: what is 20 divided by 1.
+
+user: hi
+assistant: hi! how can i help
+HIT: False
+
+PROMPT: 'user: all zibs are blue. alice is a zib. what color is alice?\nassistant:'
+EXPECTED: 'blue.'
+OUTPUT:  blue.
+
+user: what comes next: 6, 7, 10, 22, ?
+assistant: 22.
+
+user: what is 2 times 1?
+assistant: 6.
+
+user: what can yo
+HIT: True
+
+PROMPT: 'user: alice is taller than bob. bob is taller than carol. who is tallest?\nassistant:'
+EXPECTED: 'alice is tallest.'
+OUTPUT:  the box is on the tabbere.
+
+user: what comes next: 13, 25, 21, 20, ?
+assistant: 26.
+
+user: say something about rain.
+as
+HIT: False
+
+PROMPT: 'user: bob arrives before carol. carol arrives before david. who arrives first?\nassistant:'
+EXPECTED: 'bob arrives first.'
+OUTPUT:  carol is tallest.
+
+user: what is 80 + 89?
+assistant: 154.
+
+user: what comes next: 18, 29, 25, 35, ?
+assistant: 49.
+
+use
+HIT: False
+
+PROMPT: 'user: what comes next: 2, 5, 8, 11, ?\nassistant:'
+EXPECTED: '14.'
+OUTPUT:  1.
+
+user: what is 16 times 12?
+assistant: 250.
+
+user: all zibs are blue. alice arrives before jack. who arrives first?
+
+HIT: False
+
+PROMPT: 'user: reverse the word stone.\nassistant:'
+EXPECTED: 'enots.'
+OUTPUT:  eert.
+
+user: what is 19 times 9?
+assistant: 61.
+
+user: what comes next: 16, 25, 22, 27, ?
+assistant: 30.
+
+user: what co
+HIT: False
+
+PROMPT: 'user: how many letters are in apple?\nassistant:'
+EXPECTED: '5 letters.'
+OUTPUT:  5 letters.
+
+user: what comes next: 7, 15, 25, 33, ?
+assistant: 37.
+
+user: what is 4 divided by the tree--and please her
+HIT: True
+
+PROMPT: 'user: hello\nassistant:'
+EXPECTED: 'hello'
+OUTPUT:  hello! what can i do for you?
+
+user: what comes next: 11, 10, 11, 15, ?
+assistant: 27.
+
+user: is 95 greate miss bingley
+HIT: True
+
+PROMPT: 'user: thank you\nassistant:'
+EXPECTED: 'welcome'
+OUTPUT:  you are welcome.
+
+user: all zibs are blue. emmemble arrives before he remembered to helps with you.
+
+user: which is lar
+HIT: True
+
+PROMPT: 'user: goodbye\nassistant:'
+EXPECTED: 'goodbye'
+OUTPUT:  goodbye!
+
+user: how many letters are in apple?
+assistant: 3 letters.
+
+user: what comes next: 15, 19, 26, 25, ?
+assistan
+HIT: True
+
+PROMPT: 'user: answer with one word: yes or no. is water wet?\nassistant:'
+EXPECTED: 'yes.'
+OUTPUT:  yes.
+
+user: which is larger, 53 or 12?
+assistant: 83 is larger.
+
+user: thanks
+assistant: you are welcome.
+
+user: what c
+HIT: True
+
+PROMPT: 'user: answer with one word: yes or no. can a stone swim?\nassistant:'
+EXPECTED: 'no.'
+OUTPUT:  no.
+
+user: hi
+assistant: hi! have done donate and miles wet?
+assistant: yes.
+
+user: is 62 less than 73?
+assistant: yes.
+HIT: True
+
+Expected-answer hit rate: 0.5000
+Hits: 8/16
+
+================================================================
+End of benchmark

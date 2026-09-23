@@ -1,0 +1,6 @@
+{
+  "seed": 42,
+  "train_chars": 2500000,
+  "val_chars": 150000,
+  "format": "user: ...\\nassistant: ...\\n\\n"
+}

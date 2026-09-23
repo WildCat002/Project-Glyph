@@ -1,295 +1,205 @@
-# Project Glyph
+# Glyph
 
-Glyph is a small character-level language-model project built to study how a language model learns text generation from raw characters.
+Glyph is a small-scale character-level language model project built as a
+personal machine-learning research and learning project.
 
-The project deliberately avoids pretrained language models, external AI APIs, tokenizer libraries, and instruction tuning. The goal is to keep the implementation small enough to inspect, modify, train, and benchmark directly.
+The project focuses on experimenting with language-model architectures,
+training methods, evaluation, and model behavior at relatively small
+parameter counts.
 
-## Current release
+---
 
-**Glyph v2.0.0 — controlled Transformer baseline**
+## Project Versions
 
-V2 introduced a proper held-out validation split, a larger context window, a deeper Transformer, dedicated checkpoints, and a broader evaluation suite. The successful extended run reached 100,000 training steps on a CUDA T4.
+| Version | Architecture | Description |
+|---------|---------------|-------------|
+| `v1.0.0` | Character Transformer | First trained Glyph baseline |
+| `v2.0.0` | Controlled Character Transformer | Improved Transformer baseline with train/validation evaluation |
+| `v2.0.1` | — | Repository organization and structure improvements |
+| `v3.0.0` | Character LSTM | V3D baseline with task-oriented training and benchmarking |
 
-The best 100k checkpoint is:
+---
 
-```text
-models/v2/glyph_v2_100k_cuda_best.pt
-```
+# Glyph v3.0.0
 
-Its best validation checkpoint occurred at step 99,000.
+`v3.0.0` introduces the **V3D** model, Glyph's third-generation
+character-level language model.
 
-## Quick start
+V3D moves the project from the previous Transformer-based architecture to
+a compact recurrent LSTM architecture and introduces a more structured
+training and evaluation pipeline.
 
-Install dependencies:
-
-```bash
-pip install -r requirements.txt
-```
-
-Run the released V2 model interactively:
-
-```bash
-python src/v2/glyph_v2_chat.py
-```
-
-The default chat settings are:
+## V3D Architecture
 
 ```text
-checkpoint    models/v2/glyph_v2_100k_cuda_best.pt
-context       128 characters
-temperature   0.7
-top-k         20
-new chars     500
-```
+Character Input
+      ↓
+Embedding
+      ↓
+2-Layer LSTM
+      ↓
+Linear Output Head
+      ↓
+Character Probabilities
+Model Configuration
+Property	V3D
+Vocabulary	98 characters
+Context length	128
+Embedding size	96
+Hidden size	240
+LSTM layers	2
+Dropout	0.10
+Parameters	820,226
+Training steps	50,000
 
-The interactive chat accepts:
 
-```text
-:temp 0.9
-:topk 40
-:tokens 300
-:quit
-```
-
-Glyph is a text-continuation model, not an instruction-tuned assistant. A prompt is treated as context and the model continues it character by character.
-
-## Repository structure
-
-The repository is organized by role and model generation rather than keeping every artifact in the root directory.
-
-```text
+V3D is intentionally kept relatively small so that experiments can be
+trained and evaluated on consumer hardware and used for learning and
+research.
+Training
+V3D uses a natural-language corpus together with a synthetic task dataset.
+Natural-Language Data
+The corpus is split into training and validation sections:
+Training:   first 4.75M characters
+Validation: final 250K characters
+Synthetic Task Training
+V3D also includes structured synthetic tasks covering areas such as:
+- Arithmetic
+- Comparison
+- Sequence completion
+- Yes/No reasoning
+- String manipulation
+- Logic
+- Conversation
+The synthetic dataset used during V3D training contains approximately
+998K task characters.
+The purpose of the synthetic tasks is to give the small model explicit
+examples of structured behaviors that are difficult to learn from
+natural-language text alone.
+V3D Checkpoints
+The release contains three V3D checkpoints:
+models/v3/
+├── glyph_v3d.pt
+├── glyph_v3d_best_task.pt
+└── glyph_v3d_best_combined.pt
+glyph_v3d.pt
+The final V3D checkpoint from the 50,000-step training run.
+glyph_v3d_best_task.pt
+Checkpoint selected using task-oriented evaluation.
+glyph_v3d_best_combined.pt
+Checkpoint selected using the combined evaluation criterion used during
+V3D experimentation.
+Running V3D
+The V3D chat interface is located at:
+src/v3/glyph_v3d_chat.py
+Run it from the repository root:
+python src/v3/glyph_v3d_chat.py
+The chat interface supports:
+/reset
+/temp
+/topk
+/max
+/info
+/quit
+The /info command displays information about the loaded checkpoint,
+model configuration, parameter count, sampling configuration, and
+training step.
+Benchmarking
+V3 includes dedicated benchmarking tools for evaluating the model on
+structured tasks and generation behavior.
+The fixed V3D task benchmark contains 90 evaluation cases.
+The final V3D checkpoint achieved:
+48 / 90
+53.33%
+on the fixed task benchmark.
+This benchmark is intended as a regression and task-behavior benchmark.
+It should not be interpreted as a general measure of language-model
+quality or general intelligence.
+Future model versions can use the same benchmark to compare changes
+against the V3D baseline.
+Repository Structure
 Glyph/
-├── README.md
-├── .gitignore
-├── requirements.txt
-│
 ├── data/
-│   └── data.txt
-│
-├── models/
-│   ├── v1/
-│   │   └── glyph.pt
-│   └── v2/
-│       ├── glyph_v2.pt
-│       ├── glyph_v2_best.pt
-│       ├── glyph_v2_50k_best.pt
-│       └── glyph_v2_100k_cuda_best.pt
-│
-├── src/
-│   ├── v1/
-│   │   ├── glyph.py
-│   │   ├── glyph_chat.py
-│   │   └── benchmark.py
-│   └── v2/
-│       ├── glyph_v2.py
-│       ├── glyph_v2_chat.py
-│       ├── benchmark_v2.py
-│       ├── speed_benchmark_v2.py
-│       ├── glyph_v2_loss_anatomy.py
-│       ├── glyph_v2_generation_dynamics.py
-│       └── glyph_v2_generation_dynamics_v2.py
+│   └── v3/
 │
 ├── experiments/
-│   ├── v2_20k/
-│   │   ├── glyph_v2_history.csv
-│   │   └── glyph_v2_last_good.pt
-│   ├── v2_50k/
-│   │   ├── glyph_v2_50k.py
-│   │   ├── glyph_v2_50k.pt
-│   │   ├── glyph_v2_50k_last_good.pt
-│   │   └── glyph_v2_50k_history.csv
-│   └── v2_100k/
-│       ├── glyph_v2_100k.py
-│       ├── glyph_v2_100k_cuda.py
-│       ├── glyph_v2_100k_cuda.pt
-│       ├── glyph_v2_100k_cuda_last_good.pt
-│       └── glyph_v2_100k_cuda_history.csv
+│   ├── v3_lstm/
+│   ├── v3b/
+│   ├── v3c/
+│   └── v3d/
 │
-└── results/
-    ├── v1/
-    │   └── benchmark_results.txt
-    └── v2/
-        ├── benchmark_v2_results.txt
-        ├── glyph_v2_generation_dynamics_fixed_results.*
-        ├── glyph_v2_generation_dynamics_v2_results.*
-        └── glyph_v2_loss_anatomy_results.*
-```
+├── models/
+│   └── v3/
+│       ├── glyph_v3d.pt
+│       ├── glyph_v3d_best_task.pt
+│       └── glyph_v3d_best_combined.pt
+│
+├── results/
+│   └── v3/
+│
+├── src/
+│   └── v3/
+│
+├── README.md
+└── requirements.txt
+The experiments/ directories contain intermediate V3 research and
+development work. They are kept in the repository to document the
+development process, while the V3D checkpoints represent the official
+v3.0.0 model line.
+Development Philosophy
+Glyph is intentionally a small research and learning project.
+The goal is not to reproduce large production language models. Instead,
+the project focuses on:
+- Understanding neural-network architectures
+- Training models from scratch
+- Measuring model behavior
+- Designing reproducible experiments
+- Investigating generalization
+- Learning from failures as well as successful experiments
+Model versions are kept as explicit baselines so future experiments can
+be compared against earlier results.
+Experimental Work
+The V3 development process includes several experimental branches and
+architectural variations.
+These experiments are preserved for research and comparison, but they
+are not automatically considered part of the official V3D baseline.
+Future experiments may investigate:
+- Improved LSTM architectures
+- Larger or deeper recurrent networks
+- Better task and data diversity
+- Improved generalization
+- Alternative sampling strategies
+- New Transformer architectures
+- More rigorous unseen-task evaluation
+Roadmap
+Current baseline:
+v3.0.0
+  └── V3D LSTM baseline
+Planned research directions:
+V3D
+ ├── V3D improvements
+ ├── New training experiments
+ └── Next-generation Transformer experiments
+Future versions will be evaluated against the V3D baseline rather than
+replacing its results.
+Project History
+Glyph has evolved through several controlled model generations:
+v1.0.0
+   ↓
+First trained character-level Transformer
 
-The root is intentionally small. `models/` contains the checkpoints that are useful as named baselines. `experiments/` contains continuation checkpoints and training histories. `results/` contains evaluation outputs.
+v2.0.0
+   ↓
+Controlled Transformer baseline
 
-## V1 baseline
+v2.0.1
+   ↓
+Repository organization
 
-V1 is preserved as the historical baseline from `v1.0.0`.
-
-Train:
-
-```bash
-python src/v1/glyph.py
-```
-
-Chat:
-
-```bash
-python src/v1/glyph_chat.py
-```
-
-Benchmark:
-
-```bash
-python src/v1/benchmark.py
-```
-
-V1 model:
-
-```text
-models/v1/glyph.pt
-```
-
-## V2 architecture
-
-Glyph V2 uses a decoder-only character-level Transformer.
-
-```text
-Vocabulary      98 characters
-Context         128 characters
-Layers          4
-Attention heads 4
-Embedding       128
-Batch size      32
-Parameters      820,224
-```
-
-Training data uses a deterministic split of the 5,000,000-character corpus:
-
-```text
-Training       first 4,750,000 characters
-Validation     final 250,000 characters
-```
-
-The vocabulary is reconstructed with the same sorted character set used during training. The same corpus must therefore be used with the included checkpoints.
-
-## V2 training
-
-Base 20k training:
-
-```bash
-python src/v2/glyph_v2.py
-```
-
-The base run writes its main checkpoints to:
-
-```text
-models/v2/glyph_v2.pt
-models/v2/glyph_v2_best.pt
-```
-
-Recovery state and training history are kept under:
-
-```text
-experiments/v2_20k/
-```
-
-### 20k -> 50k
-
-```bash
-python experiments/v2_50k/glyph_v2_50k.py
-```
-
-### 50k -> 100k CUDA
-
-The successful extended run used a CUDA T4:
-
-```bash
-python experiments/v2_100k/glyph_v2_100k_cuda.py
-```
-
-The selected best 100k checkpoint is promoted to:
-
-```text
-models/v2/glyph_v2_100k_cuda_best.pt
-```
-
-The raw continuation checkpoint, recovery checkpoint, and history remain under:
-
-```text
-experiments/v2_100k/
-```
-
-## Benchmarks
-
-Base V2 benchmark:
-
-```bash
-python src/v2/benchmark_v2.py
-```
-
-Loss anatomy:
-
-```bash
-python src/v2/glyph_v2_loss_anatomy.py
-```
-
-This examines overall loss/perplexity, top-k accuracy, letter prediction, whitespace prediction, punctuation prediction, and space precision/recall/F1.
-
-Generation dynamics:
-
-```bash
-python src/v2/glyph_v2_generation_dynamics_v2.py
-```
-
-The generation-dynamics study uses real held-out validation anchors and compares greedy decoding with top-k sampling at multiple temperatures.
-
-Speed benchmark:
-
-```bash
-python src/v2/speed_benchmark_v2.py
-```
-
-Evaluation outputs are stored under `results/v1/` and `results/v2/`.
-
-## V2 results at a glance
-
-The extended V2 training run improved teacher-forced validation performance substantially:
-
-```text
-20k best validation loss    ~2.3607
-50k best validation loss    ~2.2292
-100k best validation loss   ~1.9100
-```
-
-The 100k loss-anatomy benchmark also showed large improvements in next-character prediction and whitespace prediction compared with the 20k checkpoint.
-
-Free-running generation remained a separate problem. Greedy decoding could become highly repetitive, while top-k sampling reduced that failure mode. For this reason the project does not treat a single metric as a complete measure of generation quality.
-
-## Data
-
-The included corpus is the 5,000,000-character training corpus used by the V2 runs.
-
-To build a different corpus, replace `data/data.txt` and rebuild the character vocabulary through a fresh training run. Existing checkpoints may no longer match a changed character vocabulary.
-
-For example, a new Gutenberg-based corpus can be assembled into `data/data.txt` and then cleaned before training.
-
-## Reproducibility
-
-The main experiments use deterministic seeds where practical and record training configuration in checkpoints and CSV histories.
-
-When adding a new model generation, keep its checkpoint, training script, benchmark scripts, and results separated from previous releases so earlier baselines remain reproducible.
-
-## Design principles
-
-Glyph intentionally avoids:
-
-- pretrained language models
-- external AI APIs
-- tokenizer libraries
-- instruction tuning
-- large-model infrastructure
-
-The project is primarily a learning and experimentation environment: build the model, train it, inspect what it learns, benchmark it, and keep the experiment history.
-
-## Version history
-
-```text
-v1.0.0  first trained Transformer baseline
-v2.0.0  controlled Transformer baseline with held-out validation and extended training
-```
+v3.0.0
+   ↓
+V3D character-level LSTM baseline
+Each version is kept as part of the project's history so that changes in
+architecture, training, and evaluation can be studied over time.
+License
+See the repository for the current license information.

@@ -1,0 +1,6 @@
+{
+  "seed": 42,
+  "train_chars": 1250000,
+  "val_chars": 75000,
+  "eval_items": 16
+}
